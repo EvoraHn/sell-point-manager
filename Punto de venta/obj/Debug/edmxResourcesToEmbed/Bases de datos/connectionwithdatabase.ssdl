@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BPBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Compra">
+    <Key>
+      <PropertyRef Name="IdCompra" />
+    </Key>
+    <Property Name="IdCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Producto" Type="varchar" MaxLength="100" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="PrecioUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos_Estante">
+    <Key>
+      <PropertyRef Name="IdEstante" />
+    </Key>
+    <Property Name="IdEstante" Type="int" Nullable="false" />
+    <Property Name="NombreEstante" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescripciónEstante" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuarios_Acceso">
+    <Key>
+      <PropertyRef Name="IdAcceso" />
+    </Key>
+    <Property Name="IdAcceso" Type="int" Nullable="false" />
+    <Property Name="TipoAcceso" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios_Estado">
+    <Key>
+      <PropertyRef Name="IdEstado" />
+    </Key>
+    <Property Name="IdEstado" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios_Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="PrimerNombre" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="SegundoNombre" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="PrimerApellido" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="SegundoApellido" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Identidad" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Acceso" Type="int" Nullable="false" />
+    <Property Name="Contacto" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="ContactoFamiliar" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="Usr" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Pwd" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ventas_Estado">
+    <Key>
+      <PropertyRef Name="IdEstado" />
+    </Key>
+    <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="PrecioCosto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Categoria" Type="int" Nullable="false" />
+    <Property Name="Proveedor" Type="int" Nullable="false" />
+    <Property Name="Estante" Type="int" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empresa" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Vendedor" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Contacto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Contacto1" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrimerNombre" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="SegundoNombre" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="PrimerApellido" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="SegundoApellido" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Identidad" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="Acceso" Type="int" Nullable="false" />
+    <Property Name="Contacto" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="ContactoFamiliar" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="Usr" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Pwd" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleVentas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Producto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Venta" Type="int" Nullable="false" />
+    <Property Name="PrecioUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Descuento" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="IdVenta" />
+    </Key>
+    <Property Name="IdVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Venta" Type="datetime" Nullable="false" />
+    <Property Name="Total_Venta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BPB.dbo.Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Facturas">
+    <Key>
+      <PropertyRef Name="Factura" />
+      <PropertyRef Name="Producto" />
+      <PropertyRef Name="Precio" />
+    </Key>
+    <Property Name="Factura" Type="int" Nullable="false" />
+    <Property Name="Producto" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="21" Scale="2" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BPB.dbo.Imprimir_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Imprimir_Facturas">
+    <Key>
+      <PropertyRef Name="Factura" />
+      <PropertyRef Name="Producto" />
+      <PropertyRef Name="Precio" />
+    </Key>
+    <Property Name="Factura" Type="int" Nullable="false" />
+    <Property Name="Producto" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="21" Scale="2" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BPB.dbo.Vista1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Vista1">
+    <Key>
+      <PropertyRef Name="Codigo" />
+      <PropertyRef Name="Nombre_de_Producto" />
+      <PropertyRef Name="Cantidad_en_Inventario" />
+      <PropertyRef Name="Precio_de_venta" />
+      <PropertyRef Name="Precio_de_Costo" />
+      <PropertyRef Name="Categoria" />
+      <PropertyRef Name="Proveedor" />
+    </Key>
+    <Property Name="Codigo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Nombre_de_Producto" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cantidad_en_Inventario" Type="int" Nullable="false" />
+    <Property Name="Precio_de_venta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Precio_de_Costo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Categoria" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Proveedor" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Compras_Compra$Es_Un$Productos_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Producto$Pertenece$Producto_Estante">
+    <End Role="Productos_Estante" Type="Self.Productos_Estante" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos_Estante">
+        <PropertyRef Name="IdEstante" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Estante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Producto$Tiene_un$Productos_Proveedor">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Producto$Tiene_una$Productos_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Usuario$Pertenece$Usuarios_Acceso">
+    <End Role="Usuarios_Acceso" Type="Self.Usuarios_Acceso" Multiplicity="1" />
+    <End Role="Usuarios_Usuario" Type="Self.Usuarios_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios_Acceso">
+        <PropertyRef Name="IdAcceso" />
+      </Principal>
+      <Dependent Role="Usuarios_Usuario">
+        <PropertyRef Name="Acceso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Usuario$Pertenece$Usuarios_Estado">
+    <End Role="Usuarios_Estado" Type="Self.Usuarios_Estado" Multiplicity="1" />
+    <End Role="Usuarios_Usuario" Type="Self.Usuarios_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios_Estado">
+        <PropertyRef Name="IdEstado" />
+      </Principal>
+      <Dependent Role="Usuarios_Usuario">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_DetalleVentas$Contiene$Productos_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="DetalleVentas" Type="Self.DetalleVentas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="DetalleVentas">
+        <PropertyRef Name="Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_DetalleVentas$Pertenece$Ventas_Ventas">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="1" />
+    <End Role="DetalleVentas" Type="Self.DetalleVentas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="IdVenta" />
+      </Principal>
+      <Dependent Role="DetalleVentas">
+        <PropertyRef Name="Venta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_Ventas$Pertenece$Ventas_Estado">
+    <End Role="Ventas_Estado" Type="Self.Ventas_Estado" Multiplicity="0..1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ventas_Estado">
+        <PropertyRef Name="IdEstado" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="BPBModelStoreContainer">
+    <EntitySet Name="Compra" EntityType="Self.Compra" Schema="Compras" store:Type="Tables" />
+    <EntitySet Name="Productos_Estante" EntityType="Self.Productos_Estante" Schema="dbo" Table="Productos.Estante" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios_Acceso" EntityType="Self.Usuarios_Acceso" Schema="dbo" Table="Usuarios.Acceso" store:Type="Tables" />
+    <EntitySet Name="Usuarios_Estado" EntityType="Self.Usuarios_Estado" Schema="dbo" Table="Usuarios.Estado" store:Type="Tables" />
+    <EntitySet Name="Usuarios_Usuario" EntityType="Self.Usuarios_Usuario" Schema="dbo" Table="Usuarios.Usuario" store:Type="Tables" />
+    <EntitySet Name="Ventas_Estado" EntityType="Self.Ventas_Estado" Schema="dbo" Table="Ventas.Estado" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="Productos" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="Productos" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="Productos" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="Usuarios" store:Type="Tables" />
+    <EntitySet Name="DetalleVentas" EntityType="Self.DetalleVentas" Schema="Ventas" store:Type="Tables" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" Schema="Ventas" store:Type="Tables" />
+    <EntitySet Name="Facturas" EntityType="Self.Facturas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Facturas].[Factura] AS [Factura], 
+[Facturas].[Producto] AS [Producto], 
+[Facturas].[Cantidad] AS [Cantidad], 
+[Facturas].[Precio] AS [Precio], 
+[Facturas].[Monto] AS [Monto]
+FROM [dbo].[Facturas] AS [Facturas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Imprimir_Facturas" EntityType="Self.Imprimir_Facturas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Imprimir_Facturas].[Factura] AS [Factura], 
+[Imprimir_Facturas].[Producto] AS [Producto], 
+[Imprimir_Facturas].[Cantidad] AS [Cantidad], 
+[Imprimir_Facturas].[Precio] AS [Precio], 
+[Imprimir_Facturas].[Monto] AS [Monto]
+FROM [dbo].[Imprimir_Facturas] AS [Imprimir_Facturas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vista1" EntityType="Self.Vista1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Vista1].[Codigo] AS [Codigo], 
+[Vista1].[Nombre_de_Producto] AS [Nombre_de_Producto], 
+[Vista1].[Cantidad_en_Inventario] AS [Cantidad_en_Inventario], 
+[Vista1].[Precio_de_venta] AS [Precio_de_venta], 
+[Vista1].[Precio_de_Costo] AS [Precio_de_Costo], 
+[Vista1].[Categoria] AS [Categoria], 
+[Vista1].[Proveedor] AS [Proveedor]
+FROM [dbo].[Vista1] AS [Vista1]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Compras_Compra$Es_Un$Productos_Producto" Association="Self.FK_Compras_Compra$Es_Un$Productos_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Compra" EntitySet="Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Producto$Pertenece$Producto_Estante" Association="Self.FK_Productos_Producto$Pertenece$Producto_Estante">
+      <End Role="Productos_Estante" EntitySet="Productos_Estante" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Producto$Tiene_un$Productos_Proveedor" Association="Self.FK_Productos_Producto$Tiene_un$Productos_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Producto$Tiene_una$Productos_Categoria" Association="Self.FK_Productos_Producto$Tiene_una$Productos_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Usuario$Pertenece$Usuarios_Acceso" Association="Self.FK_Usuarios_Usuario$Pertenece$Usuarios_Acceso">
+      <End Role="Usuarios_Acceso" EntitySet="Usuarios_Acceso" />
+      <End Role="Usuarios_Usuario" EntitySet="Usuarios_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Usuario$Pertenece$Usuarios_Estado" Association="Self.FK_Usuarios_Usuario$Pertenece$Usuarios_Estado">
+      <End Role="Usuarios_Estado" EntitySet="Usuarios_Estado" />
+      <End Role="Usuarios_Usuario" EntitySet="Usuarios_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_DetalleVentas$Contiene$Productos_Producto" Association="Self.FK_Ventas_DetalleVentas$Contiene$Productos_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="DetalleVentas" EntitySet="DetalleVentas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_DetalleVentas$Pertenece$Ventas_Ventas" Association="Self.FK_Ventas_DetalleVentas$Pertenece$Ventas_Ventas">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="DetalleVentas" EntitySet="DetalleVentas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_Ventas$Pertenece$Ventas_Estado" Association="Self.FK_Ventas_Ventas$Pertenece$Ventas_Estado">
+      <End Role="Ventas_Estado" EntitySet="Ventas_Estado" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

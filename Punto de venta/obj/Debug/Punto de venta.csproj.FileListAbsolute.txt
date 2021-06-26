@@ -1,0 +1,28 @@
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Inicio.Login.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Properties.Resources.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.GenerateResource.cache
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.CoreCompileInputs.cache
+G:\Punto de Venta\Punto de venta\bin\Debug\Punto de venta.exe.config
+G:\Punto de Venta\Punto de venta\bin\Debug\Punto de venta.exe
+G:\Punto de Venta\Punto de venta\bin\Debug\Punto de venta.pdb
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.exe
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.pdb
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Menú.Menu_estilo_1.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Inventario.Inventario.resources
+G:\Punto de Venta\Punto de venta\bin\Debug\EntityFramework.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\EntityFramework.xml
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.CopyComplete
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Usuarios.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Plantilla.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Inicio.Inicio.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Inventario.InventarioCompleto.resources
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Configuration.ConfigurationManager.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.AccessControl.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.Permissions.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.Principal.Windows.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Configuration.ConfigurationManager.xml
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.AccessControl.xml
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.Permissions.xml
+G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.Principal.Windows.xml
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csprojAssemblyReference.cache
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Productos.resources
