@@ -167,6 +167,10 @@ namespace Punto_de_venta.Ventas
             entity.DetalleVentas.Add(tabla);
             entity.SaveChanges();
             Mostrar_datos_Factura();
+            //if ()
+            //{
+
+            //}
         }
 
         private void EliminarDetalleDeVenta()
@@ -198,7 +202,7 @@ namespace Punto_de_venta.Ventas
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(lblFactura.Text);
+            //MessageBox.Show(lblFactura.Text);
             imprimirFactura();
         }
 
@@ -219,34 +223,63 @@ namespace Punto_de_venta.Ventas
             }
 
         }
-
+        /// <summary>
+        /// Impresión de Factura
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            //Configuración para la factura( tipo de letra,
+            //ancho total de la factura, separación entre textos
+            //tipos de alineado
             Font font = new Font("Arial",9);
             int ancho = 150;
             int y = 20;
-            e.Graphics.DrawString("--- Punto de Venta ---", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-            e.Graphics.DrawString("#factura"+lblFactura.Text+" ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-            e.Graphics.DrawString("--- Productos ---", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-            //int NumeroFactura = Convert.ToInt32(lblFactura.Text);
-            //var tFactura = from p in entity.DetalleVentas
-            //               where p.Venta == NumeroFactura
-            //               select new
-            //               {
-            //                   p.id,
-            //                   p.Producto,
-            //                   p.Cantidad,
-            //               };
-            //dgFactura.DataSource = tFactura.CopyAnonymusToDataTable();
-            List<Punto_de_venta.Bases_de_datos.DetalleVentas> listFact = new List<Punto_de_venta.Bases_de_datos.DetalleVentas>();
+
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+
+            StringFormat stringFormatrigth = new StringFormat();
+            stringFormatrigth.Alignment = StringAlignment.Far;
+            stringFormatrigth.LineAlignment = StringAlignment.Far;
+
+            StringFormat stringFormatLeft = new StringFormat();
+            stringFormatLeft.Alignment = StringAlignment.Near;
+            stringFormatLeft.LineAlignment = StringAlignment.Near;
+            string Imagen = @"G:\Punto de Venta\Punto de venta\Resources\LOGO 3.png";
+            Image myPng = Image.FromFile(Imagen);
+            e.Graphics.DrawImage(myPng, new RectangleF(25, y += 10, 100, 100));
+
+            //----------------------- Encabezado de Factura ----------------------------------------------------
+            e.Graphics.DrawString("--- Punto de Venta ---", font, Brushes.Black, new RectangleF(0, y += 100, ancho, 20), stringFormat);
+            e.Graphics.DrawString("" + DateTime.Now + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), stringFormat);
+            e.Graphics.DrawString("CAI: #" + txtCAI.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Fecha Límite: " + txtFechaLimite.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Factura: #"+ lblFactura.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
+            
+            e.Graphics.DrawString("Cliente: " + txtCliente.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
+            e.Graphics.DrawString("RTN: " + txtRTN.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), stringFormatLeft);
+            e.Graphics.DrawString("--- Productos ---", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormat);
+           
+            //---------------------------- Productos -----------------------------------------------------------
             foreach (DataGridViewRow row in dgFactura.Rows)
             {
-                e.Graphics.DrawString(row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " "+ row.Cells[2].Value.ToString() + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-                //e.Graphics.DrawString(dgFactura.CurrentRow.Cells[0].Value.ToString() + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+                e.Graphics.DrawString(row.Cells[1].Value.ToString() + " " , font, Brushes.Black, new RectangleF(0, y += 20, ancho, 80), stringFormatLeft);
+                e.Graphics.DrawString(row.Cells[2].Value.ToString() + " " , font, Brushes.Black, new RectangleF(0, y += 25, ancho,20), stringFormatrigth);
+                //e.Graphics.DrawString(row.Cells[2].Value.ToString() + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), );
             }
-          
-               
-           
+            //-------------------------- Pie de Factura --------------------------------------------------------
+            e.Graphics.DrawString("Subtotal: " + txtSubtotal.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Importe Exento: " + txtImporteExento.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Importe Exonerado: " + txtImporteExonerado.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Importe Grabado 18%: " + txtIG18.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("I.S.V 18%: " + txtISV18.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Importe Grabado 15%: " + txtIG15.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("I.S.V 15%: " + txtISV15.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Total: " + txtTotal.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+
 
         }
 
@@ -258,6 +291,11 @@ namespace Punto_de_venta.Ventas
             printDocument1.PrintPage += printDocument1_PrintPage;
             //Dialogo
             printDocument1.Print();
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
 
         }
     }
