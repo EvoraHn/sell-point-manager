@@ -21,6 +21,7 @@ namespace Punto_de_venta.Bases_de_datos
     
         public int IdEstado { get; set; }
         public int Estado1 { get; set; }
+        public string Descripción_estado { get; set; }
     
         public virtual ICollection<Venta> Venta { get; set; }
     }

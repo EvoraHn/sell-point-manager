@@ -1,7 +1,7 @@
 ﻿
 namespace Punto_de_venta.Mantenimientos
 {
-    partial class Mantenimiento_Productos
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -20,6 +20,7 @@ namespace Punto_de_venta.Mantenimientos
             }
             base.Dispose(disposing);
         }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,8 +29,8 @@ namespace Punto_de_venta.Mantenimientos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,15 +55,10 @@ namespace Punto_de_venta.Mantenimientos
             this.btnEstante = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnTraerProveedor = new System.Windows.Forms.Button();
-            this.btnTraerCategoria = new System.Windows.Forms.Button();
-            this.btnTraerEstante = new System.Windows.Forms.Button();
             this.btnProveedor = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtProveedor = new System.Windows.Forms.TextBox();
-            this.cmbImpuesto = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -71,7 +67,7 @@ namespace Punto_de_venta.Mantenimientos
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel2.Controls.Add(this.btnCerrar);
@@ -97,9 +93,9 @@ namespace Punto_de_venta.Mantenimientos
             this.btnCerrar.Location = new System.Drawing.Point(16, 6);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(51, 46);
-            this.btnCerrar.TabIndex = 15;
+            this.btnCerrar.TabIndex = 34;
             this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            
             // 
             // label8
             // 
@@ -134,9 +130,9 @@ namespace Punto_de_venta.Mantenimientos
             this.txtBuscar.Location = new System.Drawing.Point(1202, 13);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(439, 34);
-            this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.TabIndex = 9;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
+            
             // 
             // btnNuevo
             // 
@@ -151,10 +147,10 @@ namespace Punto_de_venta.Mantenimientos
             this.btnNuevo.Location = new System.Drawing.Point(358, 994);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(140, 35);
-            this.btnNuevo.TabIndex = 13;
+            this.btnNuevo.TabIndex = 24;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            
             // 
             // btnGuardar
             // 
@@ -169,10 +165,10 @@ namespace Punto_de_venta.Mantenimientos
             this.btnGuardar.Location = new System.Drawing.Point(29, 994);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(140, 35);
-            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.TabIndex = 24;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            //this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // dgProductos
             // 
@@ -180,29 +176,29 @@ namespace Punto_de_venta.Mantenimientos
             this.dgProductos.AllowUserToOrderColumns = true;
             this.dgProductos.AllowUserToResizeColumns = false;
             this.dgProductos.AllowUserToResizeRows = false;
-            this.dgProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgProductos.Location = new System.Drawing.Point(526, 72);
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.ReadOnly = true;
@@ -212,8 +208,8 @@ namespace Punto_de_venta.Mantenimientos
             this.dgProductos.RowTemplate.Height = 24;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProductos.Size = new System.Drawing.Size(1115, 956);
-            this.dgProductos.TabIndex = 18;
-            this.dgProductos.SelectionChanged += new System.EventHandler(this.dgProductos_SelectionChanged);
+            this.dgProductos.TabIndex = 0;
+            //this.dgProductos.SelectionChanged += new System.EventHandler(this.dgProductos_SelectionChanged);
             // 
             // txtId
             // 
@@ -251,7 +247,7 @@ namespace Punto_de_venta.Mantenimientos
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(23, 528);
+            this.label2.Location = new System.Drawing.Point(26, 528);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 24);
             this.label2.TabIndex = 4;
@@ -262,7 +258,7 @@ namespace Punto_de_venta.Mantenimientos
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(23, 593);
+            this.label3.Location = new System.Drawing.Point(26, 593);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 24);
             this.label3.TabIndex = 6;
@@ -277,7 +273,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(471, 59);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 9;
             // 
             // label5
             // 
@@ -298,7 +294,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtCosto.Location = new System.Drawing.Point(274, 555);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(224, 34);
-            this.txtCosto.TabIndex = 4;
+            this.txtCosto.TabIndex = 11;
             // 
             // label6
             // 
@@ -319,9 +315,8 @@ namespace Punto_de_venta.Mantenimientos
             this.txtEstante.ForeColor = System.Drawing.Color.Gray;
             this.txtEstante.Location = new System.Drawing.Point(27, 620);
             this.txtEstante.Name = "txtEstante";
-            this.txtEstante.ReadOnly = true;
-            this.txtEstante.Size = new System.Drawing.Size(132, 34);
-            this.txtEstante.TabIndex = 5;
+            this.txtEstante.Size = new System.Drawing.Size(178, 34);
+            this.txtEstante.TabIndex = 13;
             this.txtEstante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -329,7 +324,7 @@ namespace Punto_de_venta.Mantenimientos
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(270, 593);
+            this.label7.Location = new System.Drawing.Point(273, 593);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 24);
             this.label7.TabIndex = 14;
@@ -343,9 +338,8 @@ namespace Punto_de_venta.Mantenimientos
             this.txtCategoria.ForeColor = System.Drawing.Color.Gray;
             this.txtCategoria.Location = new System.Drawing.Point(274, 620);
             this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.ReadOnly = true;
-            this.txtCategoria.Size = new System.Drawing.Size(132, 34);
-            this.txtCategoria.TabIndex = 7;
+            this.txtCategoria.Size = new System.Drawing.Size(178, 34);
+            this.txtCategoria.TabIndex = 13;
             this.txtCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCategoria
@@ -356,13 +350,12 @@ namespace Punto_de_venta.Mantenimientos
             this.btnCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(220)))), ((int)(((byte)(244)))));
             this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategoria.Location = new System.Drawing.Point(412, 620);
+            this.btnCategoria.Location = new System.Drawing.Point(458, 620);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Size = new System.Drawing.Size(40, 34);
-            this.btnCategoria.TabIndex = 8;
+            this.btnCategoria.TabIndex = 28;
             this.btnCategoria.Text = "▪▪▪";
             this.btnCategoria.UseVisualStyleBackColor = false;
-            this.btnCategoria.Click += new System.EventHandler(this.btnCategoria_Click);
             // 
             // btnEstante
             // 
@@ -372,13 +365,12 @@ namespace Punto_de_venta.Mantenimientos
             this.btnEstante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(220)))), ((int)(((byte)(244)))));
             this.btnEstante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstante.Location = new System.Drawing.Point(165, 620);
+            this.btnEstante.Location = new System.Drawing.Point(211, 620);
             this.btnEstante.Name = "btnEstante";
             this.btnEstante.Size = new System.Drawing.Size(40, 34);
-            this.btnEstante.TabIndex = 6;
+            this.btnEstante.TabIndex = 28;
             this.btnEstante.Text = "▪▪▪";
             this.btnEstante.UseVisualStyleBackColor = false;
-            this.btnEstante.Click += new System.EventHandler(this.btnEstante_Click);
             // 
             // btnEliminar
             // 
@@ -393,22 +385,17 @@ namespace Punto_de_venta.Mantenimientos
             this.btnEliminar.Location = new System.Drawing.Point(194, 994);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(140, 35);
-            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.TabIndex = 31;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            //this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.cmbImpuesto);
-            this.panel1.Controls.Add(this.btnTraerProveedor);
-            this.panel1.Controls.Add(this.btnTraerCategoria);
-            this.panel1.Controls.Add(this.btnTraerEstante);
             this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Controls.Add(this.btnEstante);
             this.panel1.Controls.Add(this.btnCategoria);
@@ -439,57 +426,6 @@ namespace Punto_de_venta.Mantenimientos
             this.panel1.Size = new System.Drawing.Size(1655, 1042);
             this.panel1.TabIndex = 0;
             // 
-            // btnTraerProveedor
-            // 
-            this.btnTraerProveedor.BackColor = System.Drawing.Color.White;
-            this.btnTraerProveedor.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnTraerProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnTraerProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(235)))), ((int)(((byte)(214)))));
-            this.btnTraerProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraerProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraerProveedor.ForeColor = System.Drawing.Color.Gray;
-            this.btnTraerProveedor.Location = new System.Drawing.Point(211, 685);
-            this.btnTraerProveedor.Name = "btnTraerProveedor";
-            this.btnTraerProveedor.Size = new System.Drawing.Size(40, 34);
-            this.btnTraerProveedor.TabIndex = 35;
-            this.btnTraerProveedor.Text = "▼";
-            this.btnTraerProveedor.UseVisualStyleBackColor = false;
-            this.btnTraerProveedor.Click += new System.EventHandler(this.btnTraerProveedor_Click);
-            // 
-            // btnTraerCategoria
-            // 
-            this.btnTraerCategoria.BackColor = System.Drawing.Color.White;
-            this.btnTraerCategoria.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnTraerCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnTraerCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(235)))), ((int)(((byte)(214)))));
-            this.btnTraerCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraerCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraerCategoria.ForeColor = System.Drawing.Color.Gray;
-            this.btnTraerCategoria.Location = new System.Drawing.Point(458, 620);
-            this.btnTraerCategoria.Name = "btnTraerCategoria";
-            this.btnTraerCategoria.Size = new System.Drawing.Size(40, 34);
-            this.btnTraerCategoria.TabIndex = 34;
-            this.btnTraerCategoria.Text = "▼";
-            this.btnTraerCategoria.UseVisualStyleBackColor = false;
-            this.btnTraerCategoria.Click += new System.EventHandler(this.btnTraerCategoria_Click);
-            // 
-            // btnTraerEstante
-            // 
-            this.btnTraerEstante.BackColor = System.Drawing.Color.White;
-            this.btnTraerEstante.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnTraerEstante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnTraerEstante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(235)))), ((int)(((byte)(214)))));
-            this.btnTraerEstante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraerEstante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraerEstante.ForeColor = System.Drawing.Color.Gray;
-            this.btnTraerEstante.Location = new System.Drawing.Point(211, 620);
-            this.btnTraerEstante.Name = "btnTraerEstante";
-            this.btnTraerEstante.Size = new System.Drawing.Size(40, 34);
-            this.btnTraerEstante.TabIndex = 34;
-            this.btnTraerEstante.Text = "▼";
-            this.btnTraerEstante.UseVisualStyleBackColor = false;
-            this.btnTraerEstante.Click += new System.EventHandler(this.txtTraerEstante_Click);
-            // 
             // btnProveedor
             // 
             this.btnProveedor.BackColor = System.Drawing.Color.White;
@@ -498,13 +434,12 @@ namespace Punto_de_venta.Mantenimientos
             this.btnProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(220)))), ((int)(((byte)(244)))));
             this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedor.Location = new System.Drawing.Point(165, 685);
+            this.btnProveedor.Location = new System.Drawing.Point(211, 685);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(40, 34);
-            this.btnProveedor.TabIndex = 10;
+            this.btnProveedor.TabIndex = 28;
             this.btnProveedor.Text = "▪▪▪";
             this.btnProveedor.UseVisualStyleBackColor = false;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // logo
             // 
@@ -522,7 +457,7 @@ namespace Punto_de_venta.Mantenimientos
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(23, 658);
+            this.label4.Location = new System.Drawing.Point(26, 658);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 24);
             this.label4.TabIndex = 16;
@@ -536,34 +471,9 @@ namespace Punto_de_venta.Mantenimientos
             this.txtProveedor.ForeColor = System.Drawing.Color.Gray;
             this.txtProveedor.Location = new System.Drawing.Point(27, 685);
             this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.ReadOnly = true;
-            this.txtProveedor.Size = new System.Drawing.Size(132, 34);
-            this.txtProveedor.TabIndex = 9;
+            this.txtProveedor.Size = new System.Drawing.Size(178, 34);
+            this.txtProveedor.TabIndex = 13;
             this.txtProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cmbImpuesto
-            // 
-            this.cmbImpuesto.BackColor = System.Drawing.Color.White;
-            this.cmbImpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbImpuesto.ForeColor = System.Drawing.Color.Gray;
-            this.cmbImpuesto.FormattingEnabled = true;
-            this.cmbImpuesto.Location = new System.Drawing.Point(274, 685);
-            this.cmbImpuesto.Name = "cmbImpuesto";
-            this.cmbImpuesto.Size = new System.Drawing.Size(224, 37);
-            this.cmbImpuesto.TabIndex = 10;
-            this.cmbImpuesto.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Gray;
-            this.label10.Location = new System.Drawing.Point(270, 658);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 24);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "Tipo de impuesto";
             // 
             // Mantenimiento_Productos
             // 
@@ -577,7 +487,7 @@ namespace Punto_de_venta.Mantenimientos
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "|";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Mantenimiento_Productos_Load);
+            //this.Load += new System.EventHandler(this.Mantenimiento_Productos_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).EndInit();
@@ -605,10 +515,12 @@ namespace Punto_de_venta.Mantenimientos
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEstante;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button btnCategoria;
+        private System.Windows.Forms.Button btnEstante;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnProveedor;
@@ -616,12 +528,5 @@ namespace Punto_de_venta.Mantenimientos
         private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBuscar;
-        public System.Windows.Forms.TextBox txtEstante;
-        private System.Windows.Forms.Button btnTraerProveedor;
-        private System.Windows.Forms.Button btnTraerCategoria;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cmbImpuesto;
-        private System.Windows.Forms.Button btnEstante;
-        public System.Windows.Forms.Button btnTraerEstante;
     }
 }

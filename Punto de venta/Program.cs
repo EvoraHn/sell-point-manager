@@ -19,7 +19,7 @@ namespace Punto_de_venta
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Punto_de_venta.Menú.Menu_estilo_1());
             //Application.Run(new Punto_de_venta.Inicio.Login());
-            //Application.Run(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos2());
+            //Application.Run(new Punto_de_venta.Mantenimientos.Mantenimiento_Estantes());
         }
     }
 }

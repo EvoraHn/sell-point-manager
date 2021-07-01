@@ -24,5 +24,9 @@ G:\Punto de Venta\Punto de venta\bin\Debug\System.Configuration.ConfigurationMan
 G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.AccessControl.xml
 G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.Permissions.xml
 G:\Punto de Venta\Punto de venta\bin\Debug\System.Security.Principal.Windows.xml
-G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csprojAssemblyReference.cache
 G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Productos.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Estantes.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Categoria.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Proveedor.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Ventas.Formulario_Ventas.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csprojAssemblyReference.cache

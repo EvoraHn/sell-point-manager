@@ -28,6 +28,7 @@ namespace Punto_de_venta.Bases_de_datos
         public int Categoria { get; set; }
         public int Proveedor { get; set; }
         public Nullable<int> Estante { get; set; }
+        public string Tipo_Impuesto { get; set; }
     
         public virtual ICollection<Compra> Compra { get; set; }
         public virtual Categoria Categoria1 { get; set; }

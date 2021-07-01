@@ -68,6 +68,7 @@
     <EntitySetMapping Name="Producto">
       <EntityTypeMapping TypeName="BPBModel.Producto">
         <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="Tipo_Impuesto" ColumnName="Tipo_Impuesto" />
           <ScalarProperty Name="Estante" ColumnName="Estante" />
           <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
           <ScalarProperty Name="Categoria" ColumnName="Categoria" />
@@ -103,9 +104,7 @@
     <EntitySetMapping Name="DetalleVentas">
       <EntityTypeMapping TypeName="BPBModel.DetalleVentas">
         <MappingFragment StoreEntitySet="DetalleVentas">
-          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
           <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
           <ScalarProperty Name="Venta" ColumnName="Venta" />
           <ScalarProperty Name="Producto" ColumnName="Producto" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -115,6 +114,7 @@
     <EntitySetMapping Name="Estado">
       <EntityTypeMapping TypeName="BPBModel.Estado">
         <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="Descripción_estado" ColumnName="Descripción estado" />
           <ScalarProperty Name="Estado1" ColumnName="Estado" />
           <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
         </MappingFragment>
@@ -123,6 +123,12 @@
     <EntitySetMapping Name="Venta">
       <EntityTypeMapping TypeName="BPBModel.Venta">
         <MappingFragment StoreEntitySet="Venta">
+          <ScalarProperty Name="Importe_Exonerado" ColumnName="Importe_Exonerado" />
+          <ScalarProperty Name="Importe_Exento" ColumnName="Importe_Exento" />
+          <ScalarProperty Name="ISV18_" ColumnName="ISV18%" />
+          <ScalarProperty Name="ISV15_" ColumnName="ISV15%" />
+          <ScalarProperty Name="Impuesto_Gravado_18_" ColumnName="Impuesto_Gravado_18%" />
+          <ScalarProperty Name="Impuesto_Gravado_15_" ColumnName="Impuesto_Gravado_15%" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
           <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />

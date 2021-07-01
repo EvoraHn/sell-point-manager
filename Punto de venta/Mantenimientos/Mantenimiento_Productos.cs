@@ -12,7 +12,11 @@ using System.Windows.Forms;
 
 namespace Punto_de_venta.Mantenimientos
 {
-    public partial class Mantenimiento_Productos : Form
+    //interface IForm
+    //{
+    //    void Traer_Datos();
+    //}
+    public partial class Mantenimiento_Productos : Form/*, IForm*/
     {   //Conexión a la base de datos
         Punto_de_venta.Bases_de_datos.BPBEntities1 entity = new Bases_de_datos.BPBEntities1();
         //filtro para el botón buscar
@@ -55,12 +59,23 @@ namespace Punto_de_venta.Mantenimientos
 
         private void Mantenimiento_Productos_Load(object sender, EventArgs e)
         {
-            txtBuscar.Focus();
+            //txtBuscar.Focus();
             Mostrar_datos();
+            var Tipo_Impuesto = new[] {"15%",
+                        "18%", "E" };
 
+            cmbImpuesto.DataSource = Tipo_Impuesto;
+            
+            //cmbImpuesto.DisplayMember = Tipo_Impuesto.Columns[1].ColumnName;
+            //cmbImpuesto.ValueMember = Tipo_Impuesto.Columns[0].ColumnName;
+
+            //DataTable Tipo_Impuesto = tPaises.CopyAnonymusToDataTable();
+            //cmbPaises.DataSource = dtPaises;
+            //cmbPaises.DisplayMember = dtPaises.Columns[1].ColumnName;
+            //cmbPaises.ValueMember = dtPaises.Columns[0].ColumnName;
         }
 
-        
+
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -86,7 +101,7 @@ namespace Punto_de_venta.Mantenimientos
         private void Limpiar()
         {
             //metodo de limpiar textbox
-            txtId.Text = txtNombre.Text = txtProveedor.Text = txtCategoria.Text = txtCosto.Text = txtVenta.Text = txtEstante.Text = string.Empty;
+            txtId.Text = txtNombre.Text= cmbImpuesto.Text = txtProveedor.Text = txtCategoria.Text = txtCosto.Text = txtVenta.Text = txtEstante.Text = string.Empty;
             editar = false;
             txtBuscar.Focus();
         }
@@ -100,8 +115,9 @@ namespace Punto_de_venta.Mantenimientos
                 MessageBox.Show("Por favor ingresar todos los datos en el formulario");
                 return;
             }
+            
         }
-
+        
 
         private void dgProductos_SelectionChanged(object sender, EventArgs e)
         {
@@ -119,6 +135,7 @@ namespace Punto_de_venta.Mantenimientos
                     txtProveedor.Text = Convert.ToString(tabla.Proveedor);
                     txtEstante.Text = Convert.ToString(tabla.Estante);
                     txtVenta.Text = Convert.ToString(tabla.PrecioVenta);
+                    cmbImpuesto.Text = tabla.Tipo_Impuesto;
                     editar = true;
                 }
                 catch (Exception)
@@ -134,45 +151,67 @@ namespace Punto_de_venta.Mantenimientos
             if (editar)
             {
                 try
-                {   
-                    Verificar();
-                    var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
-                    tablaP.IdProducto = txtId.Text;
-                    tablaP.Nombre = txtNombre.Text;
-                    tablaP.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                    tablaP.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
-                    tablaP.Categoria = Convert.ToInt32(txtCategoria.Text);
-                    tablaP.Proveedor = Convert.ToInt32(txtProveedor.Text);
-                    tablaP.Estante = Convert.ToInt32(txtEstante.Text);
-                    entity.SaveChanges();
+                {
+                    if (txtNombre.Text.Equals("") | txtId.Text.Equals("") | txtProveedor.Text.Equals("") | txtCategoria.Text.Equals("")
+                        | txtCosto.Text.Equals("") | txtVenta.Text.Equals("") | txtEstante.Text.Equals(""))
+                    {
+                        MessageBox.Show("Por favor ingresar todos los datos en el formulario");
+                        return;
+                    }
+                    else { 
+                        var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
+                        tablaP.IdProducto = txtId.Text;
+                        tablaP.Nombre = txtNombre.Text;
+                        tablaP.Cantidad = tablaP.Cantidad;
+                        tablaP.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                        tablaP.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
+                        tablaP.Categoria = Convert.ToInt32(txtCategoria.Text);
+                        tablaP.Proveedor = Convert.ToInt32(txtProveedor.Text);
+                        tablaP.Estante = Convert.ToInt32(txtEstante.Text);
+                        tablaP.Tipo_Impuesto = cmbImpuesto.Text;
+                        entity.SaveChanges();
+                        MessageBox.Show("¡Registro modificado correctamente!");
+                        Limpiar();
+                        Mostrar_datos();
+                    }
                 }
-                catch (Exception) { }
+                catch (Exception) { MessageBox.Show("¡Error al editar!"); return; }
 
             }
             else
             {
                 try
                 {
-                    txtId.ReadOnly = false;
-                    Verificar();
-                    Punto_de_venta.Bases_de_datos.Producto tabla = new Punto_de_venta.Bases_de_datos.Producto();
-                    tabla.IdProducto = txtId.Text;
-                    tabla.Nombre = txtNombre.Text;
-                    tabla.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                    tabla.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
-                    tabla.Categoria = Convert.ToInt32(txtCategoria.Text);
-                    tabla.Proveedor = Convert.ToInt32(txtProveedor.Text);
-                    tabla.Estante = Convert.ToInt32(txtEstante.Text);
-                    entity.Producto.Add(tabla);
-                    entity.SaveChanges();
+                    if (txtNombre.Text.Equals("") | txtId.Text.Equals("") | txtProveedor.Text.Equals("") | txtCategoria.Text.Equals("")
+                       | txtCosto.Text.Equals("") | txtVenta.Text.Equals("") | txtEstante.Text.Equals(""))
+                    {
+                        MessageBox.Show("Por favor ingresar todos los datos en el formulario");
+                        return;
+                    }
+                    else
+                    {
+                        Punto_de_venta.Bases_de_datos.Producto tabla = new Punto_de_venta.Bases_de_datos.Producto();
+                        tabla.IdProducto = txtId.Text;
+                        tabla.Nombre = txtNombre.Text;
+                        tabla.Cantidad = 0;
+                        tabla.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                        tabla.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
+                        tabla.Categoria = Convert.ToInt32(txtCategoria.Text);
+                        tabla.Proveedor = Convert.ToInt32(txtProveedor.Text);
+                        tabla.Estante = Convert.ToInt32(txtEstante.Text);
+                        tabla.Tipo_Impuesto = cmbImpuesto.Text;
+                        entity.Producto.Add(tabla);
+                        entity.SaveChanges();
+                        MessageBox.Show("¡Registro guardado correctamente!");
+                        Limpiar();
+                        Mostrar_datos();
+                    }
                 }
-                catch  { }
+                catch (Exception) { MessageBox.Show("¡Error al guardar!"); return; }
 
             }
-            Limpiar();
-
-            Mostrar_datos();
-            MessageBox.Show("¡Información guardada correctamente!");
+            
+            
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -184,20 +223,74 @@ namespace Punto_de_venta.Mantenimientos
             
             if (editar || txtId.Text !="")
             {
-                
-                var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
-                tablaP.IdProducto = txtId.Text;
-                tablaP.Nombre = txtNombre.Text;
-                tablaP.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                tablaP.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
-                tablaP.Categoria = Convert.ToInt32(txtCategoria.Text);
-                tablaP.Proveedor = Convert.ToInt32(txtProveedor.Text);
-                tablaP.Estante = Convert.ToInt32(txtEstante.Text);
-                entity.Producto.Remove(tablaP);
-                entity.SaveChanges();
-                Limpiar();
-                Mostrar_datos();
+                try {
+                    var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
+                    //tablaP.IdProducto = txtId.Text;
+                    //tablaP.Nombre = txtNombre.Text;
+                    //tablaP.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                    //tablaP.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
+                    //tablaP.Categoria = Convert.ToInt32(txtCategoria.Text);
+                    //tablaP.Proveedor = Convert.ToInt32(txtProveedor.Text);
+                    //tablaP.Estante = Convert.ToInt32(txtEstante.Text);
+                    entity.Producto.Remove(tablaP);
+                    entity.SaveChanges();
+                    MessageBox.Show("¡Registro eliminado correctamente!");
+                    Limpiar();
+                    Mostrar_datos();
+                    
+                }
+                catch (Exception){
+                    MessageBox.Show("¡No puedes eliminar un producto si ya está en facturas!"); return;
+                }
             }
+        }
+
+        private void btnEstante_Click(object sender, EventArgs e)
+        {
+            Punto_de_venta.Mantenimientos.Mantenimiento_Estantes Formulario = new Punto_de_venta.Mantenimientos.Mantenimiento_Estantes();
+            
+            Formulario.Show();
+            
+        }
+        public void Traer_Datos()
+        {
+            
+            txtEstante.Text = Punto_de_venta.Clases.almacen_de_datos.Estante;
+        }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            Punto_de_venta.Mantenimientos.Mantenimiento_Categoria Formulario = new Punto_de_venta.Mantenimientos.Mantenimiento_Categoria();
+
+            Formulario.Show();
+
+        }
+
+        private void txtTraerEstante_Click(object sender, EventArgs e)
+        {
+            txtEstante.Text = Punto_de_venta.Clases.almacen_de_datos.Estante;
+        }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            Punto_de_venta.Mantenimientos.Mantenimiento_Proveedor Formulario = new Punto_de_venta.Mantenimientos.Mantenimiento_Proveedor();
+
+            Formulario.Show();
+        }
+
+        private void btnTraerProveedor_Click(object sender, EventArgs e)
+        {
+            txtProveedor.Text = Punto_de_venta.Clases.almacen_de_datos.Proveedor;
+        }
+
+        private void btnTraerCategoria_Click(object sender, EventArgs e)
+        {
+            txtCategoria.Text = Punto_de_venta.Clases.almacen_de_datos.Categoria;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

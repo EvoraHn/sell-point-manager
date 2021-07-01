@@ -135,6 +135,7 @@
     <Property Name="Categoria" Type="Int32" Nullable="false" />
     <Property Name="Proveedor" Type="Int32" Nullable="false" />
     <Property Name="Estante" Type="Int32" />
+    <Property Name="Tipo_Impuesto" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Compra" Relationship="BPBModel.FK_Compras_Compra_Es_Un_Productos_Producto" FromRole="Producto" ToRole="Compra" />
     <NavigationProperty Name="Categoria1" Relationship="BPBModel.FK_Productos_Producto_Tiene_una_Productos_Categoria" FromRole="Producto" ToRole="Categoria" />
     <NavigationProperty Name="Estante1" Relationship="BPBModel.FK_Producto_Producto_Pertenece_Producto_Estante" FromRole="Producto" ToRole="Estante" />
@@ -147,10 +148,10 @@
     </Key>
     <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Empresa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Vendedor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Vendedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Contacto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Contacto1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Contacto1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Producto" Relationship="BPBModel.FK_Productos_Producto_Tiene_un_Productos_Proveedor" FromRole="Proveedor" ToRole="Producto" />
   </EntityType>
   <EntityType Name="Usuario">
@@ -168,9 +169,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Venta" Type="Int32" Nullable="false" />
-    <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-    <Property Name="Cantidad" Type="Int32" />
-    <Property Name="Descuento" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
     <NavigationProperty Name="Producto1" Relationship="BPBModel.FK_Ventas_DetalleVentas_Contiene_Productos_Producto" FromRole="DetalleVentas" ToRole="Producto" />
     <NavigationProperty Name="Venta1" Relationship="BPBModel.FK_Ventas_DetalleVentas_Pertenece_Ventas_Ventas" FromRole="DetalleVentas" ToRole="Venta" />
   </EntityType>
@@ -178,8 +177,9 @@
     <Key>
       <PropertyRef Name="IdEstado" />
     </Key>
-    <Property Name="IdEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Estado1" Type="Int32" Nullable="false" />
+    <Property Name="IdEstado" Type="Int32" Nullable="false" />
+    <Property Name="Estado1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripción_estado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Venta" Relationship="BPBModel.FK_Ventas_Ventas_Pertenece_Ventas_Estado" FromRole="Estado" ToRole="Venta" />
   </EntityType>
   <EntityType Name="Venta">
@@ -190,6 +190,12 @@
     <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Total_Venta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
     <Property Name="Estado" Type="Int32" />
+    <Property Name="Impuesto_Gravado_15_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Impuesto_Gravado_18_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ISV15_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ISV18_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exento" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exonerado" Type="Decimal" Precision="10" Scale="2" />
     <NavigationProperty Name="DetalleVentas" Relationship="BPBModel.FK_Ventas_DetalleVentas_Pertenece_Ventas_Ventas" FromRole="Venta" ToRole="DetalleVentas" />
     <NavigationProperty Name="Estado1" Relationship="BPBModel.FK_Ventas_Ventas_Pertenece_Ventas_Estado" FromRole="Venta" ToRole="Estado" />
   </EntityType>

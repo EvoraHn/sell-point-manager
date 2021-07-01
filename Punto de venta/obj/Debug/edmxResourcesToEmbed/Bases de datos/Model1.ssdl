@@ -48,6 +48,7 @@
     <Property Name="Categoria" Type="int" Nullable="false" />
     <Property Name="Proveedor" Type="int" Nullable="false" />
     <Property Name="Estante" Type="int" />
+    <Property Name="Tipo_Impuesto" Type="char" MaxLength="3" />
   </EntityType>
   <EntityType Name="Proveedor">
     <Key>
@@ -55,10 +56,10 @@
     </Key>
     <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Empresa" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Vendedor" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Vendedor" Type="varchar" MaxLength="100" />
     <Property Name="Contacto" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Contacto1" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Contacto1" Type="varchar" MaxLength="100" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -75,16 +76,15 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Producto" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Venta" Type="int" Nullable="false" />
-    <Property Name="PrecioUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Cantidad" Type="int" />
-    <Property Name="Descuento" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Estado">
     <Key>
       <PropertyRef Name="IdEstado" />
     </Key>
-    <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="IdEstado" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripción estado" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Venta">
     <Key>
@@ -94,6 +94,12 @@
     <Property Name="Fecha_Venta" Type="datetime" Nullable="false" />
     <Property Name="Total_Venta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Estado" Type="int" />
+    <Property Name="Impuesto_Gravado_15%" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Impuesto_Gravado_18%" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ISV15%" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ISV18%" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exento" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exonerado" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BPB.dbo.Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->

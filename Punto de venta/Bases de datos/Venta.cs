@@ -23,6 +23,12 @@ namespace Punto_de_venta.Bases_de_datos
         public System.DateTime Fecha_Venta { get; set; }
         public decimal Total_Venta { get; set; }
         public Nullable<int> Estado { get; set; }
+        public Nullable<decimal> Impuesto_Gravado_15_ { get; set; }
+        public Nullable<decimal> Impuesto_Gravado_18_ { get; set; }
+        public Nullable<decimal> ISV15_ { get; set; }
+        public Nullable<decimal> ISV18_ { get; set; }
+        public Nullable<decimal> Importe_Exento { get; set; }
+        public Nullable<decimal> Importe_Exonerado { get; set; }
     
         public virtual ICollection<DetalleVentas> DetalleVentas { get; set; }
         public virtual Estado Estado1 { get; set; }

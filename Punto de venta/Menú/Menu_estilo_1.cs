@@ -66,6 +66,9 @@ namespace Punto_de_venta.Menú
             //    panelMenu.Width = 1000;
         }
 
-       
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new Punto_de_venta.Ventas.Formulario_Ventas());
+        }
     }
 }

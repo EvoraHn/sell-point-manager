@@ -17,9 +17,7 @@ namespace Punto_de_venta.Bases_de_datos
         public int id { get; set; }
         public string Producto { get; set; }
         public int Venta { get; set; }
-        public decimal PrecioUnitario { get; set; }
-        public Nullable<int> Cantidad { get; set; }
-        public Nullable<decimal> Descuento { get; set; }
+        public decimal Cantidad { get; set; }
     
         public virtual Producto Producto1 { get; set; }
         public virtual Venta Venta1 { get; set; }
