@@ -22,6 +22,8 @@ namespace Punto_de_venta.Ventas
         string id = "000000";
         int idDetalle = 0;
         bool editar = false;
+        //tabla temporal
+        DataTable dtTemporal = new DataTable();
         public Formulario_Ventas()
         {
             InitializeComponent();
@@ -125,9 +127,12 @@ namespace Punto_de_venta.Ventas
         //}
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try {
+            
+            try
+            {
                 if (lblFactura.Text == "00000")
                 {
+                    //AgregarProducto();
                     AgregarVenta();
                     Thread.Sleep(100);
                     AgregarDetalleDeVenta();
@@ -137,10 +142,25 @@ namespace Punto_de_venta.Ventas
                     AgregarDetalleDeVenta();
                 }
             }
-            catch (Exception) { MessageBox.Show("Error en la base de datos contacte con el administrador",
-                "Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);}
+            catch (Exception)
+            {
+                MessageBox.Show("Error en la base de datos contacte con el administrador",
+"Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
+        private void AgregarProducto()
+        {
+            int indice = dgProductos.CurrentCell.RowIndex;
+            long idPelicula = Convert.ToInt64(dgProductos.Rows[indice].Cells[0].Value.ToString());
+            string nombrePelicula = dgProductos.Rows[indice].Cells[1].Value.ToString();
+
+            dgFactura.Rows.Add(idPelicula.ToString(), nombrePelicula);
+
+            dtTemporal = (DataTable)dgProductos.DataSource;
+            dtTemporal.Rows.RemoveAt(indice);
+            dgProductos.DataSource = dtTemporal;
+        }
         private void AgregarVenta()
         {
             Punto_de_venta.Bases_de_datos.Venta tabla = new Punto_de_venta.Bases_de_datos.Venta();
@@ -167,10 +187,6 @@ namespace Punto_de_venta.Ventas
             entity.DetalleVentas.Add(tabla);
             entity.SaveChanges();
             Mostrar_datos_Factura();
-            //if ()
-            //{
-
-            //}
         }
 
         private void EliminarDetalleDeVenta()
@@ -297,6 +313,17 @@ namespace Punto_de_venta.Ventas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtDescuentos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >=32 && e.KeyChar <= 47)|| (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Por favor insgresa solo numeros en este campo",
+                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

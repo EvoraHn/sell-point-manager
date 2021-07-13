@@ -603,6 +603,7 @@ namespace Punto_de_venta.Ventas
             this.txtDescuentos.Size = new System.Drawing.Size(110, 34);
             this.txtDescuentos.TabIndex = 1;
             this.txtDescuentos.Text = "0";
+            this.txtDescuentos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuentos_KeyPress);
             // 
             // txtCliente
             // 
