@@ -107,8 +107,22 @@ namespace Punto_de_venta.Ventas
         {
             txtId.Text = txtProducto.Text =  string.Empty;
             txtCantidad.Text = "1" ;
-            editar = false;
             txtBuscar.Focus();
+        }
+        private void LimpiarTodo()
+        {
+            txtId.Text = txtProducto.Text=txtCAI.Text = txtCliente.Text = txtRTN.Text =
+            txtDescuentos.Text = txtFechaLimite.Text = txtImporteExento.Text = txtImporteExonerado.Text
+            =txtISV15.Text =txtISV18.Text = txtIG18.Text = txtIG15.Text = txtTotal.Text =
+            txtSubtotal.Text=txtBuscar.Text= string.Empty;
+            dgFactura.Rows.Clear();
+            txtCantidad.Text = "1";
+            lblFactura.Text = "00000";
+            txtBuscar.Focus();
+        }
+        private void GuardarFactura()
+        {
+
         }
         //private void Grid_KeyDown(object sender, KeyEventArgs e)
         //{
@@ -127,39 +141,152 @@ namespace Punto_de_venta.Ventas
         //}
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            AgregarProducto();
+
+            Limpiar();
             
-            try
-            {
-                if (lblFactura.Text == "00000")
-                {
-                    //AgregarProducto();
-                    AgregarVenta();
-                    Thread.Sleep(100);
-                    AgregarDetalleDeVenta();
-                }
-                else
-                {
-                    AgregarDetalleDeVenta();
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error en la base de datos contacte con el administrador",
-"Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+//            try
+//            {
+//                if (lblFactura.Text == "00000")
+//                {
+//                    //AgregarProducto();
+//                    AgregarVenta();
+//                    Thread.Sleep(100);
+//                    AgregarDetalleDeVenta();
+//                }
+//                else
+//                {
+//                    AgregarDetalleDeVenta();
+//                }
+//            }
+//            catch (Exception)
+//            {
+//                MessageBox.Show("Error en la base de datos contacte con el administrador",
+//"Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+//            }
         }
 
         private void AgregarProducto()
         {
             int indice = dgProductos.CurrentCell.RowIndex;
-            long idPelicula = Convert.ToInt64(dgProductos.Rows[indice].Cells[0].Value.ToString());
-            string nombrePelicula = dgProductos.Rows[indice].Cells[1].Value.ToString();
+            string codigo = dgProductos.Rows[indice].Cells[0].Value.ToString();
+            string producto = dgProductos.Rows[indice].Cells[1].Value.ToString();
+            string precio = dgProductos.Rows[indice].Cells[2].Value.ToString();
+            string cantidad = txtCantidad.Text;
+            //dgFactura.Rows.Add(codigo, producto, precio, cantidad);
+            HacerCuentas();
+            foreach (DataGridViewRow dr in dgFactura.Rows)
+            {
+                string id = (dr.Cells[1].Value).ToString();
+                //string codigoP = (dr.Cells[1].Value).ToString();
+                if (id == producto)
+                {
+                    //string comodin = (dr.Cells[3].Value).ToString();
+                    int quantity = Convert.ToInt32(dr.Cells[3].Value);
+                    cantidad = (Convert.ToInt32(txtCantidad.Text) + quantity).ToString();
+                    //comodin.Replace(Convert.ToChar(comodin), Convert.ToChar(cantidad));
+                    dgFactura.Rows.RemoveAt(indice);
+                }
+                else
+                {
+                    cantidad = txtCantidad.Text;
+                    //dgFactura.Rows.Add(codigo, producto, precio, cantidad);
+                    //dgFactura.Rows.Add(codigo, producto, precio, cantidad);
+                }
+               
+            }
+            dgFactura.Rows.Add(codigo, producto, precio, cantidad);
+            HacerCuentas();
 
-            dgFactura.Rows.Add(idPelicula.ToString(), nombrePelicula);
 
-            dtTemporal = (DataTable)dgProductos.DataSource;
-            dtTemporal.Rows.RemoveAt(indice);
-            dgProductos.DataSource = dtTemporal;
+        }
+
+        private void QuitarProducto()
+        {
+
+            try
+            {
+                if (dgFactura.SelectedRows.Count > 0)
+                {
+                    int indice = dgFactura.CurrentCell.RowIndex;
+                    dgFactura.Rows.RemoveAt(indice);
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona un producto de la factura para eliminarlo",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecciona un producto de la factura para eliminarlo",
+                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+           
+        }
+
+        private void HacerCuentas()
+        {
+            decimal subtot = 0;
+            decimal isv15 = 0;
+            decimal isv18 = 0;
+            decimal exento = 0;
+            decimal iG15 = 0;
+            decimal iG18 = 0;
+            decimal descuento = Convert.ToInt32(txtDescuentos.Text);
+            decimal exonerado = Convert.ToInt32(txtImporteExonerado.Text);
+            //decimal cantidad = Convert.ToInt32(txtCantidad.Text);
+
+            try
+            {
+                foreach (DataGridViewRow dr in dgFactura.Rows)
+                {
+                    decimal cantidad = Convert.ToInt32((dr.Cells[3].Value).ToString());
+                    string fkid = (dr.Cells[0].Value).ToString(); ;
+                    var pel = entity.Producto.FirstOrDefault(x => x.IdProducto == fkid);
+                    subtot += pel.PrecioVenta * cantidad;
+                    
+
+                    //isv += pel.Tipo_Impuesto.Equals("E  ") ? 0
+                    //    :  pel.Tipo_Impuesto.Equals("18%") ? 0
+                    //    :  pel.PrecioVenta * (Convert.ToDecimal(pel.Tipo_Impuesto.Substring(0, 2)) / 100);
+                    isv15 += pel.Tipo_Impuesto.Equals("15%") ? (pel.PrecioVenta*cantidad) * (Convert.ToDecimal(pel.Tipo_Impuesto.Substring(0, 2)) / 100)  
+                        : 0;
+                    iG15 += pel.Tipo_Impuesto.Equals("15%") ? (pel.PrecioVenta * cantidad)
+                        : 0;
+               
+                    isv18 += pel.Tipo_Impuesto.Equals("18%") ? pel.PrecioVenta * (Convert.ToDecimal(pel.Tipo_Impuesto.Substring(0, 2)) / 100)
+                        : 0;
+
+                    iG18 += pel.Tipo_Impuesto.Equals("18%") ? pel.PrecioVenta 
+                        : 0;
+
+                    exento += pel.Tipo_Impuesto.Equals("E  ") ? pel.PrecioVenta  
+                        : 0;
+                }
+                txtSubtotal.Text = subtot.ToString("N2");
+                txtISV18.Text = isv18.ToString("N2");
+                txtISV15.Text = isv15.ToString("N2");
+                txtIG15.Text = iG15.ToString("N2");
+                txtIG18.Text = iG18.ToString("N2");
+                txtImporteExento.Text = exento.ToString("N2");
+                if ( (descuento+exonerado) < subtot)
+                {
+                    txtTotal.Text = (subtot + isv15 + isv18 - (descuento + exonerado)).ToString("N2");
+                }
+                else
+                {
+                    //MessageBox.Show("Error en descuentos y exonerados",
+                    //"No puede dar más descuentos de lo que suman los productos,¡Revise!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //return;
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al agregar factura",
+                "Contacte con el administrador", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
         }
         private void AgregarVenta()
         {
@@ -180,46 +307,101 @@ namespace Punto_de_venta.Ventas
         }
         private void AgregarDetalleDeVenta()
         {
-            Punto_de_venta.Bases_de_datos.DetalleVentas tabla = new Punto_de_venta.Bases_de_datos.DetalleVentas();
-            tabla.Cantidad = Convert.ToInt32(txtCantidad.Text);
-            tabla.Producto = txtId.Text;
-            tabla.Venta = Convert.ToInt32(lblFactura.Text);
-            entity.DetalleVentas.Add(tabla);
-            entity.SaveChanges();
-            Mostrar_datos_Factura();
-        }
-
-        private void EliminarDetalleDeVenta()
-        {
-            try
+            foreach (DataGridViewRow dr in dgFactura.Rows)
             {
-                var tabla = entity.DetalleVentas.FirstOrDefault(x => x.id == idDetalle);
-                entity.DetalleVentas.Remove(tabla);
+                Punto_de_venta.Bases_de_datos.DetalleVentas tabla = new Punto_de_venta.Bases_de_datos.DetalleVentas();
+                string fkid = (dr.Cells[0].Value).ToString(); ;
+                var Product = entity.Producto.FirstOrDefault(x => x.IdProducto == fkid);
+                tabla.Producto = (dr.Cells[0].Value).ToString(); 
+                tabla.Cantidad = Convert.ToInt32(dr.Cells[3].Value);
+                tabla.Venta = Convert.ToInt32(lblFactura.Text);
+                entity.DetalleVentas.Add(tabla);
                 entity.SaveChanges();
-                Mostrar_datos_Factura();
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Selecciona un producto de la factura para eliminarlo",
-                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);return;
+                
             }
         }
+        private void DisminuirInventario()
+        {
+            foreach (DataGridViewRow dr in dgFactura.Rows)
+            {
+                Punto_de_venta.Bases_de_datos.Producto tabla = new Punto_de_venta.Bases_de_datos.Producto();
+                //string fkid = (dr.Cells[2].Value).ToString(); ;
+                //var Product = entity.Producto.FirstOrDefault(x => x.IdProducto == fkid);
+                
+                //tabla.Cantidad = (tabla.Cantidad - Convert.ToInt32(dr.Cells[3].Value));
+                
+                ////entity.Producto.up(tabla);
+                //entity.SaveChanges();
+
+
+
+
+                id =(dr.Cells[0].Value).ToString();
+                var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
+                tablaP.Cantidad = tablaP.Cantidad - Convert.ToInt32(dr.Cells[3].Value);
+                entity.SaveChanges();
+
+
+            }
+        }
+
+        //private void EliminarDetalleDeVenta()
+        //{
+        //    try
+        //    {
+        //        var tabla = entity.DetalleVentas.FirstOrDefault(x => x.id == idDetalle);
+        //        entity.DetalleVentas.Remove(tabla);
+        //        entity.SaveChanges();
+        //        Mostrar_datos_Factura();
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        MessageBox.Show("Selecciona un producto de la factura para eliminarlo",
+        //         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);return;
+        //    }
+        //}
         private void Formulario_Ventas_Load(object sender, EventArgs e)
         {
             Mostrar_datos();
-            
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            EliminarDetalleDeVenta();
+            //EliminarDetalleDeVenta();
+            QuitarProducto();
+            HacerCuentas();
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(lblFactura.Text);
-            imprimirFactura();
+            
+            if (dgFactura.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
+                "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            else
+            {
+                if (lblFactura.Text == "00000")
+                {
+                    AgregarVenta();
+                    Thread.Sleep(100);
+                    AgregarDetalleDeVenta();
+                    Thread.Sleep(100);
+                    DisminuirInventario();
+                    imprimirFactura();
+                }
+                else
+                {
+                    AgregarDetalleDeVenta();
+                    Thread.Sleep(100);
+                    DisminuirInventario();
+                    imprimirFactura();
+                }
+        
+            }
+                
         }
 
         private void Formulario_Ventas_KeyDown(object sender, KeyEventArgs e)
@@ -310,10 +492,7 @@ namespace Punto_de_venta.Ventas
 
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void txtDescuentos_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -325,5 +504,12 @@ namespace Punto_de_venta.Ventas
                 return;
             }
         }
+
+        private void BtnNuevaFactura_Click(object sender, EventArgs e)
+        {
+            LimpiarTodo();
+        }
+
+       
     }
 }

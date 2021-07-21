@@ -101,7 +101,8 @@ namespace Punto_de_venta.Mantenimientos
         private void Limpiar()
         {
             //metodo de limpiar textbox
-            txtId.Text = txtNombre.Text= cmbImpuesto.Text = txtProveedor.Text = txtCategoria.Text = txtCosto.Text = txtVenta.Text = txtEstante.Text = string.Empty;
+            cmbImpuesto.Text = "15%";
+            txtId.Text = txtNombre.Text = txtProveedor.Text = txtCategoria.Text = txtCosto.Text = txtVenta.Text = txtEstante.Text = string.Empty;
             editar = false;
             txtBuscar.Focus();
         }
