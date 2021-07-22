@@ -28,8 +28,8 @@ namespace Punto_de_venta.Mantenimientos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,6 +54,8 @@ namespace Punto_de_venta.Mantenimientos
             this.btnEstante = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbImpuesto = new System.Windows.Forms.ComboBox();
             this.btnTraerProveedor = new System.Windows.Forms.Button();
             this.btnTraerCategoria = new System.Windows.Forms.Button();
             this.btnTraerEstante = new System.Windows.Forms.Button();
@@ -61,8 +63,6 @@ namespace Punto_de_venta.Mantenimientos
             this.logo = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtProveedor = new System.Windows.Forms.TextBox();
-            this.cmbImpuesto = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -186,23 +186,23 @@ namespace Punto_de_venta.Mantenimientos
             this.dgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgProductos.Location = new System.Drawing.Point(526, 72);
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.ReadOnly = true;
@@ -245,6 +245,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtVenta.Name = "txtVenta";
             this.txtVenta.Size = new System.Drawing.Size(224, 34);
             this.txtVenta.TabIndex = 3;
+            this.txtVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVenta_KeyPress);
             // 
             // label2
             // 
@@ -299,6 +300,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(224, 34);
             this.txtCosto.TabIndex = 4;
+            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
             // 
             // label6
             // 
@@ -439,6 +441,30 @@ namespace Punto_de_venta.Mantenimientos
             this.panel1.Size = new System.Drawing.Size(1655, 1042);
             this.panel1.TabIndex = 0;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Gray;
+            this.label10.Location = new System.Drawing.Point(270, 658);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(157, 24);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "Tipo de impuesto";
+            // 
+            // cmbImpuesto
+            // 
+            this.cmbImpuesto.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cmbImpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbImpuesto.ForeColor = System.Drawing.Color.Gray;
+            this.cmbImpuesto.FormattingEnabled = true;
+            this.cmbImpuesto.Location = new System.Drawing.Point(274, 685);
+            this.cmbImpuesto.Name = "cmbImpuesto";
+            this.cmbImpuesto.Size = new System.Drawing.Size(224, 37);
+            this.cmbImpuesto.TabIndex = 10;
+            this.cmbImpuesto.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // btnTraerProveedor
             // 
             this.btnTraerProveedor.BackColor = System.Drawing.Color.White;
@@ -540,30 +566,6 @@ namespace Punto_de_venta.Mantenimientos
             this.txtProveedor.Size = new System.Drawing.Size(132, 34);
             this.txtProveedor.TabIndex = 9;
             this.txtProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cmbImpuesto
-            // 
-            this.cmbImpuesto.BackColor = System.Drawing.Color.White;
-            this.cmbImpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbImpuesto.ForeColor = System.Drawing.Color.Gray;
-            this.cmbImpuesto.FormattingEnabled = true;
-            this.cmbImpuesto.Location = new System.Drawing.Point(274, 685);
-            this.cmbImpuesto.Name = "cmbImpuesto";
-            this.cmbImpuesto.Size = new System.Drawing.Size(224, 37);
-            this.cmbImpuesto.TabIndex = 10;
-            this.cmbImpuesto.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Gray;
-            this.label10.Location = new System.Drawing.Point(270, 658);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 24);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "Tipo de impuesto";
             // 
             // Mantenimiento_Productos
             // 

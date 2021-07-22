@@ -137,6 +137,10 @@ namespace Punto_de_venta.Mantenimientos
                     txtEstante.Text = Convert.ToString(tabla.Estante);
                     txtVenta.Text = Convert.ToString(tabla.PrecioVenta);
                     cmbImpuesto.Text = tabla.Tipo_Impuesto;
+                    txtId.Enabled = false;
+                    txtCategoria.Enabled = false;
+                    txtEstante.Enabled = false;
+                    txtProveedor.Enabled = false;
                     editar = true;
                 }
                 catch (Exception)
@@ -159,21 +163,30 @@ namespace Punto_de_venta.Mantenimientos
                         MessageBox.Show("Por favor ingresar todos los datos en el formulario");
                         return;
                     }
-                    else { 
-                        var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
-                        tablaP.IdProducto = txtId.Text;
-                        tablaP.Nombre = txtNombre.Text;
-                        tablaP.Cantidad = tablaP.Cantidad;
-                        tablaP.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                        tablaP.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
-                        tablaP.Categoria = Convert.ToInt32(txtCategoria.Text);
-                        tablaP.Proveedor = Convert.ToInt32(txtProveedor.Text);
-                        tablaP.Estante = Convert.ToInt32(txtEstante.Text);
-                        tablaP.Tipo_Impuesto = cmbImpuesto.Text;
-                        entity.SaveChanges();
-                        MessageBox.Show("¡Registro modificado correctamente!");
-                        Limpiar();
-                        Mostrar_datos();
+                    else {
+                        if (Convert.ToDecimal(txtVenta.Text) > Convert.ToDecimal(txtCosto.Text))
+                        {
+                            var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
+                            tablaP.IdProducto = txtId.Text;
+                            tablaP.Nombre = txtNombre.Text;
+                            tablaP.Cantidad = tablaP.Cantidad;
+                            tablaP.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                            tablaP.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
+                            tablaP.Categoria = Convert.ToInt32(txtCategoria.Text);
+                            tablaP.Proveedor = Convert.ToInt32(txtProveedor.Text);
+                            tablaP.Estante = Convert.ToInt32(txtEstante.Text);
+                            tablaP.Tipo_Impuesto = cmbImpuesto.Text;
+                            entity.SaveChanges();
+                            MessageBox.Show("¡Registro modificado correctamente!");
+                            Limpiar();
+                            Mostrar_datos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El precio de venta no puede ser menor al precio de costo",
+                            "¡Revisa los Precios!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
                 }
                 catch (Exception) { MessageBox.Show("¡Error al editar!"); return; }
@@ -191,21 +204,32 @@ namespace Punto_de_venta.Mantenimientos
                     }
                     else
                     {
-                        Punto_de_venta.Bases_de_datos.Producto tabla = new Punto_de_venta.Bases_de_datos.Producto();
-                        tabla.IdProducto = txtId.Text;
-                        tabla.Nombre = txtNombre.Text;
-                        tabla.Cantidad = 0;
-                        tabla.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                        tabla.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
-                        tabla.Categoria = Convert.ToInt32(txtCategoria.Text);
-                        tabla.Proveedor = Convert.ToInt32(txtProveedor.Text);
-                        tabla.Estante = Convert.ToInt32(txtEstante.Text);
-                        tabla.Tipo_Impuesto = cmbImpuesto.Text;
-                        entity.Producto.Add(tabla);
-                        entity.SaveChanges();
-                        MessageBox.Show("¡Registro guardado correctamente!");
-                        Limpiar();
-                        Mostrar_datos();
+                       if (Convert.ToDecimal(txtVenta.Text) > Convert.ToDecimal(txtCosto.Text))
+                        {
+                            Punto_de_venta.Bases_de_datos.Producto tabla = new Punto_de_venta.Bases_de_datos.Producto();
+                            tabla.IdProducto = txtId.Text;
+                            tabla.Nombre = txtNombre.Text;
+                            tabla.Cantidad = 0;
+                            tabla.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                            tabla.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
+                            tabla.Categoria = Convert.ToInt32(txtCategoria.Text);
+                            tabla.Proveedor = Convert.ToInt32(txtProveedor.Text);
+                            tabla.Estante = Convert.ToInt32(txtEstante.Text);
+                            tabla.Tipo_Impuesto = cmbImpuesto.Text;
+                            entity.Producto.Add(tabla);
+                            entity.SaveChanges();
+                            MessageBox.Show("¡Registro guardado correctamente!");
+                            Limpiar();
+                            Mostrar_datos();
+                        }
+                       else
+                        {
+                            MessageBox.Show("El precio de venta no puede ser menor al precio de costo",
+                            "¡Revisa los Precios!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                           
+                            return;
+
+                        }
                     }
                 }
                 catch (Exception) { MessageBox.Show("¡Error al guardar!"); return; }
@@ -216,6 +240,7 @@ namespace Punto_de_venta.Mantenimientos
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            txtId.Enabled = true;
             Limpiar();
         }
 
@@ -226,13 +251,6 @@ namespace Punto_de_venta.Mantenimientos
             {
                 try {
                     var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
-                    //tablaP.IdProducto = txtId.Text;
-                    //tablaP.Nombre = txtNombre.Text;
-                    //tablaP.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                    //tablaP.PrecioVenta = Convert.ToDecimal(txtVenta.Text);
-                    //tablaP.Categoria = Convert.ToInt32(txtCategoria.Text);
-                    //tablaP.Proveedor = Convert.ToInt32(txtProveedor.Text);
-                    //tablaP.Estante = Convert.ToInt32(txtEstante.Text);
                     entity.Producto.Remove(tablaP);
                     entity.SaveChanges();
                     MessageBox.Show("¡Registro eliminado correctamente!");
@@ -292,6 +310,28 @@ namespace Punto_de_venta.Mantenimientos
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Por favor ingresa solo numeros positivos en este campo",
+                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Por favor ingresa solo numeros positivos en este campo",
+                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

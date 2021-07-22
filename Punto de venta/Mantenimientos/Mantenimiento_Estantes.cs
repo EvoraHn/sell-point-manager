@@ -90,7 +90,7 @@ namespace Punto_de_venta.Mantenimientos
                     txtId.Text = tabla.IdEstante.ToString();
                     txtNombre.Text = tabla.NombreEstante;
                     txtDescripcion.Text =tabla.DescripciónEstante;
-                    editar = true;
+                    editar = true; txtId.Enabled = false; btnEstante.Enabled = true;
                 }
                 catch (Exception)
                 {
@@ -185,6 +185,8 @@ namespace Punto_de_venta.Mantenimientos
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
+            txtId.Enabled = true;
+            btnEstante.Enabled = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

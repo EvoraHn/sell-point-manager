@@ -73,6 +73,7 @@ namespace Punto_de_venta.Mantenimientos
                     txtNombre.Text = tabla.Nombre;
                     txtDescripcion.Text = tabla.Descripcion;
                     editar = true;
+                    btnEnviar.Enabled = true;
                 }
                 catch (Exception)
                 {}
@@ -162,6 +163,7 @@ namespace Punto_de_venta.Mantenimientos
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            btnEnviar.Enabled = false;
             Limpiar();
         }
 

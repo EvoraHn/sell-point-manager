@@ -74,7 +74,7 @@ namespace Punto_de_venta.Mantenimientos
                     txtcelular.Text = tabla.Contacto;
                     txtTelefono.Text = tabla.Contacto1;
                     txtDescripcion.Text = tabla.Descripcion;
-                    editar = true;
+                    editar = true; btnEnviar.Enabled = true;
                 }
                 catch (Exception)
                 { }
@@ -101,7 +101,8 @@ namespace Punto_de_venta.Mantenimientos
 
         private void Limpiar()
         {
-            txtId.Text = txtNombre.Text = txtDescripcion.Text = string.Empty;
+            txtId.Text = txtNombre.Text = txtDescripcion.Text = txtEmpresa.Text = txtcelular.Text 
+            = txtTelefono.Text = string.Empty;
             editar = false;
             txtBuscar.Focus();
         }
@@ -168,6 +169,7 @@ namespace Punto_de_venta.Mantenimientos
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            btnEnviar.Enabled = false;
             Limpiar();
         }
 
