@@ -446,6 +446,8 @@ namespace Punto_de_venta.Ventas
             StringFormat stringFormatLeft = new StringFormat();
             stringFormatLeft.Alignment = StringAlignment.Near;
             stringFormatLeft.LineAlignment = StringAlignment.Near;
+
+            //----------------------- Logo de la empresa -------------------------------------------------------
             string Imagen = @"G:\Punto de Venta\Punto de venta\Resources\LOGO 3.png";
             Image myPng = Image.FromFile(Imagen);
             e.Graphics.DrawImage(myPng, new RectangleF(25, y += 10, 100, 100));
@@ -456,16 +458,15 @@ namespace Punto_de_venta.Ventas
             e.Graphics.DrawString("CAI: #" + txtCAI.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("Fecha Límite: " + txtFechaLimite.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("Factura: #"+ lblFactura.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
-            
             e.Graphics.DrawString("Cliente: " + txtCliente.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
             e.Graphics.DrawString("RTN: " + txtRTN.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), stringFormatLeft);
-            e.Graphics.DrawString("--- Productos ---", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormat);
+            e.Graphics.DrawString("------ Productos ------", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormat);
            
             //---------------------------- Productos -----------------------------------------------------------
             foreach (DataGridViewRow row in dgFactura.Rows)
             {
                 e.Graphics.DrawString(row.Cells[1].Value.ToString() + " " , font, Brushes.Black, new RectangleF(0, y += 20, ancho, 80), stringFormatLeft);
-                e.Graphics.DrawString(row.Cells[2].Value.ToString() + " " , font, Brushes.Black, new RectangleF(0, y += 25, ancho,20), stringFormatrigth);
+                e.Graphics.DrawString(row.Cells[2].Value.ToString() + " X " + row.Cells[3].Value.ToString(), font, Brushes.Black, new RectangleF(0, y += 25, ancho,20), stringFormatrigth);
                 //e.Graphics.DrawString(row.Cells[2].Value.ToString() + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), );
             }
             //-------------------------- Pie de Factura --------------------------------------------------------
@@ -498,7 +499,7 @@ namespace Punto_de_venta.Ventas
         {
             if ((e.KeyChar >=32 && e.KeyChar <= 47)|| (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Por favor insgresa solo numeros en este campo",
+                MessageBox.Show("Por favor ingresa solo numeros en este campo",
                 "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Handled = true;
                 return;
@@ -510,6 +511,15 @@ namespace Punto_de_venta.Ventas
             LimpiarTodo();
         }
 
-       
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Por favor ingresa solo numeros enteros positivos en este campo",
+                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
