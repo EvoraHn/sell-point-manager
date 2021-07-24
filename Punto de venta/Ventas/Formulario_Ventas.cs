@@ -169,10 +169,12 @@ namespace Punto_de_venta.Ventas
         private void AgregarProducto()
         {
             int indice = dgProductos.CurrentCell.RowIndex;
+            int indiceF = dgFactura.RowCount == 0 ? 0 : dgFactura.CurrentCell.RowIndex;
+
             string codigo = dgProductos.Rows[indice].Cells[0].Value.ToString();
             string producto = dgProductos.Rows[indice].Cells[1].Value.ToString();
             string precio = dgProductos.Rows[indice].Cells[2].Value.ToString();
-            string cantidad = txtCantidad.Text;
+            string cantidad = dgFactura.RowCount == 0 ? "1" : dgFactura.Rows[indiceF].Cells[3].Value.ToString();
             //dgFactura.Rows.Add(codigo, producto, precio, cantidad);
             HacerCuentas();
             foreach (DataGridViewRow dr in dgFactura.Rows)
@@ -185,7 +187,10 @@ namespace Punto_de_venta.Ventas
                     int quantity = Convert.ToInt32(dr.Cells[3].Value);
                     cantidad = (Convert.ToInt32(txtCantidad.Text) + quantity).ToString();
                     //comodin.Replace(Convert.ToChar(comodin), Convert.ToChar(cantidad));
-                    dgFactura.Rows.RemoveAt(indice);
+                    //dgFactura.Rows.RemoveAt(indice);
+                    dgFactura.Rows.RemoveAt(dr.Index);
+
+                    break;
                 }
                 else
                 {
