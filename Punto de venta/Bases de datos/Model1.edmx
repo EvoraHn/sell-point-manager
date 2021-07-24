@@ -154,6 +154,37 @@ advertencia 6002: La tabla o vista 'BPB.dbo.Vista1' no tiene definida ninguna cl
           <Property Name="Categoria" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Proveedor" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VistaVentasPorMes">
+          <Key>
+            <PropertyRef Name="IdVenta" />
+            <PropertyRef Name="Fecha_Venta" />
+            <PropertyRef Name="Total_Venta" />
+          </Key>
+          <Property Name="IdVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha_Venta" Type="datetime" Nullable="false" />
+          <Property Name="Total_Venta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Estado" Type="int" />
+          <Property Name="Impuesto_Gravado_15%" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Impuesto_Gravado_18%" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ISV15%" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ISV18%" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Importe_Exento" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Importe_Exonerado" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Enero" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Febrero" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Marzo" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Abril" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Mayo" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Junio" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Julio" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Agosto" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Septiembre" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Octubre" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Noviembre" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Diciembre" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>
         <Association Name="FK_Compras_Compra$Es_Un$Productos_Producto">
           <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
           <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
@@ -309,6 +340,32 @@ FROM [dbo].[Imprimir_Facturas] AS [Imprimir_Facturas]</DefiningQuery>
 [Vista1].[Proveedor] AS [Proveedor]
 FROM [dbo].[Vista1] AS [Vista1]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VistaVentasPorMes" EntityType="Self.VistaVentasPorMes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VistaVentasPorMes].[IdVenta] AS [IdVenta], 
+[VistaVentasPorMes].[Fecha_Venta] AS [Fecha_Venta], 
+[VistaVentasPorMes].[Total_Venta] AS [Total_Venta], 
+[VistaVentasPorMes].[Estado] AS [Estado], 
+[VistaVentasPorMes].[Impuesto_Gravado_15%] AS [Impuesto_Gravado_15%], 
+[VistaVentasPorMes].[Impuesto_Gravado_18%] AS [Impuesto_Gravado_18%], 
+[VistaVentasPorMes].[ISV15%] AS [ISV15%], 
+[VistaVentasPorMes].[ISV18%] AS [ISV18%], 
+[VistaVentasPorMes].[Importe_Exento] AS [Importe_Exento], 
+[VistaVentasPorMes].[Importe_Exonerado] AS [Importe_Exonerado], 
+[VistaVentasPorMes].[Enero] AS [Enero], 
+[VistaVentasPorMes].[Febrero] AS [Febrero], 
+[VistaVentasPorMes].[Marzo] AS [Marzo], 
+[VistaVentasPorMes].[Abril] AS [Abril], 
+[VistaVentasPorMes].[Mayo] AS [Mayo], 
+[VistaVentasPorMes].[Junio] AS [Junio], 
+[VistaVentasPorMes].[Julio] AS [Julio], 
+[VistaVentasPorMes].[Agosto] AS [Agosto], 
+[VistaVentasPorMes].[Septiembre] AS [Septiembre], 
+[VistaVentasPorMes].[Octubre] AS [Octubre], 
+[VistaVentasPorMes].[Noviembre] AS [Noviembre], 
+[VistaVentasPorMes].[Diciembre] AS [Diciembre]
+FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Compras_Compra$Es_Un$Productos_Producto" Association="Self.FK_Compras_Compra$Es_Un$Productos_Producto">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="Compra" EntitySet="Compra" />
@@ -414,6 +471,7 @@ FROM [dbo].[Vista1] AS [Vista1]</DefiningQuery>
             <End Role="Estado" EntitySet="Estado" />
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
+          <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -667,6 +725,35 @@ FROM [dbo].[Vista1] AS [Vista1]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VistaVentasPorMes">
+          <Key>
+            <PropertyRef Name="IdVenta" />
+            <PropertyRef Name="Fecha_Venta" />
+            <PropertyRef Name="Total_Venta" />
+          </Key>
+          <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Total_Venta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Estado" Type="Int32" />
+          <Property Name="Impuesto_Gravado_15_" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Impuesto_Gravado_18_" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ISV15_" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ISV18_" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Importe_Exento" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Importe_Exonerado" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Enero" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Febrero" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Marzo" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Abril" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Mayo" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Junio" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Julio" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Agosto" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Septiembre" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Octubre" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Noviembre" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Diciembre" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -840,6 +927,34 @@ FROM [dbo].[Vista1] AS [Vista1]</DefiningQuery>
                 <ScalarProperty Name="Existencias" ColumnName="Existencias" />
                 <ScalarProperty Name="Producto" ColumnName="Producto" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaVentasPorMes">
+            <EntityTypeMapping TypeName="BPBModel.VistaVentasPorMes">
+              <MappingFragment StoreEntitySet="VistaVentasPorMes">
+                <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+                <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+                <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+                <ScalarProperty Name="Septiembre" ColumnName="Septiembre" />
+                <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+                <ScalarProperty Name="Julio" ColumnName="Julio" />
+                <ScalarProperty Name="Junio" ColumnName="Junio" />
+                <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+                <ScalarProperty Name="Abril" ColumnName="Abril" />
+                <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+                <ScalarProperty Name="Febrero" ColumnName="Febrero" />
+                <ScalarProperty Name="Enero" ColumnName="Enero" />
+                <ScalarProperty Name="Importe_Exonerado" ColumnName="Importe_Exonerado" />
+                <ScalarProperty Name="Importe_Exento" ColumnName="Importe_Exento" />
+                <ScalarProperty Name="ISV18_" ColumnName="ISV18%" />
+                <ScalarProperty Name="ISV15_" ColumnName="ISV15%" />
+                <ScalarProperty Name="Impuesto_Gravado_18_" ColumnName="Impuesto_Gravado_18%" />
+                <ScalarProperty Name="Impuesto_Gravado_15_" ColumnName="Impuesto_Gravado_15%" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
+                <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />
+                <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

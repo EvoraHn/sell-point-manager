@@ -36,6 +36,24 @@
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -131,8 +149,22 @@
     <Compile Include="Bases de datos\Vista1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Bases de datos\VistaVentasPorMes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BPBDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BPBDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Clases\almacen_de_datos.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Compras\Formulario_Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\Formulario_Compras.Designer.cs">
+      <DependentUpon>Formulario_Compras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +249,9 @@
     <Compile Include="Ventas\printDocument.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Compras\Formulario_Compras.resx">
+      <DependentUpon>Formulario_Compras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +305,17 @@
     <None Include="Bases de datos\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <None Include="BPBDataSet11.xsc">
+      <DependentUpon>BPBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="BPBDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BPBDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BPBDataSet11.xss">
+      <DependentUpon>BPBDataSet11.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -305,6 +351,23 @@
     <Content Include="Imagenes\orden1.png" />
     <Content Include="Imagenes\Producto1.png" />
     <Content Include="Imagenes\Venta1.png" />
+    <None Include="Punto_de_venta.Bases_de_datos.BPBEntities1.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Categoria.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Compra.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.DetalleVentas.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Estado.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Estante.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Facturas.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Imprimir_Facturas.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Producto.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Proveedor.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.sp_helpdiagramdefinition_Result.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.sp_helpdiagrams_Result.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.sysdiagrams.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Usuario.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Venta.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.Vista1.datasource" />
+    <None Include="Punto_de_venta.Bases_de_datos.VistaVentasPorMes.datasource" />
     <None Include="Resources\61764.png" />
     <None Include="Resources\hogar.png" />
     <None Include="Resources\casa.png" />

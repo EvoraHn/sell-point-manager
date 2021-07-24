@@ -72,6 +72,7 @@
       <End Role="Estado" EntitySet="Estado" />
       <End Role="Venta" EntitySet="Venta" />
     </AssociationSet>
+    <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -325,4 +326,33 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="VistaVentasPorMes">
+    <Key>
+      <PropertyRef Name="IdVenta" />
+      <PropertyRef Name="Fecha_Venta" />
+      <PropertyRef Name="Total_Venta" />
+    </Key>
+    <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Total_Venta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Impuesto_Gravado_15_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Impuesto_Gravado_18_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ISV15_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ISV18_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exento" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exonerado" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Enero" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Febrero" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Marzo" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Abril" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Mayo" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Junio" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Julio" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agosto" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Septiembre" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Octubre" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Noviembre" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Diciembre" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
 </Schema>

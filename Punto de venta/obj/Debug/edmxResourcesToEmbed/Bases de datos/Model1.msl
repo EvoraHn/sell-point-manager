@@ -171,5 +171,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VistaVentasPorMes">
+      <EntityTypeMapping TypeName="BPBModel.VistaVentasPorMes">
+        <MappingFragment StoreEntitySet="VistaVentasPorMes">
+          <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+          <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+          <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+          <ScalarProperty Name="Septiembre" ColumnName="Septiembre" />
+          <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+          <ScalarProperty Name="Julio" ColumnName="Julio" />
+          <ScalarProperty Name="Junio" ColumnName="Junio" />
+          <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+          <ScalarProperty Name="Abril" ColumnName="Abril" />
+          <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+          <ScalarProperty Name="Febrero" ColumnName="Febrero" />
+          <ScalarProperty Name="Enero" ColumnName="Enero" />
+          <ScalarProperty Name="Importe_Exonerado" ColumnName="Importe_Exonerado" />
+          <ScalarProperty Name="Importe_Exento" ColumnName="Importe_Exento" />
+          <ScalarProperty Name="ISV18_" ColumnName="ISV18%" />
+          <ScalarProperty Name="ISV15_" ColumnName="ISV15%" />
+          <ScalarProperty Name="Impuesto_Gravado_18_" ColumnName="Impuesto_Gravado_18%" />
+          <ScalarProperty Name="Impuesto_Gravado_15_" ColumnName="Impuesto_Gravado_15%" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
+          <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />
+          <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
