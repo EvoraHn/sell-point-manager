@@ -186,12 +186,6 @@
           <ScalarProperty Name="Marzo" ColumnName="Marzo" />
           <ScalarProperty Name="Febrero" ColumnName="Febrero" />
           <ScalarProperty Name="Enero" ColumnName="Enero" />
-          <ScalarProperty Name="Importe_Exonerado" ColumnName="Importe_Exonerado" />
-          <ScalarProperty Name="Importe_Exento" ColumnName="Importe_Exento" />
-          <ScalarProperty Name="ISV18_" ColumnName="ISV18%" />
-          <ScalarProperty Name="ISV15_" ColumnName="ISV15%" />
-          <ScalarProperty Name="Impuesto_Gravado_18_" ColumnName="Impuesto_Gravado_18%" />
-          <ScalarProperty Name="Impuesto_Gravado_15_" ColumnName="Impuesto_Gravado_15%" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
           <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />

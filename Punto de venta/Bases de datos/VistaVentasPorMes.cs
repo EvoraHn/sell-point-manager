@@ -26,18 +26,6 @@ public partial class VistaVentasPorMes
 
     public Nullable<int> Estado { get; set; }
 
-    public Nullable<decimal> Impuesto_Gravado_15_ { get; set; }
-
-    public Nullable<decimal> Impuesto_Gravado_18_ { get; set; }
-
-    public Nullable<decimal> ISV15_ { get; set; }
-
-    public Nullable<decimal> ISV18_ { get; set; }
-
-    public Nullable<decimal> Importe_Exento { get; set; }
-
-    public Nullable<decimal> Importe_Exonerado { get; set; }
-
     public Nullable<decimal> Enero { get; set; }
 
     public Nullable<decimal> Febrero { get; set; }

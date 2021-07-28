@@ -166,12 +166,6 @@ advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida
           <Property Name="Fecha_Venta" Type="datetime" Nullable="false" />
           <Property Name="Total_Venta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Estado" Type="int" />
-          <Property Name="Impuesto_Gravado_15%" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Impuesto_Gravado_18%" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="ISV15%" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="ISV18%" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Importe_Exento" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Importe_Exonerado" Type="decimal" Precision="10" Scale="2" />
           <Property Name="Enero" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Febrero" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Marzo" Type="decimal" Precision="38" Scale="2" />
@@ -346,12 +340,6 @@ FROM [dbo].[Vista1] AS [Vista1]</DefiningQuery>
 [VistaVentasPorMes].[Fecha_Venta] AS [Fecha_Venta], 
 [VistaVentasPorMes].[Total_Venta] AS [Total_Venta], 
 [VistaVentasPorMes].[Estado] AS [Estado], 
-[VistaVentasPorMes].[Impuesto_Gravado_15%] AS [Impuesto_Gravado_15%], 
-[VistaVentasPorMes].[Impuesto_Gravado_18%] AS [Impuesto_Gravado_18%], 
-[VistaVentasPorMes].[ISV15%] AS [ISV15%], 
-[VistaVentasPorMes].[ISV18%] AS [ISV18%], 
-[VistaVentasPorMes].[Importe_Exento] AS [Importe_Exento], 
-[VistaVentasPorMes].[Importe_Exonerado] AS [Importe_Exonerado], 
 [VistaVentasPorMes].[Enero] AS [Enero], 
 [VistaVentasPorMes].[Febrero] AS [Febrero], 
 [VistaVentasPorMes].[Marzo] AS [Marzo], 
@@ -735,12 +723,6 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
           <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Total_Venta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="Estado" Type="Int32" />
-          <Property Name="Impuesto_Gravado_15_" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Impuesto_Gravado_18_" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="ISV15_" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="ISV18_" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Importe_Exento" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Importe_Exonerado" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="Enero" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="Febrero" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="Marzo" Type="Decimal" Precision="38" Scale="2" />
@@ -945,12 +927,6 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
                 <ScalarProperty Name="Marzo" ColumnName="Marzo" />
                 <ScalarProperty Name="Febrero" ColumnName="Febrero" />
                 <ScalarProperty Name="Enero" ColumnName="Enero" />
-                <ScalarProperty Name="Importe_Exonerado" ColumnName="Importe_Exonerado" />
-                <ScalarProperty Name="Importe_Exento" ColumnName="Importe_Exento" />
-                <ScalarProperty Name="ISV18_" ColumnName="ISV18%" />
-                <ScalarProperty Name="ISV15_" ColumnName="ISV15%" />
-                <ScalarProperty Name="Impuesto_Gravado_18_" ColumnName="Impuesto_Gravado_18%" />
-                <ScalarProperty Name="Impuesto_Gravado_15_" ColumnName="Impuesto_Gravado_15%" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
                 <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />

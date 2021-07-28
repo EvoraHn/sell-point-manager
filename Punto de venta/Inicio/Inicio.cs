@@ -23,6 +23,7 @@ namespace Punto_de_venta.Inicio
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            linkLabel1.Links.Add(0, 0, "https://wa.me/qr/ZV523Y7QNQHCE1");
             Mostrar_datos();
             Reloj();
             cargarGrafico();
@@ -38,7 +39,7 @@ namespace Punto_de_venta.Inicio
                              where p.Existencias < 10
                              select new
                              {
-                                 p.Codigo,
+                                 //p.Codigo,
                                  p.Producto,
                                  p.Existencias
                                
@@ -63,7 +64,7 @@ namespace Punto_de_venta.Inicio
         {
             lblDía.Text = DateTime.Now.DayOfWeek.ToString();
             lblHora.Text = DateTime.Now.ToLongTimeString();
-            lblFechaCompleta.Text = DateTime.Now.Date.ToString();
+            lblFechaCompleta.Text = DateTime.Now.ToShortDateString();
             
         }
         private void cargarGrafico()
@@ -85,33 +86,45 @@ namespace Punto_de_venta.Inicio
                              p.Diciembre
 
                          };
-            double vars = Convert.ToDouble(tMeses.FirstOrDefault().Enero);
-            double[] puntos = { vars};
-            //double[] puntos = { 10,20 };
-            //var tMeses = from y in entity.VistaVentasPorMes
-            //             .GroupBy(x => x.IdVenta)
-            //             .Select(p => new
-            //             {
-            //                 IdVenta = p.FirstOrDefault().IdVenta,
-            //                 Enero = p.First().Enero
+            var tMeses1 = from p in entity.Producto
+                         select new
+                         {
+                             p.IdProducto,
+                             
 
-            //             });
-
-            //list.OrderBy(l => l.Id).GroupBy(l => new { GroupName = l.F1 }).Select(r => r.Key.GroupName)
-
-            string[] series = { "Enero","Febrero" };
-            //string[] series = { "Enero", "febrero", "Marzo", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
-            //int[] puntos = { 23, 10, 70 };
-            //double[] puntos = { Convert.ToDouble(tMeses) };
-            ctMeses.Titles.Add("Ventas Por Mes");
+                         };
+            double Enero = Convert.ToDouble(tMeses.FirstOrDefault().Enero);
+            double Febrero = Convert.ToDouble(tMeses.FirstOrDefault().Febrero);
+            double Marzo = Convert.ToDouble(tMeses.FirstOrDefault().Marzo);
+            double Abril = Convert.ToDouble(tMeses.FirstOrDefault().Abril);
+            double Mayo = Convert.ToDouble(tMeses.FirstOrDefault().Mayo);
+            double Junio = Convert.ToDouble(tMeses.FirstOrDefault().Junio);
+            double Julio = Convert.ToDouble(tMeses.FirstOrDefault().Julio);
+            double Agosto = Convert.ToDouble(tMeses.FirstOrDefault().Agosto);
+            double Septiembre = Convert.ToDouble(tMeses.FirstOrDefault().Septiembre);
+            double Octubre = Convert.ToDouble(tMeses.FirstOrDefault().Octubre);
+            double Noviembre = Convert.ToDouble(tMeses.FirstOrDefault().Noviembre);
+            double Diciembre = Convert.ToDouble(tMeses.FirstOrDefault().Diciembre);
+            double[] puntos = { Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre};
+            
+            string[] series = { "Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+            
+            ctMeses.Titles.Add("Ventas Por mes en este año");
             for (int i = 0; i < series.Length; i++)
             {
                 //titulos
                 Series serie = ctMeses.Series.Add(series[i]);
+
                 // cantidades 
+                //serie.Label = "L "+ puntos[i].ToString();
                 serie.Label = puntos[i].ToString();
                 serie.Points.Add(puntos[i]);
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
     }
 }
