@@ -31,6 +31,7 @@ namespace Punto_de_venta.Menú
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_estilo_1));
             this.panelBotones = new System.Windows.Forms.Panel();
+            this.btnComprar = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -47,6 +48,7 @@ namespace Punto_de_venta.Menú
             this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(180)))));
+            this.panelBotones.Controls.Add(this.btnComprar);
             this.panelBotones.Controls.Add(this.btnVentas);
             this.panelBotones.Controls.Add(this.btnInventario);
             this.panelBotones.Controls.Add(this.logo);
@@ -54,6 +56,23 @@ namespace Punto_de_venta.Menú
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(280, 1087);
             this.panelBotones.TabIndex = 7;
+            // 
+            // btnComprar
+            // 
+            this.btnComprar.BackColor = System.Drawing.Color.Transparent;
+            this.btnComprar.BackgroundImage = global::Punto_de_venta.Properties.Resources.Compras1;
+            this.btnComprar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnComprar.FlatAppearance.BorderSize = 0;
+            this.btnComprar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnComprar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprar.Location = new System.Drawing.Point(0, 382);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(253, 93);
+            this.btnComprar.TabIndex = 3;
+            this.btnComprar.UseVisualStyleBackColor = false;
+            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
             // btnVentas
             // 
@@ -65,7 +84,7 @@ namespace Punto_de_venta.Menú
             this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVentas.Location = new System.Drawing.Point(0, 382);
+            this.btnVentas.Location = new System.Drawing.Point(3, 481);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(253, 93);
             this.btnVentas.TabIndex = 3;
@@ -154,6 +173,7 @@ namespace Punto_de_venta.Menú
             this.Name = "Menu_estilo_1";
             this.Text = "Sistema de Inventario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Menu_estilo_1_Load);
             this.panelBotones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panelMenu.ResumeLayout(false);
@@ -170,5 +190,6 @@ namespace Punto_de_venta.Menú
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Button btnComprar;
     }
 }

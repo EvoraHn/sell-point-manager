@@ -55,7 +55,7 @@ namespace Punto_de_venta.Compras
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel2.Controls.Add(this.btnCerrar);
@@ -102,7 +102,7 @@ namespace Punto_de_venta.Compras
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(99, 14);
+            this.label9.Location = new System.Drawing.Point(107, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(469, 29);
             this.label9.TabIndex = 30;
@@ -132,17 +132,17 @@ namespace Punto_de_venta.Compras
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.Gray;
-            this.btnNuevo.Location = new System.Drawing.Point(358, 993);
+            this.btnNuevo.Location = new System.Drawing.Point(91, 953);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(140, 35);
+            this.btnNuevo.Size = new System.Drawing.Size(318, 34);
             this.btnNuevo.TabIndex = 24;
-            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.Text = "Agregar producto";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Visible = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnComprar
             // 
-            this.btnComprar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnComprar.BackColor = System.Drawing.Color.White;
             this.btnComprar.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnComprar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -150,9 +150,9 @@ namespace Punto_de_venta.Compras
             this.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComprar.ForeColor = System.Drawing.Color.Gray;
-            this.btnComprar.Location = new System.Drawing.Point(29, 993);
+            this.btnComprar.Location = new System.Drawing.Point(358, 555);
             this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(140, 35);
+            this.btnComprar.Size = new System.Drawing.Size(140, 34);
             this.btnComprar.TabIndex = 24;
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = false;
@@ -164,8 +164,8 @@ namespace Punto_de_venta.Compras
             this.dgDatos.AllowUserToOrderColumns = true;
             this.dgDatos.AllowUserToResizeColumns = false;
             this.dgDatos.AllowUserToResizeRows = false;
-            this.dgDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgDatos.BackgroundColor = System.Drawing.Color.White;
@@ -228,7 +228,7 @@ namespace Punto_de_venta.Compras
             this.txtCantidad.ForeColor = System.Drawing.Color.Gray;
             this.txtCantidad.Location = new System.Drawing.Point(27, 555);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(224, 34);
+            this.txtCantidad.Size = new System.Drawing.Size(307, 34);
             this.txtCantidad.TabIndex = 3;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
@@ -276,9 +276,9 @@ namespace Punto_de_venta.Compras
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Gray;
-            this.btnCancelar.Location = new System.Drawing.Point(194, 993);
+            this.btnCancelar.Location = new System.Drawing.Point(27, 993);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(140, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(471, 34);
             this.btnCancelar.TabIndex = 31;
             this.btnCancelar.Text = "Cancelar ";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -286,8 +286,8 @@ namespace Punto_de_venta.Compras
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnCancelar);

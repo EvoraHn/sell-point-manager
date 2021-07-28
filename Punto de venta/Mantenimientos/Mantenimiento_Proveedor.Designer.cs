@@ -32,7 +32,6 @@ namespace Punto_de_venta.Mantenimientos
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@ namespace Punto_de_venta.Mantenimientos
             this.btnEnviar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.logo = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,6 +53,8 @@ namespace Punto_de_venta.Mantenimientos
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtcelular = new System.Windows.Forms.TextBox();
             this.txtEmpresa = new System.Windows.Forms.TextBox();
+            this.logo = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -75,24 +75,6 @@ namespace Punto_de_venta.Mantenimientos
             this.panel2.Size = new System.Drawing.Size(1655, 59);
             this.panel2.TabIndex = 33;
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BackgroundImage = global::Punto_de_venta.Properties.Resources.casa__1_;
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(16, 6);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(51, 46);
-            this.btnCerrar.TabIndex = 9;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -110,7 +92,7 @@ namespace Punto_de_venta.Mantenimientos
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(99, 14);
+            this.label9.Location = new System.Drawing.Point(107, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(350, 29);
             this.label9.TabIndex = 30;
@@ -317,17 +299,6 @@ namespace Punto_de_venta.Mantenimientos
             this.panel1.Size = new System.Drawing.Size(1655, 1042);
             this.panel1.TabIndex = 7;
             // 
-            // logo
-            // 
-            this.logo.BackgroundImage = global::Punto_de_venta.Properties.Resources.orden;
-            this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo.InitialImage = global::Punto_de_venta.Properties.Resources.Producto1;
-            this.logo.Location = new System.Drawing.Point(112, 72);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(297, 291);
-            this.logo.TabIndex = 17;
-            this.logo.TabStop = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -412,6 +383,35 @@ namespace Punto_de_venta.Mantenimientos
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(471, 34);
             this.txtEmpresa.TabIndex = 4;
+            // 
+            // logo
+            // 
+            this.logo.BackgroundImage = global::Punto_de_venta.Properties.Resources.orden;
+            this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo.InitialImage = global::Punto_de_venta.Properties.Resources.Producto1;
+            this.logo.Location = new System.Drawing.Point(112, 72);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(297, 291);
+            this.logo.TabIndex = 17;
+            this.logo.TabStop = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.BackgroundImage = global::Punto_de_venta.Properties.Resources.casa__1_;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(16, 6);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(51, 46);
+            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // Mantenimiento_Proveedor
             // 

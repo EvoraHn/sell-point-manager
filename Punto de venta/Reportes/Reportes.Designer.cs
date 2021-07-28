@@ -1,7 +1,7 @@
 ﻿
 namespace Punto_de_venta.Reportes
 {
-    partial class Tesrts
+    partial class Reportes
     {
         /// <summary>
         /// Required designer variable.
@@ -30,22 +30,20 @@ namespace Punto_de_venta.Reportes
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.BPBDataSet1 = new Punto_de_venta.BPBDataSet1();
-            this.productoTableAdapter = new Punto_de_venta.BPBDataSet1TableAdapters.ProductoTableAdapter();
-            this.ProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.BPBDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductoBindingSource)).BeginInit();
+            this.PruebaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Punto_de_venta.Reportes.DataSet1();
+            this.productoTableAdapter = new Punto_de_venta.Reportes.DataSet1TableAdapters.ProductoTableAdapter();
+            this.Vista1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.PruebaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Vista1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "TSRTS";
-            reportDataSource1.Value = this.ProductoBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Punto_de_venta.Reportes.Report3.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Punto_de_venta.Reportes.prueba.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
@@ -53,31 +51,37 @@ namespace Punto_de_venta.Reportes
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // BPBDataSet1
+            // PruebaBindingSource
             // 
-            this.BPBDataSet1.DataSetName = "BPBDataSet1";
-            this.BPBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.PruebaBindingSource.DataMember = "Producto";
+            this.PruebaBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // productoTableAdapter
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
             // 
-            // ProductoBindingSource
+            // Vista1BindingSource
             // 
-            this.ProductoBindingSource.DataMember = "Producto";
-            this.ProductoBindingSource.DataSource = this.BPBDataSet1;
+            this.Vista1BindingSource.DataMember = "Producto";
+            this.Vista1BindingSource.DataSource = this.dataSet1;
             // 
-            // Tesrts
+            // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "Tesrts";
-            this.Text = "Tesrts";
-            this.Load += new System.EventHandler(this.Tesrts_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.BPBDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductoBindingSource)).EndInit();
+            this.Name = "Reportes";
+            this.Text = "Reportes";
+            this.Load += new System.EventHandler(this.Reportes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PruebaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Vista1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -85,8 +89,10 @@ namespace Punto_de_venta.Reportes
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private BPBDataSet1 BPBDataSet1;
-        private BPBDataSet1TableAdapters.ProductoTableAdapter productoTableAdapter;
-        private System.Windows.Forms.BindingSource ProductoBindingSource;
+        private System.Windows.Forms.BindingSource PruebaBindingSource;
+        private DataSet1 dataSet1;
+        private DataSet1TableAdapters.ProductoTableAdapter productoTableAdapter;
+        private System.Windows.Forms.BindingSource Vista1BindingSource;
+        // private BPBDataSet1 bpbDataSet11;
     }
 }

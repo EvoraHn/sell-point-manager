@@ -210,6 +210,6 @@ namespace Punto_de_venta.Mantenimientos
             }
         }
 
-        
+      
     }
 }

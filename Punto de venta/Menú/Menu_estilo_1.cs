@@ -14,16 +14,14 @@ namespace Punto_de_venta.Menú
     {
         public Menu_estilo_1()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
             abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos());
-
-     
         }
-        private void abrirFormularioHijo(object formHijo)
+        public void abrirFormularioHijo(object formHijo)
         {
             if (this.panelPrincipal.Controls.Count > 0)
                 this.panelPrincipal.Controls.RemoveAt(0);
@@ -32,19 +30,8 @@ namespace Punto_de_venta.Menú
                 fh.Dock = DockStyle.Fill;
                 this.panelPrincipal.Controls.Add(fh);
                 this.panelPrincipal.Tag = fh;
-                fh.Show();
-            
-
-               
+                fh.Show(); 
         }
-
-       
-
-        private void cerrarXToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -53,6 +40,7 @@ namespace Punto_de_venta.Menú
 
         private void logo_Click(object sender, EventArgs e)
         {
+            abrirFormularioHijo(new Punto_de_venta.Inicio.Inicio());
             //if (panelBotones.Width == 273)
             //{
             //    panelBotones.Width = 100;
@@ -69,6 +57,16 @@ namespace Punto_de_venta.Menú
         private void btnVentas_Click(object sender, EventArgs e)
         {
             abrirFormularioHijo(new Punto_de_venta.Ventas.Formulario_Ventas());
+        }
+
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new Punto_de_venta.Compras.Formulario_Compras());
+        }
+
+        private void Menu_estilo_1_Load(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new Punto_de_venta.Inicio.Inicio());
         }
     }
 }

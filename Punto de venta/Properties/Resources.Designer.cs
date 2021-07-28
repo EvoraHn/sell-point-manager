@@ -113,6 +113,16 @@ namespace Punto_de_venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Compras1 {
+            get {
+                object obj = ResourceManager.GetObject("Compras1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hogar {
             get {
                 object obj = ResourceManager.GetObject("hogar", resourceCulture);
@@ -153,6 +163,16 @@ namespace Punto_de_venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap jerarquia {
+            get {
+                object obj = ResourceManager.GetObject("jerarquia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lista_de_verificacion {
             get {
                 object obj = ResourceManager.GetObject("lista-de-verificacion", resourceCulture);
@@ -166,6 +186,26 @@ namespace Punto_de_venta.Properties {
         internal static System.Drawing.Bitmap LOGO_3 {
             get {
                 object obj = ResourceManager.GetObject("LOGO 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mediano {
+            get {
+                object obj = ResourceManager.GetObject("mediano", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mediano1 {
+            get {
+                object obj = ResourceManager.GetObject("mediano1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +253,59 @@ namespace Punto_de_venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap panel_grande {
+            get {
+                object obj = ResourceManager.GetObject("panel grande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap panel_grande1 {
+            get {
+                object obj = ResourceManager.GetObject("panel grande1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pequeño_alargado {
+            get {
+                object obj = ResourceManager.GetObject("pequeño alargado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pequeño_alargado1 {
+            get {
+                object obj = ResourceManager.GetObject("pequeño alargado1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Producto1 {
             get {
                 object obj = ResourceManager.GetObject("Producto1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap valores {
+            get {
+                object obj = ResourceManager.GetObject("valores", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

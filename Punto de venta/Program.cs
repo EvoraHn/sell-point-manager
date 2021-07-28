@@ -18,7 +18,7 @@ namespace Punto_de_venta
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Punto_de_venta.Menú.Menu_estilo_1());
-            //Application.Run(new Punto_de_venta.Informes.Formulario_Reportes());
+            //Application.Run(new Punto_de_venta.Reportes.Reportes());
             //Application.Run(new Punto_de_venta.Inicio.Login());
             //Application.Run(new Punto_de_venta.Mantenimientos.Mantenimiento_Estantes());
         }

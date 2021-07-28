@@ -36,13 +36,13 @@ namespace Punto_de_venta.Ventas
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnSoloGuardar = new System.Windows.Forms.Button();
             this.BtnNuevaFactura = new System.Windows.Forms.Button();
             this.lblFactura = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEstante = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnQuitarTodo = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -78,6 +78,7 @@ namespace Punto_de_venta.Ventas
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -126,54 +127,36 @@ namespace Punto_de_venta.Ventas
             this.btnCerrar.Size = new System.Drawing.Size(51, 46);
             this.btnCerrar.TabIndex = 34;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(86, 18);
+            this.label9.Location = new System.Drawing.Point(114, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(224, 29);
             this.label9.TabIndex = 30;
             this.label9.Text = "Vender un producto";
             // 
-            // btnGuardar
+            // btnSoloGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGuardar.BackColor = System.Drawing.Color.White;
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.Gray;
-            this.btnGuardar.Location = new System.Drawing.Point(1026, 989);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(194, 35);
-            this.btnGuardar.TabIndex = 24;
-            this.btnGuardar.Text = "Sólo guardar ";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImprimir.BackColor = System.Drawing.Color.White;
-            this.btnImprimir.BackgroundImage = global::Punto_de_venta.Properties.Resources._61764;
-            this.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.Gray;
-            this.btnImprimir.Location = new System.Drawing.Point(1583, 983);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(59, 45);
-            this.btnImprimir.TabIndex = 24;
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnSoloGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSoloGuardar.BackColor = System.Drawing.Color.White;
+            this.btnSoloGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnSoloGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSoloGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSoloGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSoloGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSoloGuardar.ForeColor = System.Drawing.Color.Gray;
+            this.btnSoloGuardar.Location = new System.Drawing.Point(1026, 989);
+            this.btnSoloGuardar.Name = "btnSoloGuardar";
+            this.btnSoloGuardar.Size = new System.Drawing.Size(194, 35);
+            this.btnSoloGuardar.TabIndex = 24;
+            this.btnSoloGuardar.Text = "Sólo guardar ";
+            this.btnSoloGuardar.UseVisualStyleBackColor = false;
+            this.btnSoloGuardar.Click += new System.EventHandler(this.btnSoloGuardar_Click);
             // 
             // BtnNuevaFactura
             // 
@@ -189,7 +172,7 @@ namespace Punto_de_venta.Ventas
             this.BtnNuevaFactura.Name = "BtnNuevaFactura";
             this.BtnNuevaFactura.Size = new System.Drawing.Size(156, 35);
             this.BtnNuevaFactura.TabIndex = 24;
-            this.BtnNuevaFactura.Text = "Nueva Factura";
+            this.BtnNuevaFactura.Text = "Nueva factura";
             this.BtnNuevaFactura.UseVisualStyleBackColor = false;
             this.BtnNuevaFactura.Click += new System.EventHandler(this.BtnNuevaFactura_Click);
             // 
@@ -223,7 +206,8 @@ namespace Punto_de_venta.Ventas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnEstante);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnQuitarTodo);
             this.panel1.Controls.Add(this.logo);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label16);
@@ -259,7 +243,7 @@ namespace Punto_de_venta.Ventas
             this.panel1.Controls.Add(this.btnQuitar);
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.btnImprimir);
-            this.panel1.Controls.Add(this.btnGuardar);
+            this.panel1.Controls.Add(this.btnSoloGuardar);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -269,29 +253,49 @@ namespace Punto_de_venta.Ventas
             this.panel1.Size = new System.Drawing.Size(1657, 1041);
             this.panel1.TabIndex = 0;
             // 
-            // btnEstante
+            // button1
             // 
-            this.btnEstante.BackColor = System.Drawing.Color.White;
-            this.btnEstante.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnEstante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnEstante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(220)))), ((int)(((byte)(244)))));
-            this.btnEstante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstante.Location = new System.Drawing.Point(558, 294);
-            this.btnEstante.Name = "btnEstante";
-            this.btnEstante.Size = new System.Drawing.Size(40, 34);
-            this.btnEstante.TabIndex = 28;
-            this.btnEstante.Text = "▪▪▪";
-            this.btnEstante.UseVisualStyleBackColor = false;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(235)))), ((int)(((byte)(214)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Gray;
+            this.button1.Location = new System.Drawing.Point(1388, 988);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 35);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Cotización";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnQuitarTodo
+            // 
+            this.btnQuitarTodo.BackColor = System.Drawing.Color.White;
+            this.btnQuitarTodo.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnQuitarTodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnQuitarTodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnQuitarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarTodo.ForeColor = System.Drawing.Color.Gray;
+            this.btnQuitarTodo.Location = new System.Drawing.Point(908, 535);
+            this.btnQuitarTodo.Name = "btnQuitarTodo";
+            this.btnQuitarTodo.Size = new System.Drawing.Size(112, 77);
+            this.btnQuitarTodo.TabIndex = 34;
+            this.btnQuitarTodo.Text = "Quitar todo";
+            this.btnQuitarTodo.UseVisualStyleBackColor = false;
+            this.btnQuitarTodo.Click += new System.EventHandler(this.btnQuitarTodo_Click);
             // 
             // logo
             // 
-            this.logo.BackgroundImage = global::Punto_de_venta.Properties.Resources.moneda;
+            this.logo.BackgroundImage = global::Punto_de_venta.Properties.Resources.carrito_de_compras;
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logo.InitialImage = global::Punto_de_venta.Properties.Resources.Producto1;
-            this.logo.Location = new System.Drawing.Point(8, 72);
+            this.logo.Location = new System.Drawing.Point(9, 92);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(297, 320);
+            this.logo.Size = new System.Drawing.Size(297, 283);
             this.logo.TabIndex = 17;
             this.logo.TabStop = false;
             // 
@@ -543,7 +547,7 @@ namespace Punto_de_venta.Ventas
             this.txtImporteExento.ForeColor = System.Drawing.Color.Gray;
             this.txtImporteExento.Location = new System.Drawing.Point(316, 294);
             this.txtImporteExento.Name = "txtImporteExento";
-            this.txtImporteExento.Size = new System.Drawing.Size(236, 34);
+            this.txtImporteExento.Size = new System.Drawing.Size(282, 34);
             this.txtImporteExento.TabIndex = 1;
             this.txtImporteExento.Text = "0";
             // 
@@ -674,7 +678,7 @@ namespace Punto_de_venta.Ventas
             this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitar.ForeColor = System.Drawing.Color.Gray;
-            this.btnQuitar.Location = new System.Drawing.Point(908, 540);
+            this.btnQuitar.Location = new System.Drawing.Point(908, 494);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(112, 35);
             this.btnQuitar.TabIndex = 24;
@@ -691,13 +695,33 @@ namespace Punto_de_venta.Ventas
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Gray;
-            this.btnAgregar.Location = new System.Drawing.Point(908, 499);
+            this.btnAgregar.Location = new System.Drawing.Point(908, 453);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(112, 35);
             this.btnAgregar.TabIndex = 24;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImprimir.BackColor = System.Drawing.Color.White;
+            this.btnImprimir.BackgroundImage = global::Punto_de_venta.Properties.Resources._61764;
+            this.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.Gray;
+            this.btnImprimir.Location = new System.Drawing.Point(1583, 983);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(59, 45);
+            this.btnImprimir.TabIndex = 24;
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // panel3
             // 
@@ -896,13 +920,12 @@ namespace Punto_de_venta.Ventas
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnSoloGuardar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button BtnNuevaFactura;
         private System.Windows.Forms.Label lblFactura;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnEstante;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label16;
@@ -950,5 +973,7 @@ namespace Punto_de_venta.Ventas
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.Button btnQuitarTodo;
+        private System.Windows.Forms.Button button1;
     }
 }

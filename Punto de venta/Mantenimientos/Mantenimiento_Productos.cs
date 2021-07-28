@@ -92,7 +92,8 @@ namespace Punto_de_venta.Mantenimientos
                                  p.Proveedor,
                                  p.Producto,
                                  p.Precio,
-                                 p.Costo
+                                 p.Costo,
+                                 p.Existencias
                              };
             this.mifiltro = (tProductos.CopyAnonymusToDataTable()).DefaultView;
             this.dgProductos.DataSource = mifiltro;

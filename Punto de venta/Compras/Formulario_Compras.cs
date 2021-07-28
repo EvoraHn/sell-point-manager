@@ -137,6 +137,10 @@ namespace Punto_de_venta.Compras
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
+            //Punto_de_venta.Menú.Menu_estilo_1 frm = new Punto_de_venta.Menú.Menu_estilo_1();
+            //frm.abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos());
+            //this.Dispose();
+            //abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos());
         }
     }
 }
