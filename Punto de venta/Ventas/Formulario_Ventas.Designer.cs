@@ -29,6 +29,7 @@ namespace Punto_de_venta.Ventas
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formulario_Ventas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -114,7 +115,7 @@ namespace Punto_de_venta.Ventas
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BackgroundImage = global::Punto_de_venta.Properties.Resources.casa__1_;
+            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.WindowFrame;
@@ -292,7 +293,7 @@ namespace Punto_de_venta.Ventas
             // 
             this.logo.BackgroundImage = global::Punto_de_venta.Properties.Resources.carrito_de_compras;
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo.InitialImage = global::Punto_de_venta.Properties.Resources.Producto1;
+            this.logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("logo.InitialImage")));
             this.logo.Location = new System.Drawing.Point(9, 92);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(297, 283);
@@ -481,6 +482,7 @@ namespace Punto_de_venta.Ventas
             this.txtISV18.ForeColor = System.Drawing.Color.Gray;
             this.txtISV18.Location = new System.Drawing.Point(908, 294);
             this.txtISV18.Name = "txtISV18";
+            this.txtISV18.ReadOnly = true;
             this.txtISV18.Size = new System.Drawing.Size(112, 34);
             this.txtISV18.TabIndex = 1;
             this.txtISV18.Text = "0";
@@ -492,6 +494,7 @@ namespace Punto_de_venta.Ventas
             this.txtISV15.ForeColor = System.Drawing.Color.Gray;
             this.txtISV15.Location = new System.Drawing.Point(908, 230);
             this.txtISV15.Name = "txtISV15";
+            this.txtISV15.ReadOnly = true;
             this.txtISV15.Size = new System.Drawing.Size(112, 34);
             this.txtISV15.TabIndex = 1;
             this.txtISV15.Text = "0";
@@ -503,6 +506,7 @@ namespace Punto_de_venta.Ventas
             this.txtIG18.ForeColor = System.Drawing.Color.Gray;
             this.txtIG18.Location = new System.Drawing.Point(604, 294);
             this.txtIG18.Name = "txtIG18";
+            this.txtIG18.ReadOnly = true;
             this.txtIG18.Size = new System.Drawing.Size(298, 34);
             this.txtIG18.TabIndex = 1;
             this.txtIG18.Text = "0";
@@ -514,6 +518,7 @@ namespace Punto_de_venta.Ventas
             this.txtIG15.ForeColor = System.Drawing.Color.Gray;
             this.txtIG15.Location = new System.Drawing.Point(604, 230);
             this.txtIG15.Name = "txtIG15";
+            this.txtIG15.ReadOnly = true;
             this.txtIG15.Size = new System.Drawing.Size(298, 34);
             this.txtIG15.TabIndex = 1;
             this.txtIG15.Text = "0";
@@ -525,6 +530,7 @@ namespace Punto_de_venta.Ventas
             this.txtTotal.ForeColor = System.Drawing.Color.Gray;
             this.txtTotal.Location = new System.Drawing.Point(604, 358);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(298, 34);
             this.txtTotal.TabIndex = 1;
             this.txtTotal.Text = "0";
@@ -536,6 +542,7 @@ namespace Punto_de_venta.Ventas
             this.txtSubtotal.ForeColor = System.Drawing.Color.Gray;
             this.txtSubtotal.Location = new System.Drawing.Point(316, 358);
             this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.ReadOnly = true;
             this.txtSubtotal.Size = new System.Drawing.Size(282, 34);
             this.txtSubtotal.TabIndex = 1;
             this.txtSubtotal.Text = "0";
@@ -547,6 +554,7 @@ namespace Punto_de_venta.Ventas
             this.txtImporteExento.ForeColor = System.Drawing.Color.Gray;
             this.txtImporteExento.Location = new System.Drawing.Point(316, 294);
             this.txtImporteExento.Name = "txtImporteExento";
+            this.txtImporteExento.ReadOnly = true;
             this.txtImporteExento.Size = new System.Drawing.Size(282, 34);
             this.txtImporteExento.TabIndex = 1;
             this.txtImporteExento.Text = "0";

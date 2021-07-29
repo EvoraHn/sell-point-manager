@@ -22,6 +22,8 @@ namespace Punto_de_venta.Ventas
         string id = "000000";
         int idDetalle = 0;
         bool editar = false;
+        bool errorV = false;
+        bool cotizacion = false;
         //tabla temporal
         DataTable dtTemporal = new DataTable();
         public Formulario_Ventas()
@@ -119,6 +121,7 @@ namespace Punto_de_venta.Ventas
             txtCantidad.Text = "1";
             lblFactura.Text = "00000";
             txtBuscar.Focus();
+            
         }
         
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -231,8 +234,8 @@ namespace Punto_de_venta.Ventas
             decimal exento = 0;
             decimal iG15 = 0;
             decimal iG18 = 0;
-            decimal descuento = Convert.ToInt32(txtDescuentos.Text);
-            decimal exonerado = Convert.ToInt32(txtImporteExonerado.Text);
+            decimal descuento = txtDescuentos.Text == " " ? 0 : Convert.ToInt32(txtDescuentos.Text);
+            decimal exonerado = txtImporteExonerado.Text == " " ? 0 : Convert.ToInt32(txtImporteExonerado.Text);
             try
             {
                 foreach (DataGridViewRow dr in dgFactura.Rows)
@@ -279,6 +282,44 @@ namespace Punto_de_venta.Ventas
             {
                 MessageBox.Show("Error al agregar factura",
                 "Contacte con el administrador", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+        }
+
+        private void verificarIntegridad()
+        {
+            double descuento = txtDescuentos.Text == " " ? 0 : Convert.ToDouble(txtDescuentos.Text);
+            double total = txtTotal.Text == " " ? 0 : Convert.ToDouble(txtTotal.Text);
+            double exonerado = txtImporteExonerado.Text == " " ? 0 : Convert.ToDouble(txtImporteExonerado.Text);
+            if ((descuento + exonerado) > total)
+            {
+                MessageBox.Show("los descuentos y Exonerados no pueden ser mayores al total",
+                "Error al imprimir factura", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                 errorV = true; return;
+            }
+            else
+            {
+
+                if (dgFactura.SelectedRows.Count <= 0)
+                {
+                    MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
+                    "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                }
+                else
+                {
+                    if (lblFactura.Text == "00000")
+                    {
+                        errorV = false;
+                        cotizacion = false;
+                        AgregarVenta();
+                        Thread.Sleep(100);
+                        AgregarDetalleDeVenta();
+                        Thread.Sleep(100);
+                        DisminuirInventario();
+                        MessageBox.Show("¡Venta guardada correctamente!",
+                        "¡Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        
+                    }
+                }
             }
         }
         private void AgregarVenta()
@@ -339,34 +380,44 @@ namespace Punto_de_venta.Ventas
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            
-            if (dgFactura.SelectedRows.Count <= 0)
+            verificarIntegridad();
+            if (errorV)
             {
-                MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
-                "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                return;
             }
             else
             {
-                if (lblFactura.Text == "00000")
-                {
-                    AgregarVenta();
-                    Thread.Sleep(100);
-                    AgregarDetalleDeVenta();
-                    Thread.Sleep(100);
-                    DisminuirInventario();
-                    //imprimirFactura();
-                }
-                else
-                {
-                    //AgregarDetalleDeVenta();
-                    //Thread.Sleep(100);
-                    //DisminuirInventario();
-                    //imprimirFactura();
-                }
                 imprimirFactura();
                 LimpiarTodo();
-
             }
+            
+            //if (dgFactura.SelectedRows.Count <= 0)
+            //{
+            //    MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
+            //    "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            //}
+            //else
+            //{
+            //    if (lblFactura.Text == "00000")
+            //    {
+            //        AgregarVenta();
+            //        Thread.Sleep(100);
+            //        AgregarDetalleDeVenta();
+            //        Thread.Sleep(100);
+            //        DisminuirInventario();
+            //        //imprimirFactura();
+            //    }
+            //    else
+            //    {
+            //        //AgregarDetalleDeVenta();
+            //        //Thread.Sleep(100);
+            //        //DisminuirInventario();
+            //        //imprimirFactura();
+            //    }
+            //    imprimirFactura();
+            //    LimpiarTodo();
+
+            //}
                 
         }
 
@@ -419,16 +470,26 @@ namespace Punto_de_venta.Ventas
             e.Graphics.DrawImage(myPng, new RectangleF(25, y += 10, 100, 100));
 
             //----------------------- Encabezado de Factura ----------------------------------------------------
-            e.Graphics.DrawString("--- Punto de Venta ---", font, Brushes.Black, new RectangleF(0, y += 100, ancho, 20), stringFormat);
+            if (cotizacion)
+            {
+            e.Graphics.DrawString("--- Cotización ---", font, Brushes.Black, new RectangleF(0, y += 100, ancho, 20), stringFormat);
             e.Graphics.DrawString("" + DateTime.Now + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), stringFormat);
-            e.Graphics.DrawString("CAI: #" + txtCAI.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 40), stringFormatLeft);
-            e.Graphics.DrawString("Fecha Límite: " + txtFechaLimite.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
-            e.Graphics.DrawString("Factura: #"+ lblFactura.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
-            e.Graphics.DrawString("Cliente: " + txtCliente.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
-            e.Graphics.DrawString("RTN: " + txtRTN.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), stringFormatLeft);
-            e.Graphics.DrawString("------ Productos ------", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormat);
-           
+
+            }
+            else
+            {
+                e.Graphics.DrawString("--- Punto de Venta ---", font, Brushes.Black, new RectangleF(0, y += 100, ancho, 20), stringFormat);
+                e.Graphics.DrawString("" + DateTime.Now + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), stringFormat);
+                e.Graphics.DrawString("CAI: " + txtCAI.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 40), stringFormatLeft);
+                e.Graphics.DrawString("Fecha Límite: " + txtFechaLimite.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+                e.Graphics.DrawString("Factura: #" + lblFactura.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
+                e.Graphics.DrawString("Cliente: " + txtCliente.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormatLeft);
+                e.Graphics.DrawString("RTN: " + txtRTN.Text + " ", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20), stringFormatLeft);
+
+            }
+
             //---------------------------- Productos -----------------------------------------------------------
+            e.Graphics.DrawString("------ Productos ------", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 20), stringFormat);
             foreach (DataGridViewRow row in dgFactura.Rows)
             {
                 e.Graphics.DrawString(row.Cells[1].Value.ToString() + " " , font, Brushes.Black, new RectangleF(0, y += 20, ancho, 80), stringFormatLeft);
@@ -437,14 +498,15 @@ namespace Punto_de_venta.Ventas
             }
             //-------------------------- Pie de Factura --------------------------------------------------------
             e.Graphics.DrawString("Subtotal: " + txtSubtotal.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
-            e.Graphics.DrawString("Importe Exento: " + txtImporteExento.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("Importe Exonerado: " + txtImporteExonerado.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Descuento: " + txtDescuentos.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+            e.Graphics.DrawString("Importe Exento: " + txtImporteExento.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("Importe Grabado 18%: " + txtIG18.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("I.S.V 18%: " + txtISV18.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("Importe Grabado 15%: " + txtIG15.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("I.S.V 15%: " + txtISV15.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
-            e.Graphics.DrawString("Total: " + txtTotal.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
-
+            e.Graphics.DrawString("Total: " + (Convert.ToDecimal(txtTotal.Text)- Convert.ToDecimal(txtDescuentos.Text)- Convert.ToDecimal(txtImporteExonerado.Text)).ToString() + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
+         
 
         }
 
@@ -518,27 +580,35 @@ namespace Punto_de_venta.Ventas
 
         private void btnSoloGuardar_Click(object sender, EventArgs e)
         {
-
-            if (dgFactura.SelectedRows.Count <= 0)
+            verificarIntegridad();
+            if (errorV)
             {
-                MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
-                "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                return;
             }
             else
             {
-                if (lblFactura.Text == "00000")
-                {
-                    AgregarVenta();
-                    Thread.Sleep(100);
-                    AgregarDetalleDeVenta();
-                    Thread.Sleep(100);
-                    DisminuirInventario();
-                    MessageBox.Show("¡Venta guardada correctamente!",
-                    "¡Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    LimpiarTodo();
-                }
-                
+                LimpiarTodo();
             }
+            //if (dgFactura.SelectedRows.Count <= 0)
+            //{
+            //    MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
+            //    "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            //}
+            //else
+            //{
+            //    if (lblFactura.Text == "00000")
+            //    {
+            //        AgregarVenta();
+            //        Thread.Sleep(100);
+            //        AgregarDetalleDeVenta();
+            //        Thread.Sleep(100);
+            //        DisminuirInventario();
+            //        MessageBox.Show("¡Venta guardada correctamente!",
+            //        "¡Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //        LimpiarTodo();
+            //    }
+
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -552,11 +622,15 @@ namespace Punto_de_venta.Ventas
             {
                 if (lblFactura.Text == "00000")
                 {
+                    cotizacion = true;
                     imprimirFactura();
+                    
                 }
 
             }
             
         }
+
+       
     }
 }
