@@ -53,7 +53,6 @@ namespace Punto_de_venta.Inicio
             this.lblDía = new System.Windows.Forms.Label();
             this.lblFechaCompleta = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bPBEntities1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
@@ -61,7 +60,6 @@ namespace Punto_de_venta.Inicio
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctMeses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bPBEntities1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +100,7 @@ namespace Punto_de_venta.Inicio
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
             this.label9.Location = new System.Drawing.Point(113, 23);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(244, 29);
+            this.label9.Size = new System.Drawing.Size(189, 24);
             this.label9.TabIndex = 30;
             this.label9.Text = "Sistema de inventario";
             // 
@@ -113,6 +111,8 @@ namespace Punto_de_venta.Inicio
             this.dgProductos.AllowUserToOrderColumns = true;
             this.dgProductos.AllowUserToResizeColumns = false;
             this.dgProductos.AllowUserToResizeRows = false;
+            this.dgProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(180)))));
             this.dgProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -153,7 +153,7 @@ namespace Punto_de_venta.Inicio
             this.dgProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgProductos.RowTemplate.Height = 24;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgProductos.Size = new System.Drawing.Size(732, 475);
+            this.dgProductos.Size = new System.Drawing.Size(896, 475);
             this.dgProductos.TabIndex = 0;
             // 
             // label1
@@ -163,17 +163,19 @@ namespace Punto_de_venta.Inicio
             this.label1.ForeColor = System.Drawing.Color.Gray;
             this.label1.Location = new System.Drawing.Point(150, 1008);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 24);
+            this.label1.Size = new System.Drawing.Size(0, 18);
             this.label1.TabIndex = 2;
             // 
             // logo
             // 
+            this.logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo.BackgroundImage")));
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("logo.InitialImage")));
             this.logo.Location = new System.Drawing.Point(3, 353);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(770, 555);
+            this.logo.Size = new System.Drawing.Size(934, 555);
             this.logo.TabIndex = 17;
             this.logo.TabStop = false;
             // 
@@ -193,7 +195,6 @@ namespace Punto_de_venta.Inicio
             this.panel1.Controls.Add(this.lblDía);
             this.panel1.Controls.Add(this.lblFechaCompleta);
             this.panel1.Controls.Add(this.lblHora);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.logo);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel2);
@@ -210,17 +211,20 @@ namespace Punto_de_venta.Inicio
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.Gray;
-            this.linkLabel1.Location = new System.Drawing.Point(602, 965);
+            this.linkLabel1.Location = new System.Drawing.Point(17, 1002);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(500, 29);
+            this.linkLabel1.Size = new System.Drawing.Size(405, 24);
             this.linkLabel1.TabIndex = 36;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Si necesitas ayuda no dudes en contactarnos ";
+            this.linkLabel1.Text = "Si necesitas ayuda no dudes en contactarnos...\r\n";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // ctMeses
             // 
-            this.ctMeses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctMeses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             customLabel1.Text = "Meses";
             chartArea1.AxisX.CustomLabels.Add(customLabel1);
             chartArea1.Name = "ChartArea1";
@@ -228,32 +232,36 @@ namespace Punto_de_venta.Inicio
             this.ctMeses.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bPBEntities1BindingSource, "VistaVentasPorMes", true));
             legend1.Name = "Legend1";
             this.ctMeses.Legends.Add(legend1);
-            this.ctMeses.Location = new System.Drawing.Point(779, 391);
+            this.ctMeses.Location = new System.Drawing.Point(943, 353);
             this.ctMeses.Name = "ctMeses";
             this.ctMeses.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            this.ctMeses.Size = new System.Drawing.Size(863, 504);
+            this.ctMeses.Size = new System.Drawing.Size(699, 555);
             this.ctMeses.TabIndex = 34;
             this.ctMeses.Text = "Gráfico ventas por mes ";
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(602, 279);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 29);
+            this.label6.Size = new System.Drawing.Size(135, 24);
             this.label6.TabIndex = 30;
             this.label6.Text = "Versión 2.0.0.1";
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(24, 159);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(392, 29);
+            this.label4.Size = new System.Drawing.Size(305, 24);
             this.label4.TabIndex = 30;
             this.label4.Text = "Bienvenido al sistema de inventario";
             // 
@@ -264,73 +272,65 @@ namespace Punto_de_venta.Inicio
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(24, 375);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(349, 29);
+            this.label2.Size = new System.Drawing.Size(276, 24);
             this.label2.TabIndex = 30;
             this.label2.Text = "Productos con pocas unidades ";
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(5, 188);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(690, 91);
+            this.label3.Size = new System.Drawing.Size(561, 73);
             this.label3.TabIndex = 30;
             this.label3.Text = "BPB Technologies";
             // 
             // lblDía
             // 
-            this.lblDía.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDía.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDía.AutoSize = true;
-            this.lblDía.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(180)))));
+            this.lblDía.BackColor = System.Drawing.Color.Transparent;
             this.lblDía.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDía.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDía.Location = new System.Drawing.Point(1033, 120);
+            this.lblDía.Location = new System.Drawing.Point(971, 121);
             this.lblDía.Name = "lblDía";
-            this.lblDía.Size = new System.Drawing.Size(324, 38);
+            this.lblDía.Size = new System.Drawing.Size(265, 31);
             this.lblDía.TabIndex = 30;
             this.lblDía.Text = "Día de la semana      ";
             // 
             // lblFechaCompleta
             // 
-            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaCompleta.AutoSize = true;
-            this.lblFechaCompleta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(180)))));
+            this.lblFechaCompleta.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaCompleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaCompleta.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblFechaCompleta.Location = new System.Drawing.Point(1033, 240);
+            this.lblFechaCompleta.Location = new System.Drawing.Point(971, 252);
             this.lblFechaCompleta.Name = "lblFechaCompleta";
-            this.lblFechaCompleta.Size = new System.Drawing.Size(153, 38);
+            this.lblFechaCompleta.Size = new System.Drawing.Size(125, 31);
             this.lblFechaCompleta.TabIndex = 30;
             this.lblFechaCompleta.Text = "Fecha     ";
             // 
             // lblHora
             // 
-            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHora.AutoSize = true;
-            this.lblHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(180)))));
+            this.lblHora.BackColor = System.Drawing.Color.Transparent;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHora.Location = new System.Drawing.Point(1010, 153);
+            this.lblHora.Location = new System.Drawing.Point(962, 159);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(454, 91);
+            this.lblHora.Size = new System.Drawing.Size(369, 73);
             this.lblHora.TabIndex = 30;
             this.lblHora.Text = "Cargando...";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(859, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(702, 211);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // timer1
             // 
@@ -360,7 +360,6 @@ namespace Punto_de_venta.Inicio
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctMeses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bPBEntities1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -378,7 +377,6 @@ namespace Punto_de_venta.Inicio
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart ctMeses;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;

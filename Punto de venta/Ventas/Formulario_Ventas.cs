@@ -117,7 +117,10 @@ namespace Punto_de_venta.Ventas
             txtDescuentos.Text = txtFechaLimite.Text = txtImporteExento.Text = txtImporteExonerado.Text
             =txtISV15.Text =txtISV18.Text = txtIG18.Text = txtIG15.Text = txtTotal.Text =
             txtSubtotal.Text=txtBuscar.Text= string.Empty;
+            txtDescuentos.Text = "0";
+            txtImporteExonerado.Text = "0";
             dgFactura.Rows.Clear();
+            dgFactura.RowCount = 0;
             txtCantidad.Text = "1";
             lblFactura.Text = "00000";
             txtBuscar.Focus();
@@ -234,30 +237,39 @@ namespace Punto_de_venta.Ventas
             decimal exento = 0;
             decimal iG15 = 0;
             decimal iG18 = 0;
-            decimal descuento = txtDescuentos.Text == " " ? 0 : Convert.ToInt32(txtDescuentos.Text);
-            decimal exonerado = txtImporteExonerado.Text == " " ? 0 : Convert.ToInt32(txtImporteExonerado.Text);
+            decimal descuento = txtDescuentos.Text == string.Empty ? 0 : Convert.ToDecimal(txtDescuentos.Text);
+            decimal exonerado = txtImporteExonerado.Text == string.Empty ? 0 : Convert.ToDecimal(txtImporteExonerado.Text);
             try
             {
                 foreach (DataGridViewRow dr in dgFactura.Rows)
                 {
-                    decimal cantidad = Convert.ToInt32((dr.Cells[3].Value).ToString());
+                    decimal cantidad = Convert.ToDecimal((dr.Cells[3].Value).ToString());
                     string fkid = (dr.Cells[0].Value).ToString(); ;
                     var pel = entity.Producto.FirstOrDefault(x => x.IdProducto == fkid);
                     subtot += pel.PrecioVenta * cantidad;
 
-                    isv15 += pel.Tipo_Impuesto.Equals("15%") ? (pel.PrecioVenta*cantidad) * (Convert.ToDecimal(pel.Tipo_Impuesto.Substring(0, 2)) / 100)  
-                        : 0;
-                    iG15 += pel.Tipo_Impuesto.Equals("15%") ? (pel.PrecioVenta * cantidad)
-                        : 0;
-               
-                    isv18 += pel.Tipo_Impuesto.Equals("18%") ? pel.PrecioVenta * (Convert.ToDecimal(pel.Tipo_Impuesto.Substring(0, 2)) / 100)
-                        : 0;
+                     
+                    if (pel.Tipo_Impuesto != null)
+                    {
+                        isv15 += pel.Tipo_Impuesto.Equals(null) ? 0 : pel.Tipo_Impuesto.Equals("15%") ? (pel.PrecioVenta * cantidad) * (Convert.ToDecimal(pel.Tipo_Impuesto.Substring(0, 2)) / 100)
+                          : 0;
+                        iG15 += pel.Tipo_Impuesto.Equals("15%") ? (pel.PrecioVenta * cantidad)
+                            : 0;
 
-                    iG18 += pel.Tipo_Impuesto.Equals("18%") ? pel.PrecioVenta 
-                        : 0;
+                        isv18 += pel.Tipo_Impuesto.Equals("18%") ? pel.PrecioVenta * (Convert.ToDecimal(pel.Tipo_Impuesto.Substring(0, 2)) / 100)
+                            : 0;
 
-                    exento += pel.Tipo_Impuesto.Equals("E  ") ? pel.PrecioVenta  
-                        : 0;
+                        iG18 += pel.Tipo_Impuesto.Equals("18%") ? pel.PrecioVenta
+                            : 0;
+
+                        exento += pel.Tipo_Impuesto.Equals("E  ") ? pel.PrecioVenta
+                            : 0;
+                        
+                    }
+                    else
+                    {
+                        //MessageBox.Show("sin impuesto");
+                    }
                 }
                 txtSubtotal.Text = subtot.ToString("N2");
                 txtISV18.Text = isv18.ToString("N2");
@@ -287,9 +299,18 @@ namespace Punto_de_venta.Ventas
 
         private void verificarIntegridad()
         {
-            double descuento = txtDescuentos.Text == " " ? 0 : Convert.ToDouble(txtDescuentos.Text);
-            double total = txtTotal.Text == " " ? 0 : Convert.ToDouble(txtTotal.Text);
-            double exonerado = txtImporteExonerado.Text == " " ? 0 : Convert.ToDouble(txtImporteExonerado.Text);
+            double descuento = 0;
+            double total = 0;
+            double exonerado = 0;
+
+            try
+            {
+                 descuento = txtDescuentos.Text == " " ? 0 : Convert.ToDouble(txtDescuentos.Text);
+                 total = txtTotal.Text == " " ? 0 : Convert.ToDouble(txtTotal.Text);
+                 exonerado = txtImporteExonerado.Text == " " ? 0 : Convert.ToDouble(txtImporteExonerado.Text);
+            }
+            catch { };
+
             if ((descuento + exonerado) > total)
             {
                 MessageBox.Show("los descuentos y Exonerados no pueden ser mayores al total",
@@ -302,7 +323,7 @@ namespace Punto_de_venta.Ventas
                 if (dgFactura.SelectedRows.Count <= 0)
                 {
                     MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
-                    "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                    "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); errorV = true; return;
                 }
                 else
                 {
@@ -589,29 +610,11 @@ namespace Punto_de_venta.Ventas
             {
                 LimpiarTodo();
             }
-            //if (dgFactura.SelectedRows.Count <= 0)
-            //{
-            //    MessageBox.Show("Para imprimir debe tener mínimo un producto en la factura",
-            //    "Error al imprimir", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
-            //}
-            //else
-            //{
-            //    if (lblFactura.Text == "00000")
-            //    {
-            //        AgregarVenta();
-            //        Thread.Sleep(100);
-            //        AgregarDetalleDeVenta();
-            //        Thread.Sleep(100);
-            //        DisminuirInventario();
-            //        MessageBox.Show("¡Venta guardada correctamente!",
-            //        "¡Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //        LimpiarTodo();
-            //    }
-
-            //}
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+
+        private void btnCotizacion_Click(object sender, EventArgs e)
         {
             if (dgFactura.SelectedRows.Count <= 0)
             {
@@ -624,13 +627,10 @@ namespace Punto_de_venta.Ventas
                 {
                     cotizacion = true;
                     imprimirFactura();
-                    
+
                 }
 
             }
-            
         }
-
-       
     }
 }
