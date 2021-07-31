@@ -463,7 +463,7 @@ namespace Punto_de_venta.Mantenimientos
             this.cmbImpuesto.Name = "cmbImpuesto";
             this.cmbImpuesto.Size = new System.Drawing.Size(224, 37);
             this.cmbImpuesto.TabIndex = 10;
-            this.cmbImpuesto.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+           
             // 
             // btnTraerProveedor
             // 

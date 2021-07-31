@@ -129,8 +129,11 @@ namespace Punto_de_venta.Ventas
         
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (txtCantidad.Text == string.Empty || Convert.ToInt32(txtCantidad.Text) < 1)
+            {
+                txtCantidad.Text = "1";
+            }
             AgregarProducto();
-
             Limpiar();
         }
 
@@ -486,8 +489,7 @@ namespace Punto_de_venta.Ventas
             stringFormatLeft.LineAlignment = StringAlignment.Near;
 
             //----------------------- Logo de la empresa -------------------------------------------------------
-            string Imagen = @"G:\Punto de Venta\Punto de venta\Resources\LOGO 3.png";
-            Image myPng = Image.FromFile(Imagen);
+            Bitmap myPng = Properties.Resources.LOGO_3;
             e.Graphics.DrawImage(myPng, new RectangleF(25, y += 10, 100, 100));
 
             //----------------------- Encabezado de Factura ----------------------------------------------------
@@ -546,9 +548,9 @@ namespace Punto_de_venta.Ventas
 
         private void txtDescuentos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >=32 && e.KeyChar <= 47)|| (e.KeyChar >= 58 && e.KeyChar <= 255))
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Por favor ingresa solo numeros en este campo",
+                MessageBox.Show("Por favor ingresa solo numeros positivos en este campo",
                 "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Handled = true;
                 return;
@@ -630,6 +632,17 @@ namespace Punto_de_venta.Ventas
 
                 }
 
+            }
+        }
+
+        private void txtImporteExonerado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Por favor ingresa solo numeros positivos en este campo",
+                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
             }
         }
     }

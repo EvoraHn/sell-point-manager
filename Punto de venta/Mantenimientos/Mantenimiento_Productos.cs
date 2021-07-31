@@ -12,11 +12,7 @@ using System.Windows.Forms;
 
 namespace Punto_de_venta.Mantenimientos
 {
-    //interface IForm
-    //{
-    //    void Traer_Datos();
-    //}
-    public partial class Mantenimiento_Productos : Form/*, IForm*/
+    public partial class Mantenimiento_Productos : Form
     {   //Conexión a la base de datos
         Punto_de_venta.Bases_de_datos.BPBEntities1 entity = new Bases_de_datos.BPBEntities1();
         //filtro para el botón buscar
@@ -59,20 +55,12 @@ namespace Punto_de_venta.Mantenimientos
 
         private void Mantenimiento_Productos_Load(object sender, EventArgs e)
         {
-            //txtBuscar.Focus();
+            txtBuscar.Focus();
             Mostrar_datos();
             var Tipo_Impuesto = new[] {"15%",
-                        "18%", "E" };
+                        "18%", "E  "};
 
             cmbImpuesto.DataSource = Tipo_Impuesto;
-            
-            //cmbImpuesto.DisplayMember = Tipo_Impuesto.Columns[1].ColumnName;
-            //cmbImpuesto.ValueMember = Tipo_Impuesto.Columns[0].ColumnName;
-
-            //DataTable Tipo_Impuesto = tPaises.CopyAnonymusToDataTable();
-            //cmbPaises.DataSource = dtPaises;
-            //cmbPaises.DisplayMember = dtPaises.Columns[1].ColumnName;
-            //cmbPaises.ValueMember = dtPaises.Columns[0].ColumnName;
         }
 
 
@@ -159,7 +147,7 @@ namespace Punto_de_venta.Mantenimientos
                 try
                 {
                     if (txtNombre.Text.Equals("") | txtId.Text.Equals("") | txtProveedor.Text.Equals("") | txtCategoria.Text.Equals("")
-                        | txtCosto.Text.Equals("") | txtVenta.Text.Equals("") | txtEstante.Text.Equals(""))
+                        | txtCosto.Text.Equals("") | txtVenta.Text.Equals("") | txtEstante.Text.Equals("") | cmbImpuesto.Text.Equals(""))
                     {
                         MessageBox.Show("Por favor ingresar todos los datos en el formulario");
                         return;
@@ -198,7 +186,7 @@ namespace Punto_de_venta.Mantenimientos
                 try
                 {
                     if (txtNombre.Text.Equals("") | txtId.Text.Equals("") | txtProveedor.Text.Equals("") | txtCategoria.Text.Equals("")
-                       | txtCosto.Text.Equals("") | txtVenta.Text.Equals("") | txtEstante.Text.Equals(""))
+                       | txtCosto.Text.Equals("") | txtVenta.Text.Equals("") | txtEstante.Text.Equals("") | cmbImpuesto.Text.Equals(""))
                     {
                         MessageBox.Show("Por favor ingresar todos los datos en el formulario");
                         return;
@@ -274,7 +262,6 @@ namespace Punto_de_venta.Mantenimientos
         }
         public void Traer_Datos()
         {
-            
             txtEstante.Text = Punto_de_venta.Clases.almacen_de_datos.Estante;
         }
 
@@ -306,11 +293,6 @@ namespace Punto_de_venta.Mantenimientos
         private void btnTraerCategoria_Click(object sender, EventArgs e)
         {
             txtCategoria.Text = Punto_de_venta.Clases.almacen_de_datos.Categoria;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtVenta_KeyPress(object sender, KeyPressEventArgs e)

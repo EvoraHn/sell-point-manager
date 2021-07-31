@@ -83,8 +83,10 @@ G:\Punto de Venta\Punto de venta\bin\Debug\pt\Microsoft.ReportViewer.WinForms.re
 G:\Punto de Venta\Punto de venta\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 G:\Punto de Venta\Punto de venta\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 G:\Punto de Venta\Punto de venta\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csprojAssemblyReference.cache
 G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Compras.Formulario_Compras.resources
 G:\Punto de Venta\Punto de venta\obj\Debug\RdlCompile.cache
 G:\Punto de Venta\Punto de venta\obj\Debug\RdlCompile.compiled
 G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Reportes.Reportes.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.AssemblyReference.cache
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Informes.Form1.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Ventas.Formulario_Cancelar_Factura.resources

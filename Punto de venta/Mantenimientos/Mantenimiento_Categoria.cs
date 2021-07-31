@@ -58,7 +58,7 @@ namespace Punto_de_venta.Mantenimientos
 
         private void dgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //EnviarDatos();
+            EnviarDatos();
         }
 
         private void dgDatos_SelectionChanged(object sender, EventArgs e)
