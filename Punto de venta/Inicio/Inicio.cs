@@ -109,7 +109,7 @@ namespace Punto_de_venta.Inicio
             
             string[] series = { "Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
             
-            ctMeses.Titles.Add("Ventas Por mes en este año");
+            //ctMeses.Titles.Add("Ventas Por mes en este año");
             for (int i = 0; i < series.Length; i++)
             {
                 //titulos
