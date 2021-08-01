@@ -171,6 +171,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VistaProductoMasVendido">
+      <EntityTypeMapping TypeName="BPBModel.VistaProductoMasVendido">
+        <MappingFragment StoreEntitySet="VistaProductoMasVendido">
+          <ScalarProperty Name="Vendidos" ColumnName="Vendidos" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="VistaVentasPorMes">
       <EntityTypeMapping TypeName="BPBModel.VistaVentasPorMes">
         <MappingFragment StoreEntitySet="VistaVentasPorMes">
@@ -186,9 +194,6 @@
           <ScalarProperty Name="Marzo" ColumnName="Marzo" />
           <ScalarProperty Name="Febrero" ColumnName="Febrero" />
           <ScalarProperty Name="Enero" ColumnName="Enero" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
-          <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />
           <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
         </MappingFragment>
       </EntityTypeMapping>

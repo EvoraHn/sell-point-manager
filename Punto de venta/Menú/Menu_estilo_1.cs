@@ -67,6 +67,33 @@ namespace Punto_de_venta.Menú
         private void Menu_estilo_1_Load(object sender, EventArgs e)
         {
             abrirFormularioHijo(new Punto_de_venta.Inicio.Inicio());
+            this.KeyPreview = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new Reporteria.PresentadordeReportes());
+            
+        }
+
+        private void Menu_estilo_1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.NumPad1)
+            {
+                btnInventario.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.NumPad3)
+            {
+                btnVentas.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.NumPad2)
+            {
+                btnComprar.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.NumPad5)
+            {
+                abrirFormularioHijo(new Punto_de_venta.Inicio.Inicio());
+            }
         }
     }
 }

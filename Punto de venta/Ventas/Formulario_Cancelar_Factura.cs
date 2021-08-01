@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,19 +17,19 @@ namespace Punto_de_venta.Ventas
         Punto_de_venta.Bases_de_datos.BPBEntities1 entity = new Bases_de_datos.BPBEntities1();
         //filtro para el botón buscar
         DataView mifiltro;
+        DataView mifiltro2;
         int id = 0;
+        string producto = "";
         bool editar = false;
         public Formulario_Cancelar_Factura()
         {
             InitializeComponent();
         }
-
-       
-
         private void Formulario_Cancelar_Factura_Load(object sender, EventArgs e)
         {
             txtBuscar.Focus();
             Mostrar_datos();
+            //Mostrar_detalles();
             var Habilitado = new[] {"Activo",
                         "Inactivo"};
 
@@ -37,8 +38,7 @@ namespace Punto_de_venta.Ventas
         private void Mostrar_datos()
         {
             var tFacturas = from p in entity.Venta
-                             //where p.Estado == 1
-                             orderby p.IdVenta
+                             where p.Estado == 1
                              select new
                              {
                                  p.IdVenta,
@@ -54,19 +54,18 @@ namespace Punto_de_venta.Ventas
         private void Mostrar_detalles()
         {
             int detalle = Convert.ToInt32(txtId.Text);
-
             var tDetalle = from p in entity.DetalleVentas
-                            where p.Venta== detalle
+                            where p.Venta == detalle 
                             
                             select new
                             {
                                 p.Producto,
-                                p.Cantidad,
+                                p.Venta,
+                                p.Cantidad
                             };
 
-            this.mifiltro = (tDetalle.CopyAnonymusToDataTable()).DefaultView;
-            this.dgDetalles.DataSource = mifiltro;
-
+            this.mifiltro2 = (tDetalle.CopyAnonymusToDataTable()).DefaultView;
+            this.dgDetalles.DataSource = mifiltro2;
         }
 
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
@@ -105,28 +104,17 @@ namespace Punto_de_venta.Ventas
                         txtEstado.Text = "Inactivo";
                     }
                     txtId.Text = tabla.IdVenta.ToString();
-                    Mostrar_detalles();
+                   
                     //txtEstado.Text = tabla.Estado.ToString();
                     editar = true;
+                    
+
                 }
                 catch (Exception)
-                { }
+                { }   
             }
         }
 
-        private void devolver_Productos()
-        {
-            //foreach ( )
-            //{
-            //    Punto_de_venta.Bases_de_datos.Producto tabla = new Punto_de_venta.Bases_de_datos.Producto();
-            //    id = Convert.ToInt32(txtId.Text);
-            //    var tablaP = entity.DetalleVentas.FirstOrDefault(x => x.Venta == id);
-            //    tabla.Cantidad = 
-            //    entity.SaveChanges();
-
-
-            //}
-        }
 
         private void btnCambiar_Click(object sender, EventArgs e)
         {
@@ -140,21 +128,50 @@ namespace Punto_de_venta.Ventas
                 else
                 {
                     var tablaP = entity.Venta.FirstOrDefault(x => x.IdVenta == id);
-                    if(txtEstado.Text == "Activo")
+                    if (txtEstado.Text == "Activo")
                     {
                         tablaP.Estado = 1;
                     }
                     else
                     {
+                        Mostrar_detalles();
                         tablaP.Estado = 2;
+                        entity.SaveChanges();
+                        Thread.Sleep(100);
+                        regresarProducto();
+                        Thread.Sleep(100);
+                        Mostrar_datos();
+                        Limpiar();
                         MessageBox.Show("¡Factura inhabilitada correctamente!");
+
                     }
-                    entity.SaveChanges();
                     Mostrar_datos();
-                    
                 }
             }
-            catch (Exception) { MessageBox.Show("¡Error al editar!"); return; }
+            catch (Exception) { }
+        }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            Mostrar_detalles();
+        }
+        private void regresarProducto()
+        {
+            foreach (DataGridViewRow dr in dgDetalles.Rows)
+            {
+                Punto_de_venta.Bases_de_datos.Producto tabla = new Punto_de_venta.Bases_de_datos.Producto();
+                producto = (dr.Cells[0].Value).ToString();
+                var tablaP = entity.Producto.FirstOrDefault(x => x.IdProducto == producto);
+                double n = Convert.ToDouble(dr.Cells[2].Value);
+                int numeroEntero = Convert.ToInt32(Math.Truncate(n));
+                tablaP.Cantidad += numeroEntero ;
+                entity.SaveChanges();
+            }
+        }
+        private void Limpiar ()
+        {
+            txtBuscar.Text = string.Empty;
+            Mostrar_detalles();
         }
     }
 }

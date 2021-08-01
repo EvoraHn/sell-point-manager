@@ -13,7 +13,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace Punto_de_venta.Inicio
 {
     public partial class Inicio : Form
-    {
+    {   
+        
         Punto_de_venta.Bases_de_datos.BPBEntities1 entity = new Bases_de_datos.BPBEntities1();
         DataView mifiltro;
         public Inicio()

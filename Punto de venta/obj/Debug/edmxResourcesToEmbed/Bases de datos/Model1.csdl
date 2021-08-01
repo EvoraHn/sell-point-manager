@@ -72,6 +72,7 @@
       <End Role="Estado" EntitySet="Estado" />
       <End Role="Venta" EntitySet="Venta" />
     </AssociationSet>
+    <EntitySet Name="VistaProductoMasVendido" EntityType="BPBModel.VistaProductoMasVendido" />
     <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -326,16 +327,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="VistaProductoMasVendido">
+    <Key>
+      <PropertyRef Name="Producto" />
+    </Key>
+    <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Vendidos" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
   <EntityType Name="VistaVentasPorMes">
     <Key>
       <PropertyRef Name="IdVenta" />
-      <PropertyRef Name="Fecha_Venta" />
-      <PropertyRef Name="Total_Venta" />
     </Key>
     <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Total_Venta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-    <Property Name="Estado" Type="Int32" />
     <Property Name="Enero" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="Febrero" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="Marzo" Type="Decimal" Precision="38" Scale="2" />

@@ -84,8 +84,25 @@ G:\Punto de Venta\Punto de venta\bin\Debug\ru\Microsoft.ReportViewer.WinForms.re
 G:\Punto de Venta\Punto de venta\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 G:\Punto de Venta\Punto de venta\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Compras.Formulario_Compras.resources
-G:\Punto de Venta\Punto de venta\obj\Debug\RdlCompile.cache
-G:\Punto de Venta\Punto de venta\obj\Debug\RdlCompile.compiled
-G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.AssemblyReference.cache
-G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Informes.Form1.resources
 G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Ventas.Formulario_Cancelar_Factura.resources
+G:\Punto de Venta\Punto de venta\bin\Debug\AxShockwaveFlashObjects.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportSource.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.Shared.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.Windows.Forms.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\ShockwaveFlashObjects.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.AssemblyReference.cache
+G:\Punto de Venta\Punto de venta\bin\Debug\Reporteria.exe
+G:\Punto de Venta\Punto de venta\bin\Debug\Reporteria.pdb

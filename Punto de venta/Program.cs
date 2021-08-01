@@ -21,6 +21,7 @@ namespace Punto_de_venta
             //Application.Run(new Punto_de_venta.Informes.Form1());
             //Application.Run(new Punto_de_venta.Inicio.Login());
             //Application.Run(new Punto_de_venta.Ventas.Formulario_Cancelar_Factura());
+            
         }
     }
 }

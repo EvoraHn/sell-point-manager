@@ -155,17 +155,21 @@ advertencia 6002: La tabla o vista 'BPB.dbo.Vista1' no tiene definida ninguna cl
           <Property Name="Proveedor" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BPB.dbo.VistaProductoMasVendido' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VistaProductoMasVendido">
+          <Key>
+            <PropertyRef Name="Producto" />
+          </Key>
+          <Property Name="Producto" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Vendidos" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VistaVentasPorMes">
           <Key>
             <PropertyRef Name="IdVenta" />
-            <PropertyRef Name="Fecha_Venta" />
-            <PropertyRef Name="Total_Venta" />
           </Key>
           <Property Name="IdVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Fecha_Venta" Type="datetime" Nullable="false" />
-          <Property Name="Total_Venta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Estado" Type="int" />
           <Property Name="Enero" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Febrero" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Marzo" Type="decimal" Precision="38" Scale="2" />
@@ -179,6 +183,22 @@ advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida
           <Property Name="Noviembre" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Diciembre" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'BPB.dbo.VistaVentasPorMesSinOrdenar' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="VistaVentasPorMesSinOrdenar">
+          <Property Name="Enero" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Febrero" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Marzo" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Abril" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Mayo" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Junio" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Julio" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Agosto" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Septiembre" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Octubre" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Noviembre" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Diciembre" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>-->
         <Association Name="FK_Compras_Compra$Es_Un$Productos_Producto">
           <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
           <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
@@ -334,12 +354,15 @@ FROM [dbo].[Imprimir_Facturas] AS [Imprimir_Facturas]</DefiningQuery>
 [Vista1].[Proveedor] AS [Proveedor]
 FROM [dbo].[Vista1] AS [Vista1]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VistaProductoMasVendido" EntityType="Self.VistaProductoMasVendido" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VistaProductoMasVendido].[Producto] AS [Producto], 
+[VistaProductoMasVendido].[Vendidos] AS [Vendidos]
+FROM [dbo].[VistaProductoMasVendido] AS [VistaProductoMasVendido]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VistaVentasPorMes" EntityType="Self.VistaVentasPorMes" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [VistaVentasPorMes].[IdVenta] AS [IdVenta], 
-[VistaVentasPorMes].[Fecha_Venta] AS [Fecha_Venta], 
-[VistaVentasPorMes].[Total_Venta] AS [Total_Venta], 
-[VistaVentasPorMes].[Estado] AS [Estado], 
 [VistaVentasPorMes].[Enero] AS [Enero], 
 [VistaVentasPorMes].[Febrero] AS [Febrero], 
 [VistaVentasPorMes].[Marzo] AS [Marzo], 
@@ -459,6 +482,7 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
             <End Role="Estado" EntitySet="Estado" />
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
+          <EntitySet Name="VistaProductoMasVendido" EntityType="BPBModel.VistaProductoMasVendido" />
           <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -713,16 +737,18 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VistaProductoMasVendido">
+          <Key>
+            <PropertyRef Name="Producto" />
+          </Key>
+          <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vendidos" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
         <EntityType Name="VistaVentasPorMes">
           <Key>
             <PropertyRef Name="IdVenta" />
-            <PropertyRef Name="Fecha_Venta" />
-            <PropertyRef Name="Total_Venta" />
           </Key>
           <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Total_Venta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="Estado" Type="Int32" />
           <Property Name="Enero" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="Febrero" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="Marzo" Type="Decimal" Precision="38" Scale="2" />
@@ -912,6 +938,14 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VistaProductoMasVendido">
+            <EntityTypeMapping TypeName="BPBModel.VistaProductoMasVendido">
+              <MappingFragment StoreEntitySet="VistaProductoMasVendido">
+                <ScalarProperty Name="Vendidos" ColumnName="Vendidos" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VistaVentasPorMes">
             <EntityTypeMapping TypeName="BPBModel.VistaVentasPorMes">
               <MappingFragment StoreEntitySet="VistaVentasPorMes">
@@ -927,9 +961,6 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
                 <ScalarProperty Name="Marzo" ColumnName="Marzo" />
                 <ScalarProperty Name="Febrero" ColumnName="Febrero" />
                 <ScalarProperty Name="Enero" ColumnName="Enero" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
-                <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />
                 <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
               </MappingFragment>
             </EntityTypeMapping>

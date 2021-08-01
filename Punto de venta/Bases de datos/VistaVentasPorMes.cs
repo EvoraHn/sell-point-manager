@@ -20,12 +20,6 @@ public partial class VistaVentasPorMes
 
     public int IdVenta { get; set; }
 
-    public System.DateTime Fecha_Venta { get; set; }
-
-    public decimal Total_Venta { get; set; }
-
-    public Nullable<int> Estado { get; set; }
-
     public Nullable<decimal> Enero { get; set; }
 
     public Nullable<decimal> Febrero { get; set; }

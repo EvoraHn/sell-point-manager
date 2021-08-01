@@ -212,11 +212,7 @@ namespace Punto_de_venta.Ventas
                         }
                         dgFactura.Rows.Add(codigo, producto, precio, cantidad);
                         HacerCuentas();
-                        //dgFactura.CurrentCell.Value = null;
                         dgFactura.ClearSelection();
-                        //dgFactura.Select();
-                        //dgFactura.Focus();
-
                     }
                 }
                 else
@@ -393,6 +389,7 @@ namespace Punto_de_venta.Ventas
         }
         private void Formulario_Ventas_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
             Mostrar_datos();
         }
 
@@ -400,6 +397,7 @@ namespace Punto_de_venta.Ventas
         {
             QuitarProducto();
             HacerCuentas();
+            
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -447,20 +445,38 @@ namespace Punto_de_venta.Ventas
 
         private void Formulario_Ventas_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control == true && e.KeyCode == Keys.Add)
+            {
+                btnAgregar.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.Subtract)
+            {
+                btnQuitar.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.P)
+            {
+                btnImprimir.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.G)
+            {
+                btnSoloGuardar1.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.C)
+            {
+                btnCotizacion.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.N)
+            {
+                BtnNuevaFactura1.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.Delete)
+            {
+                btnQuitarTodo.PerformClick();
+            }
             if (e.Control == true && e.KeyCode == Keys.Space)
             {
-               
-                MessageBox.Show("Holis");
+                txtBuscar.Focus();
             }
-            else if (e.Control ==true && e.KeyCode == Keys.OemMinus)
-            {
-                btnQuitar.Focus();
-            }
-            else
-            {
-
-            }
-
         }
         /// <summary>
         /// Impresión de Factura
@@ -517,7 +533,6 @@ namespace Punto_de_venta.Ventas
             {
                 e.Graphics.DrawString(row.Cells[1].Value.ToString() + " " , font, Brushes.Black, new RectangleF(0, y += 20, ancho, 80), stringFormatLeft);
                 e.Graphics.DrawString(row.Cells[2].Value.ToString() + " X " + row.Cells[3].Value.ToString(), font, Brushes.Black, new RectangleF(0, y += 25, ancho,20), stringFormatrigth);
-                
             }
             //-------------------------- Pie de Factura --------------------------------------------------------
             e.Graphics.DrawString("Subtotal: " + txtSubtotal.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
@@ -529,8 +544,6 @@ namespace Punto_de_venta.Ventas
             e.Graphics.DrawString("Importe Grabado 15%: " + txtIG15.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("I.S.V 15%: " + txtISV15.Text + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
             e.Graphics.DrawString("Total: " + (Convert.ToDecimal(txtTotal.Text)- Convert.ToDecimal(txtDescuentos.Text)- Convert.ToDecimal(txtImporteExonerado.Text)).ToString() + " ", font, Brushes.Black, new RectangleF(0, y += 40, ancho, 40), stringFormatLeft);
-         
-
         }
 
         private void imprimirFactura()
@@ -644,6 +657,12 @@ namespace Punto_de_venta.Ventas
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Punto_de_venta.Ventas.Formulario_Cancelar_Factura frm = new Punto_de_venta.Ventas.Formulario_Cancelar_Factura();
+            frm.Show();
         }
     }
 }

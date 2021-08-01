@@ -62,6 +62,8 @@ public partial class BPBEntities1 : DbContext
 
     public DbSet<Vista1> Vista1 { get; set; }
 
+    public DbSet<VistaProductoMasVendido> VistaProductoMasVendido { get; set; }
+
     public DbSet<VistaVentasPorMes> VistaVentasPorMes { get; set; }
 
 

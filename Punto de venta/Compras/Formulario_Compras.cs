@@ -43,7 +43,7 @@ namespace Punto_de_venta.Compras
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            if (txtCantidad.Text != string.Empty)
+            if (txtCantidad.Text != string.Empty || dgDatos.ColumnCount > 0)
             {
                 int cantidad = Convert.ToInt32(txtCantidad.Text);
                 if (cantidad > 0)
@@ -53,6 +53,7 @@ namespace Punto_de_venta.Compras
                     var tabla = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
                     tabla.Cantidad += cantidad;
                     entity.SaveChanges();
+                    Guardar_Compra();
                     Mostrar_datos();
                     Limpiar();
                     MessageBox.Show("Se agregó más producto al inventario",
@@ -141,6 +142,20 @@ namespace Punto_de_venta.Compras
             //frm.abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos());
             //this.Dispose();
             //abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos());
+        }
+
+        private void Guardar_Compra()
+        {
+            int indice = dgDatos.CurrentCell.RowIndex;
+            decimal precio = Convert.ToDecimal(dgDatos.Rows[indice].Cells[3].Value);
+            int cantidad = Convert.ToInt32(txtCantidad.Text);
+            Punto_de_venta.Bases_de_datos.Compra tabla = new Punto_de_venta.Bases_de_datos.Compra();
+            tabla.Producto = txtId.Text;
+            tabla.PrecioUnitario = precio;
+            tabla.Cantidad = cantidad;
+            tabla.Total = cantidad * precio;
+            entity.Compra.Add(tabla);
+            entity.SaveChanges();
         }
     }
 }
