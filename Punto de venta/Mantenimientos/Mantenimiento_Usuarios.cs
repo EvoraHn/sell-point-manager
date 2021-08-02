@@ -81,7 +81,10 @@ namespace Punto_de_venta.Mantenimientos
             this.Dispose();
         }
 
-      
+        private void btnGuardarEdicion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public class Hash{
         public static string obtenerHash256(string text)

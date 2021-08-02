@@ -106,3 +106,4 @@ G:\Punto de Venta\Punto de venta\bin\Debug\CrystalDecisions.ReportAppServer.Comm
 G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.AssemblyReference.cache
 G:\Punto de Venta\Punto de venta\bin\Debug\Reporteria.exe
 G:\Punto de Venta\Punto de venta\bin\Debug\Reporteria.pdb
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Usuarios_2_0.resources

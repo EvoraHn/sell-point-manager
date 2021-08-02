@@ -238,6 +238,12 @@
     <Compile Include="Mantenimientos\Mantenimiento_Usuarios.Designer.cs">
       <DependentUpon>Mantenimiento_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\Mantenimiento_Usuarios_2_0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Mantenimiento_Usuarios_2_0.Designer.cs">
+      <DependentUpon>Mantenimiento_Usuarios_2_0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menú\Menu_estilo_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
     <EmbeddedResource Include="Mantenimientos\Mantenimiento_Usuarios.resx">
       <DependentUpon>Mantenimiento_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Mantenimiento_Usuarios_2_0.resx">
+      <DependentUpon>Mantenimiento_Usuarios_2_0.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menú\Menu_estilo_1.resx">
       <DependentUpon>Menu_estilo_1.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +329,10 @@
     <None Include="Bases de datos\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <None Include="Mantenimientos\Mantenimiento_Usuarios2.0">
+      <SubType>Form</SubType>
+    </None>
+    <None Include="Mantenimientos\Mantenimiento_Usuarios2.Designer.0" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
