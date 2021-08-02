@@ -24,6 +24,24 @@ public partial class Usuario
 
     public string Pwd { get; set; }
 
+    public string Identidad { get; set; }
+
+    public string PrimerNombre { get; set; }
+
+    public string SegundoNombre { get; set; }
+
+    public string PrimerApellido { get; set; }
+
+    public string SegundoApellido { get; set; }
+
+    public string Estado { get; set; }
+
+    public string Acceso { get; set; }
+
+    public string Contacto { get; set; }
+
+    public string ContactoFamiliar { get; set; }
+
 }
 
 }

@@ -37,7 +37,6 @@
     <EntitySet Name="Estante" EntityType="BPBModel.Estante" />
     <EntitySet Name="Producto" EntityType="BPBModel.Producto" />
     <EntitySet Name="Proveedor" EntityType="BPBModel.Proveedor" />
-    <EntitySet Name="Usuario" EntityType="BPBModel.Usuario" />
     <EntitySet Name="DetalleVentas" EntityType="BPBModel.DetalleVentas" />
     <EntitySet Name="Estado" EntityType="BPBModel.Estado" />
     <EntitySet Name="Venta" EntityType="BPBModel.Venta" />
@@ -74,6 +73,7 @@
     </AssociationSet>
     <EntitySet Name="VistaProductoMasVendido" EntityType="BPBModel.VistaProductoMasVendido" />
     <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
+    <EntitySet Name="Usuario" EntityType="BPBModel.Usuario" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -155,14 +155,6 @@
     <Property Name="Contacto1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Producto" Relationship="BPBModel.FK_Productos_Producto_Tiene_un_Productos_Proveedor" FromRole="Proveedor" ToRole="Producto" />
-  </EntityType>
-  <EntityType Name="Usuario">
-    <Key>
-      <PropertyRef Name="IdUsuario" />
-    </Key>
-    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Usr" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="Pwd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DetalleVentas">
     <Key>
@@ -351,5 +343,22 @@
     <Property Name="Octubre" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="Noviembre" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="Diciembre" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usr" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Pwd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Identidad" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerNombre" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="SegundoNombre" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerApellido" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="SegundoApellido" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Acceso" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Contacto" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="ContactoFamiliar" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
   </EntityType>
 </Schema>

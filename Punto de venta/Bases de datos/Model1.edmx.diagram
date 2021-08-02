@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="BPBModel.Estante" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="BPBModel.Producto" Width="1.5" PointX="3" PointY="2.375" />
         <EntityTypeShape EntityType="BPBModel.Proveedor" Width="1.5" PointX="0.75" PointY="6.25" />
-        <EntityTypeShape EntityType="BPBModel.Usuario" Width="1.5" PointX="7.75" PointY="4.375" />
         <EntityTypeShape EntityType="BPBModel.DetalleVentas" Width="1.5" PointX="5.25" PointY="3.125" />
         <EntityTypeShape EntityType="BPBModel.Estado" Width="1.5" PointX="0.75" PointY="10.25" />
         <EntityTypeShape EntityType="BPBModel.Venta" Width="1.5" PointX="3" PointY="9.5" />
@@ -27,6 +26,7 @@
         <AssociationConnector Association="BPBModel.FK_Ventas_Ventas_Pertenece_Ventas_Estado" />
         <EntityTypeShape EntityType="BPBModel.VistaProductoMasVendido" Width="1.5" PointX="5.375" PointY="9.75" />
         <EntityTypeShape EntityType="BPBModel.VistaVentasPorMes" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BPBModel.Usuario" Width="1.5" PointX="9.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

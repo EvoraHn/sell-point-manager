@@ -68,6 +68,15 @@
     <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Usr" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="Pwd" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Identidad" Type="nchar" MaxLength="15" />
+    <Property Name="PrimerNombre" Type="nchar" MaxLength="15" />
+    <Property Name="SegundoNombre" Type="nchar" MaxLength="15" />
+    <Property Name="PrimerApellido" Type="nchar" MaxLength="15" />
+    <Property Name="SegundoApellido" Type="nchar" MaxLength="15" />
+    <Property Name="Estado" Type="nchar" MaxLength="10" />
+    <Property Name="Acceso" Type="nchar" MaxLength="10" />
+    <Property Name="Contacto" Type="nchar" MaxLength="9" />
+    <Property Name="ContactoFamiliar" Type="nchar" MaxLength="9" />
   </EntityType>
   <EntityType Name="DetalleVentas">
     <Key>
@@ -178,22 +187,6 @@ advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida
     <Property Name="Noviembre" Type="decimal" Precision="38" Scale="2" />
     <Property Name="Diciembre" Type="decimal" Precision="38" Scale="2" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BPB.dbo.VistaVentasPorMesSinOrdenar' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VistaVentasPorMesSinOrdenar">
-          <Property Name="Enero" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Febrero" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Marzo" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Abril" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Mayo" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Junio" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Julio" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Agosto" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Septiembre" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Octubre" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Noviembre" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Diciembre" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
   <Association Name="FK_Compras_Compra$Es_Un$Productos_Producto">
     <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
     <End Role="Compra" Type="Self.Compra" Multiplicity="*" />

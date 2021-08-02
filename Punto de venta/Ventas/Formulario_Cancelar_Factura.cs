@@ -20,7 +20,7 @@ namespace Punto_de_venta.Ventas
         DataView mifiltro2;
         int id = 0;
         string producto = "";
-        bool editar = false;
+        
         public Formulario_Cancelar_Factura()
         {
             InitializeComponent();
@@ -106,7 +106,7 @@ namespace Punto_de_venta.Ventas
                     txtId.Text = tabla.IdVenta.ToString();
                    
                     //txtEstado.Text = tabla.Estado.ToString();
-                    editar = true;
+                    
                     
 
                 }

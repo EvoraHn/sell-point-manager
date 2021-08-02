@@ -54,8 +54,10 @@ namespace Punto_de_venta.Mantenimientos
             Mostrar_datos();
             var LEstado = new[] {"Activo",
                         "Inactivo"};
-
             cmbEstado.DataSource = LEstado;
+            var LAcceso = new[] {"Auditoría",
+                        "Admin","Caja"};
+            cmbAcceso.DataSource = LAcceso;
         }
 
         private void Mostrar_datos()
@@ -78,19 +80,16 @@ namespace Punto_de_venta.Mantenimientos
                 {
                     id = Convert.ToInt32(dgProductos.SelectedCells[0].Value);
                     var tabla = entity.Usuario.FirstOrDefault(x => x.IdUsuario == id);
-                    //txtIdentidad.Text = tabla.;
                     txtUsr.Text = tabla.Usr;
-                    //txt.Text = Convert.ToString(tabla.PrecioCosto);
-                    //txtVenta.Text = Convert.ToString(tabla.PrecioVenta);
-                    //txtCategoria.Text = Convert.ToString(tabla.Categoria);
-                    //txtProveedor.Text = Convert.ToString(tabla.Proveedor);
-                    //txtEstante.Text = Convert.ToString(tabla.Estante);
-                    //txtVenta.Text = Convert.ToString(tabla.PrecioVenta);
-                    //cmbImpuesto.Text = tabla.Tipo_Impuesto;
-                    //txtId.Enabled = false;
-                    //txtCategoria.Enabled = false;
-                    //txtEstante.Enabled = false;
-                    //txtProveedor.Enabled = false;
+                    txtCelular.Text = tabla.Contacto;
+                    TxtFamiliar.Text = tabla.ContactoFamiliar;
+                    txtIdentidad.Text = tabla.Identidad;
+                    txtPNombre.Text = tabla.PrimerNombre;
+                    txtSNombre.Text = tabla.SegundoNombre;
+                    txtSApellido.Text = tabla.SegundoApellido;
+                    txtPApellido.Text = tabla.PrimerApellido;
+                    cmbAcceso.Text = tabla.Acceso;
+                    cmbEstado.Text = tabla.Estado;
                     editar = true;
                 }
                 catch (Exception)
@@ -100,40 +99,99 @@ namespace Punto_de_venta.Mantenimientos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            Punto_de_venta.Bases_de_datos.Usuario tUsuarios = new Punto_de_venta.Bases_de_datos.Usuario();
-            //tUsuarios.IdUsuario = 2;
-            tUsuarios.Usr = txtUsr.Text;
-            //tUsuarios.Identidad = txtId.Text;
-            //tUsuarios.PrimerNombre = txtNombre.Text;
-            //tUsuarios.SegundoNombre = txtnombre2.Text;
-            //tUsuarios.PrimerApellido = txtApellido.Text;
-            //tUsuarios.SegundoApellido = txtApellido2.Text;
-            //tUsuarios.Estado = Convert.ToInt32(txtEstado.Text);
-            //tUsuarios.Acceso = Convert.ToInt32(txtAcceso.Text);
-            //tUsuarios.Contacto = txtContacto.Text;
-            //tUsuarios.ContactoFamiliar = txtContacto2.Text;
-            //Procedimiento Especial para contraseña
-            //tUsuarios.Pwd = Hash.obtenerHash256(txtPass.Text);
-            //tUsuarios.Pwd = "123";
-            tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
-            entity.Usuario.Add(tUsuarios);
+            if (editar)
+            {
+                var tUsuarios = entity.Usuario.FirstOrDefault(x => x.IdUsuario == id);
+                tUsuarios.Usr = txtUsr.Text;
+                tUsuarios.Identidad = txtIdentidad.Text;
+                tUsuarios.PrimerNombre = txtPNombre.Text;
+                tUsuarios.SegundoNombre = txtSNombre.Text;
+                tUsuarios.PrimerApellido = txtPApellido.Text;
+                tUsuarios.SegundoApellido = txtSApellido.Text;
+                tUsuarios.Estado = cmbEstado.Text;
+                tUsuarios.Acceso = cmbAcceso.Text;
+                tUsuarios.Contacto = txtCelular.Text;
+                tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
 
-            entity.SaveChanges();
-            MessageBox.Show("Datos Guardados Correctamente");
+                if (txtPwd.Text == txtConfirmacionPwd.Text)
+                {
+                    tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
+                    entity.SaveChanges();
+                    MessageBox.Show("Datos Modificados Correctamente");
+                    Mostrar_datos();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Las Contraseñas no Coinciden, intenta de nuevo"); return;
+                }
+                
+            }
+            else
+            {
+                Punto_de_venta.Bases_de_datos.Usuario tUsuarios = new Punto_de_venta.Bases_de_datos.Usuario();
+                tUsuarios.Usr = txtUsr.Text;
+                tUsuarios.Identidad = txtIdentidad.Text;
+                tUsuarios.PrimerNombre = txtPNombre.Text;
+                tUsuarios.SegundoNombre = txtSNombre.Text;
+                tUsuarios.PrimerApellido = txtPApellido.Text;
+                tUsuarios.SegundoApellido = txtSApellido.Text;
+                tUsuarios.Estado = cmbEstado.Text;
+                tUsuarios.Acceso = cmbAcceso.Text;
+                tUsuarios.Contacto = txtCelular.Text;
+                tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
 
-            //txtPass.Text = txtUsr.Text = txtNombre.Text = txtnombre2.Text = string.Empty;
+                if (txtPwd.Text == txtConfirmacionPwd.Text)
+                {
+                    tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
+                    entity.Usuario.Add(tUsuarios);
 
-            //chkEstado.Checked = false;
-            //dpFechaNac.Value = DateTime.Today;
+                    entity.SaveChanges();
+                    MessageBox.Show("Datos Guardados Correctamente");
+                    Mostrar_datos();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Las Contraseñas no Coinciden, intenta de nuevo"); return;
+                }
+            }
+        }
 
-            //}
-            //catch (DbEntityValidationException f)
-            //{
-            //    Console.WriteLine(f);
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            editar = false;
+            Limpiar();
+        }
 
-            //}
+
+        private void Limpiar()
+        {
+            txtCelular.Text = txtConfirmacionPwd.Text = txtIdentidad.Text = txtPApellido.Text = txtPNombre.Text =
+            txtPwd.Text = txtSApellido.Text = txtSNombre.Text = txtUsr.Text = TxtFamiliar.Text = string.Empty;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            id = Convert.ToInt32(dgProductos.SelectedCells[0].Value);
+            
+            if (editar || id != 0)
+            {
+                try
+                {
+                    var tabla = entity.Usuario.FirstOrDefault(x => x.IdUsuario == id);
+                    entity.Usuario.Remove(tabla);
+                    entity.SaveChanges();
+                    MessageBox.Show("¡Registro eliminado correctamente!");
+                    Limpiar();
+                    Mostrar_datos();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("¡Error al Eliminar Usuario!"); return;
+                }
+            }
         }
     }
 }

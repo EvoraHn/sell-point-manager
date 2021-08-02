@@ -21,7 +21,6 @@ namespace Punto_de_venta.Ventas
         //inicializar las variables
         string id = "000000";
         int idDetalle = 0;
-        bool editar = false;
         bool errorV = false;
         bool cotizacion = false;
         //tabla temporal
@@ -41,7 +40,6 @@ namespace Punto_de_venta.Ventas
                     var tabla = entity.Producto.FirstOrDefault(x => x.IdProducto == id);
                     txtId.Text = tabla.IdProducto;
                     txtProducto.Text = tabla.Nombre;
-                    editar = true;
                 }
                 catch (Exception)
                 { }

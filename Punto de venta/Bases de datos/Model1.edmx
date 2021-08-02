@@ -73,6 +73,15 @@
           <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Usr" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Pwd" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Identidad" Type="nchar" MaxLength="15" />
+          <Property Name="PrimerNombre" Type="nchar" MaxLength="15" />
+          <Property Name="SegundoNombre" Type="nchar" MaxLength="15" />
+          <Property Name="PrimerApellido" Type="nchar" MaxLength="15" />
+          <Property Name="SegundoApellido" Type="nchar" MaxLength="15" />
+          <Property Name="Estado" Type="nchar" MaxLength="10" />
+          <Property Name="Acceso" Type="nchar" MaxLength="10" />
+          <Property Name="Contacto" Type="nchar" MaxLength="9" />
+          <Property Name="ContactoFamiliar" Type="nchar" MaxLength="9" />
         </EntityType>
         <EntityType Name="DetalleVentas">
           <Key>
@@ -183,22 +192,6 @@ advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida
           <Property Name="Noviembre" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Diciembre" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BPB.dbo.VistaVentasPorMesSinOrdenar' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VistaVentasPorMesSinOrdenar">
-          <Property Name="Enero" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Febrero" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Marzo" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Abril" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Mayo" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Junio" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Julio" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Agosto" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Septiembre" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Octubre" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Noviembre" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Diciembre" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
         <Association Name="FK_Compras_Compra$Es_Un$Productos_Producto">
           <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
           <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
@@ -447,7 +440,6 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
           <EntitySet Name="Estante" EntityType="BPBModel.Estante" />
           <EntitySet Name="Producto" EntityType="BPBModel.Producto" />
           <EntitySet Name="Proveedor" EntityType="BPBModel.Proveedor" />
-          <EntitySet Name="Usuario" EntityType="BPBModel.Usuario" />
           <EntitySet Name="DetalleVentas" EntityType="BPBModel.DetalleVentas" />
           <EntitySet Name="Estado" EntityType="BPBModel.Estado" />
           <EntitySet Name="Venta" EntityType="BPBModel.Venta" />
@@ -484,6 +476,7 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="VistaProductoMasVendido" EntityType="BPBModel.VistaProductoMasVendido" />
           <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
+          <EntitySet Name="Usuario" EntityType="BPBModel.Usuario" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -565,14 +558,6 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
           <Property Name="Contacto1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Producto" Relationship="BPBModel.FK_Productos_Producto_Tiene_un_Productos_Proveedor" FromRole="Proveedor" ToRole="Producto" />
-        </EntityType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="IdUsuario" />
-          </Key>
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Usr" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DetalleVentas">
           <Key>
@@ -762,6 +747,23 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
           <Property Name="Noviembre" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="Diciembre" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usr" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Identidad" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="PrimerNombre" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="SegundoNombre" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="PrimerApellido" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="SegundoApellido" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Acceso" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Contacto" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+          <Property Name="ContactoFamiliar" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -859,15 +861,6 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="BPBModel.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
-                <ScalarProperty Name="Usr" ColumnName="Usr" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DetalleVentas">
             <EntityTypeMapping TypeName="BPBModel.DetalleVentas">
               <MappingFragment StoreEntitySet="DetalleVentas">
@@ -962,6 +955,24 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
                 <ScalarProperty Name="Febrero" ColumnName="Febrero" />
                 <ScalarProperty Name="Enero" ColumnName="Enero" />
                 <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="BPBModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ContactoFamiliar" ColumnName="ContactoFamiliar" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="Acceso" ColumnName="Acceso" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+                <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+                <ScalarProperty Name="SegundoNombre" ColumnName="SegundoNombre" />
+                <ScalarProperty Name="PrimerNombre" ColumnName="PrimerNombre" />
+                <ScalarProperty Name="Identidad" ColumnName="Identidad" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="Usr" ColumnName="Usr" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

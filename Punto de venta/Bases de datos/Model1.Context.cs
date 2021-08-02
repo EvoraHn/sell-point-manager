@@ -48,8 +48,6 @@ public partial class BPBEntities1 : DbContext
 
     public DbSet<Proveedor> Proveedor { get; set; }
 
-    public DbSet<Usuario> Usuario { get; set; }
-
     public DbSet<DetalleVentas> DetalleVentas { get; set; }
 
     public DbSet<Estado> Estado { get; set; }
@@ -65,6 +63,8 @@ public partial class BPBEntities1 : DbContext
     public DbSet<VistaProductoMasVendido> VistaProductoMasVendido { get; set; }
 
     public DbSet<VistaVentasPorMes> VistaVentasPorMes { get; set; }
+
+    public DbSet<Usuario> Usuario { get; set; }
 
 
     public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
