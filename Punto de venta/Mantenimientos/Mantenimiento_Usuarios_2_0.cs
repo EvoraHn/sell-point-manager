@@ -37,13 +37,11 @@ namespace Punto_de_venta.Mantenimientos
             {
                 if (salida_datos.Length == 0)
                 {
-                    salida_datos = "(Codigo LIKE '%" + palabra + "%' OR Producto LIKE '%" + palabra +
-                        "%' OR Categoria LIKE '%" + palabra + "%' OR Proveedor LIKE '%" + palabra + "%' )";
+                    salida_datos = "(IdUsuario LIKE '%" + palabra + "%' OR Usr LIKE '%" + palabra + "%' )";
                 }
                 else
                 {
-                    salida_datos += "AND(Codigo LIKE '%" + palabra + "%' OR Producto LIKE '%" + palabra +
-                        "%' OR Categoria LIKE '%" + palabra + "%' OR Proveedor LIKE '%" + palabra + "%' )";
+                    salida_datos = "(IdUsuario LIKE '%" + palabra + "%' OR Usr LIKE '%" + palabra + "%' )";
                 }
             }
             this.mifiltro.RowFilter = salida_datos;
@@ -67,13 +65,11 @@ namespace Punto_de_venta.Mantenimientos
                              {
                                  p.IdUsuario,
                                  p.Usr,
-                                 p.Pwd,
                              };
             this.mifiltro = (tUsuarios.CopyAnonymusToDataTable()).DefaultView;
             this.dgProductos.DataSource = mifiltro;
 
         }
-
         private void dgProductos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgProductos.RowCount > 0)
@@ -98,10 +94,46 @@ namespace Punto_de_venta.Mantenimientos
                     editar = true;
                 }
                 catch (Exception)
-                {
-                    // MessageBox.Show("Error");
-                }
+                {}
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            Punto_de_venta.Bases_de_datos.Usuario tUsuarios = new Punto_de_venta.Bases_de_datos.Usuario();
+            //tUsuarios.IdUsuario = 2;
+            tUsuarios.Usr = txtUsr.Text;
+            //tUsuarios.Identidad = txtId.Text;
+            //tUsuarios.PrimerNombre = txtNombre.Text;
+            //tUsuarios.SegundoNombre = txtnombre2.Text;
+            //tUsuarios.PrimerApellido = txtApellido.Text;
+            //tUsuarios.SegundoApellido = txtApellido2.Text;
+            //tUsuarios.Estado = Convert.ToInt32(txtEstado.Text);
+            //tUsuarios.Acceso = Convert.ToInt32(txtAcceso.Text);
+            //tUsuarios.Contacto = txtContacto.Text;
+            //tUsuarios.ContactoFamiliar = txtContacto2.Text;
+            //Procedimiento Especial para contraseña
+            //tUsuarios.Pwd = Hash.obtenerHash256(txtPass.Text);
+            //tUsuarios.Pwd = "123";
+            tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
+            entity.Usuario.Add(tUsuarios);
+
+            entity.SaveChanges();
+            MessageBox.Show("Datos Guardados Correctamente");
+
+            //txtPass.Text = txtUsr.Text = txtNombre.Text = txtnombre2.Text = string.Empty;
+
+            //chkEstado.Checked = false;
+            //dpFechaNac.Value = DateTime.Today;
+
+            //}
+            //catch (DbEntityValidationException f)
+            //{
+            //    Console.WriteLine(f);
+
+            //}
         }
     }
 }
