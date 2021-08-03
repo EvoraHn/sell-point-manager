@@ -29,8 +29,8 @@ namespace Punto_de_venta.Mantenimientos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -104,7 +104,7 @@ namespace Punto_de_venta.Mantenimientos
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(38, 37);
-            this.btnCerrar.TabIndex = 34;
+            this.btnCerrar.TabIndex = 17;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -144,7 +144,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(329, 28);
-            this.txtBuscar.TabIndex = 9;
+            this.txtBuscar.TabIndex = 15;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
@@ -162,7 +162,7 @@ namespace Punto_de_venta.Mantenimientos
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(105, 28);
-            this.btnNuevo.TabIndex = 24;
+            this.btnNuevo.TabIndex = 14;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -181,7 +181,7 @@ namespace Punto_de_venta.Mantenimientos
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(105, 28);
-            this.btnGuardar.TabIndex = 24;
+            this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -198,23 +198,23 @@ namespace Punto_de_venta.Mantenimientos
             this.dgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgProductos.Location = new System.Drawing.Point(394, 58);
             this.dgProductos.Margin = new System.Windows.Forms.Padding(2);
             this.dgProductos.Name = "dgProductos";
@@ -225,7 +225,7 @@ namespace Punto_de_venta.Mantenimientos
             this.dgProductos.RowTemplate.Height = 24;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProductos.Size = new System.Drawing.Size(836, 776);
-            this.dgProductos.TabIndex = 0;
+            this.dgProductos.TabIndex = 16;
             this.dgProductos.SelectionChanged += new System.EventHandler(this.dgProductos_SelectionChanged);
             // 
             // btnEliminar
@@ -242,7 +242,7 @@ namespace Punto_de_venta.Mantenimientos
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(105, 28);
-            this.btnEliminar.TabIndex = 31;
+            this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -304,7 +304,7 @@ namespace Punto_de_venta.Mantenimientos
             this.cmbAcceso.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAcceso.Name = "cmbAcceso";
             this.cmbAcceso.Size = new System.Drawing.Size(165, 30);
-            this.cmbAcceso.TabIndex = 35;
+            this.cmbAcceso.TabIndex = 7;
             // 
             // cmbEstado
             // 
@@ -317,7 +317,7 @@ namespace Punto_de_venta.Mantenimientos
             this.cmbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(169, 30);
-            this.cmbEstado.TabIndex = 35;
+            this.cmbEstado.TabIndex = 6;
             // 
             // TxtFamiliar
             // 
@@ -325,7 +325,7 @@ namespace Punto_de_venta.Mantenimientos
             this.TxtFamiliar.Mask = "0000-0000";
             this.TxtFamiliar.Name = "TxtFamiliar";
             this.TxtFamiliar.Size = new System.Drawing.Size(165, 28);
-            this.TxtFamiliar.TabIndex = 34;
+            this.TxtFamiliar.TabIndex = 9;
             // 
             // txtCelular
             // 
@@ -333,15 +333,15 @@ namespace Punto_de_venta.Mantenimientos
             this.txtCelular.Mask = "0000-0000";
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(168, 28);
-            this.txtCelular.TabIndex = 34;
+            this.txtCelular.TabIndex = 8;
             // 
             // txtIdentidad
             // 
             this.txtIdentidad.Location = new System.Drawing.Point(20, 329);
-            this.txtIdentidad.Mask = "0000-0000-0000";
+            this.txtIdentidad.Mask = "0000-0000-00000";
             this.txtIdentidad.Name = "txtIdentidad";
             this.txtIdentidad.Size = new System.Drawing.Size(171, 28);
-            this.txtIdentidad.TabIndex = 34;
+            this.txtIdentidad.TabIndex = 0;
             // 
             // button2
             // 
@@ -544,7 +544,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtSApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtSApellido.Name = "txtSApellido";
             this.txtSApellido.Size = new System.Drawing.Size(165, 28);
-            this.txtSApellido.TabIndex = 1;
+            this.txtSApellido.TabIndex = 5;
             // 
             // txtPApellido
             // 
@@ -555,7 +555,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtPApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtPApellido.Name = "txtPApellido";
             this.txtPApellido.Size = new System.Drawing.Size(171, 28);
-            this.txtPApellido.TabIndex = 1;
+            this.txtPApellido.TabIndex = 4;
             // 
             // txtPNombre
             // 
@@ -566,7 +566,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtPNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtPNombre.Name = "txtPNombre";
             this.txtPNombre.Size = new System.Drawing.Size(171, 28);
-            this.txtPNombre.TabIndex = 1;
+            this.txtPNombre.TabIndex = 2;
             // 
             // txtSNombre
             // 
@@ -577,7 +577,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtSNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtSNombre.Name = "txtSNombre";
             this.txtSNombre.Size = new System.Drawing.Size(165, 28);
-            this.txtSNombre.TabIndex = 1;
+            this.txtSNombre.TabIndex = 3;
             // 
             // txtConfirmacionPwd
             // 
@@ -589,7 +589,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtConfirmacionPwd.Name = "txtConfirmacionPwd";
             this.txtConfirmacionPwd.PasswordChar = '*';
             this.txtConfirmacionPwd.Size = new System.Drawing.Size(165, 28);
-            this.txtConfirmacionPwd.TabIndex = 1;
+            this.txtConfirmacionPwd.TabIndex = 11;
             // 
             // txtUsr
             // 
@@ -612,7 +612,7 @@ namespace Punto_de_venta.Mantenimientos
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(168, 28);
-            this.txtPwd.TabIndex = 1;
+            this.txtPwd.TabIndex = 10;
             // 
             // Mantenimiento_Usuarios_2_0
             // 

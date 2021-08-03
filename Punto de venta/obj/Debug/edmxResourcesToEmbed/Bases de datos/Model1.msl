@@ -105,6 +105,7 @@
     <EntitySetMapping Name="Estado">
       <EntityTypeMapping TypeName="BPBModel.Estado">
         <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="FKUsuario" ColumnName="FKUsuario" />
           <ScalarProperty Name="Descripción_estado" ColumnName="Descripción estado" />
           <ScalarProperty Name="Estado1" ColumnName="Estado" />
           <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
@@ -189,12 +190,49 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ModuloPrincipal">
+      <EntityTypeMapping TypeName="BPBModel.ModuloPrincipal">
+        <MappingFragment StoreEntitySet="ModuloPrincipal">
+          <ScalarProperty Name="EstadoModuloPrin" ColumnName="EstadoModuloPrin" />
+          <ScalarProperty Name="DescripcionModuloPrin" ColumnName="DescripcionModuloPrin" />
+          <ScalarProperty Name="IdModuloPrincipal" ColumnName="IdModuloPrincipal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modulos">
+      <EntityTypeMapping TypeName="BPBModel.Modulos">
+        <MappingFragment StoreEntitySet="Modulos">
+          <ScalarProperty Name="FKModuloPrincipal" ColumnName="FKModuloPrincipal" />
+          <ScalarProperty Name="EstadoModulo" ColumnName="EstadoModulo" />
+          <ScalarProperty Name="DescripcionModulo" ColumnName="DescripcionModulo" />
+          <ScalarProperty Name="IdModulos" ColumnName="IdModulos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfiles">
+      <EntityTypeMapping TypeName="BPBModel.Perfiles">
+        <MappingFragment StoreEntitySet="Perfiles">
+          <ScalarProperty Name="EstadoPerfil" ColumnName="EstadoPerfil" />
+          <ScalarProperty Name="DescripcionPerfil" ColumnName="DescripcionPerfil" />
+          <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerfilModulo">
+      <EntityTypeMapping TypeName="BPBModel.PerfilModulo">
+        <MappingFragment StoreEntitySet="PerfilModulo">
+          <ScalarProperty Name="IdPerfilModulo" ColumnName="IdPerfilModulo" />
+          <ScalarProperty Name="FKModuloId" ColumnName="FKModuloId" />
+          <ScalarProperty Name="FKPerfilId" ColumnName="FKPerfilId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="BPBModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="ContactoFamiliar" ColumnName="ContactoFamiliar" />
           <ScalarProperty Name="Contacto" ColumnName="Contacto" />
-          <ScalarProperty Name="Acceso" ColumnName="Acceso" />
+          <ScalarProperty Name="FKPerfil" ColumnName="FKPerfil" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
           <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
@@ -207,5 +245,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="PerfilesModulos" TypeName="BPBModel.PerfilesModulos" StoreEntitySet="PerfilesModulos">
+      <EndProperty Name="Perfiles">
+        <ScalarProperty Name="IdPerfil" ColumnName="FKPerfilId" />
+      </EndProperty>
+      <EndProperty Name="Modulos">
+        <ScalarProperty Name="IdModulos" ColumnName="FKModuloId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -105,7 +105,7 @@ namespace Punto_de_venta.Ventas
         }
         private void Limpiar()
         {
-            txtId.Text = txtProducto.Text =  string.Empty;
+            txtBuscar.Text = txtId.Text = txtProducto.Text =  string.Empty;
             txtCantidad.Text = "1" ;
             txtBuscar.Focus();
         }

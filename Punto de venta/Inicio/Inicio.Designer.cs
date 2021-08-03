@@ -72,7 +72,7 @@ namespace Punto_de_venta.Inicio
             this.panel2.Controls.Add(this.btnCerrar);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(0, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1241, 48);
             this.panel2.TabIndex = 33;
@@ -89,7 +89,7 @@ namespace Punto_de_venta.Inicio
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.Location = new System.Drawing.Point(12, 5);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(38, 37);
             this.btnCerrar.TabIndex = 34;
@@ -115,8 +115,9 @@ namespace Punto_de_venta.Inicio
             this.dgProductos.AllowUserToOrderColumns = true;
             this.dgProductos.AllowUserToResizeColumns = false;
             this.dgProductos.AllowUserToResizeRows = false;
-            this.dgProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(180)))));
             this.dgProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -139,8 +140,8 @@ namespace Punto_de_venta.Inicio
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgProductos.GridColor = System.Drawing.Color.White;
-            this.dgProductos.Location = new System.Drawing.Point(16, 341);
-            this.dgProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgProductos.Location = new System.Drawing.Point(22, 341);
+            this.dgProductos.Margin = new System.Windows.Forms.Padding(2);
             this.dgProductos.MultiSelect = false;
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.ReadOnly = true;
@@ -158,7 +159,7 @@ namespace Punto_de_venta.Inicio
             this.dgProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgProductos.RowTemplate.Height = 24;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgProductos.Size = new System.Drawing.Size(672, 386);
+            this.dgProductos.Size = new System.Drawing.Size(604, 377);
             this.dgProductos.TabIndex = 0;
             // 
             // label1
@@ -174,15 +175,16 @@ namespace Punto_de_venta.Inicio
             // 
             // logo
             // 
-            this.logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.logo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo.BackgroundImage")));
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("logo.InitialImage")));
             this.logo.Location = new System.Drawing.Point(2, 287);
-            this.logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logo.Margin = new System.Windows.Forms.Padding(2);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(700, 451);
+            this.logo.Size = new System.Drawing.Size(645, 451);
             this.logo.TabIndex = 17;
             this.logo.TabStop = false;
             // 
@@ -208,7 +210,7 @@ namespace Punto_de_venta.Inicio
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.Gray;
             this.panel1.Location = new System.Drawing.Point(-1, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1241, 847);
             this.panel1.TabIndex = 0;
@@ -231,8 +233,7 @@ namespace Punto_de_venta.Inicio
             // 
             // ctMeses
             // 
-            this.ctMeses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctMeses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             customLabel1.Text = "Meses";
             chartArea1.AxisX.CustomLabels.Add(customLabel1);
@@ -241,11 +242,11 @@ namespace Punto_de_venta.Inicio
             this.ctMeses.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bPBEntities1BindingSource, "VistaVentasPorMes", true));
             legend1.Name = "Legend1";
             this.ctMeses.Legends.Add(legend1);
-            this.ctMeses.Location = new System.Drawing.Point(707, 287);
-            this.ctMeses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ctMeses.Location = new System.Drawing.Point(651, 287);
+            this.ctMeses.Margin = new System.Windows.Forms.Padding(2);
             this.ctMeses.Name = "ctMeses";
             this.ctMeses.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            this.ctMeses.Size = new System.Drawing.Size(524, 451);
+            this.ctMeses.Size = new System.Drawing.Size(580, 451);
             this.ctMeses.TabIndex = 34;
             this.ctMeses.Text = "Gráfico ventas por mes ";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -261,7 +262,7 @@ namespace Punto_de_venta.Inicio
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(452, 227);
+            this.label6.Location = new System.Drawing.Point(18, 226);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 24);
@@ -311,13 +312,12 @@ namespace Punto_de_venta.Inicio
             // 
             // lblDía
             // 
-            this.lblDía.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDía.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDía.AutoSize = true;
             this.lblDía.BackColor = System.Drawing.Color.Transparent;
             this.lblDía.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDía.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDía.Location = new System.Drawing.Point(728, 98);
+            this.lblDía.Location = new System.Drawing.Point(752, 122);
             this.lblDía.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDía.Name = "lblDía";
             this.lblDía.Size = new System.Drawing.Size(265, 31);
@@ -326,13 +326,12 @@ namespace Punto_de_venta.Inicio
             // 
             // lblFechaCompleta
             // 
-            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaCompleta.AutoSize = true;
             this.lblFechaCompleta.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaCompleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaCompleta.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblFechaCompleta.Location = new System.Drawing.Point(728, 205);
+            this.lblFechaCompleta.Location = new System.Drawing.Point(752, 227);
             this.lblFechaCompleta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaCompleta.Name = "lblFechaCompleta";
             this.lblFechaCompleta.Size = new System.Drawing.Size(125, 31);
@@ -341,13 +340,12 @@ namespace Punto_de_venta.Inicio
             // 
             // lblHora
             // 
-            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHora.AutoSize = true;
             this.lblHora.BackColor = System.Drawing.Color.Transparent;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHora.Location = new System.Drawing.Point(722, 129);
+            this.lblHora.Location = new System.Drawing.Point(745, 153);
             this.lblHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(369, 73);
@@ -370,7 +368,7 @@ namespace Punto_de_venta.Inicio
             this.ClientSize = new System.Drawing.Size(1240, 847);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "|";

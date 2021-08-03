@@ -22,7 +22,7 @@ namespace Punto_de_venta.Inicio
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -54,12 +54,26 @@ namespace Punto_de_venta.Inicio
                     return;
                 }
                 else {
-                    Punto_de_venta.Menú.Menu_estilo_1 Formulario = new Punto_de_venta.Menú.Menu_estilo_1();
+
+                    //frmMenu fMenu = new frmMenu(tUsuarios.IdUsuario);
+                    //this.Hide();
+                    //fMenu.Show();
+                    
+                    Punto_de_venta.Menú.Menu_estilo_2 Formulario = new Punto_de_venta.Menú.Menu_estilo_2(tUsuarios.IdUsuario);
+                    this.Hide();
                     Formulario.ShowDialog();
-                    this.Dispose();
+                    limpiar();
+                    this.Show();
+                    //this.Close();
+                    //this.Dispose();
                 }
                 
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     public class Hash

@@ -133,6 +133,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Bases de datos\ModuloPrincipal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases de datos\Modulos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases de datos\Perfiles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases de datos\PerfilModulo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bases de datos\Producto.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -214,6 +226,12 @@
     <Compile Include="Mantenimientos\Mantenimiento_Estantes.Designer.cs">
       <DependentUpon>Mantenimiento_Estantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\Mantenimiento_Perfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Mantenimiento_Perfiles.Designer.cs">
+      <DependentUpon>Mantenimiento_Perfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\Mantenimiento_Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +261,12 @@
     </Compile>
     <Compile Include="Mantenimientos\Mantenimiento_Usuarios_2_0.Designer.cs">
       <DependentUpon>Mantenimiento_Usuarios_2_0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menú\Menu_estilo_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú\Menu_estilo_2.Designer.cs">
+      <DependentUpon>Menu_estilo_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Menú\Menu_estilo_1.cs">
       <SubType>Form</SubType>
@@ -288,6 +312,9 @@
     <EmbeddedResource Include="Mantenimientos\Mantenimiento_Estantes.resx">
       <DependentUpon>Mantenimiento_Estantes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Mantenimiento_Perfiles.resx">
+      <DependentUpon>Mantenimiento_Perfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\Mantenimiento_Productos.resx">
       <DependentUpon>Mantenimiento_Productos.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menú\Menu_estilo_1.resx">
       <DependentUpon>Menu_estilo_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menú\Menu_estilo_2.resx">
+      <DependentUpon>Menu_estilo_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -371,6 +401,7 @@
     <None Include="Resources\pequeño alargado.png" />
     <None Include="Resources\mediano.png" />
     <None Include="Imagenes\Compras1.png" />
+    <None Include="Imagenes\CerrarSesión.png" />
     <Content Include="Imagenes\hogar.png" />
     <Content Include="Imagenes\Perfil.png" />
     <Content Include="Imagenes\ICONO.ico" />
@@ -378,6 +409,7 @@
     <Content Include="Imagenes\LOGO 3.png" />
     <Content Include="Imagenes\orden1.png" />
     <Content Include="Imagenes\Producto1.png" />
+    <None Include="Imagenes\Reportes1.png" />
     <Content Include="Imagenes\Venta1.png" />
     <None Include="Resources\valores.png" />
     <None Include="Resources\jerarquia.png" />

@@ -73,7 +73,35 @@
     </AssociationSet>
     <EntitySet Name="VistaProductoMasVendido" EntityType="BPBModel.VistaProductoMasVendido" />
     <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
+    <EntitySet Name="ModuloPrincipal" EntityType="BPBModel.ModuloPrincipal" />
+    <EntitySet Name="Modulos" EntityType="BPBModel.Modulos" />
+    <EntitySet Name="Perfiles" EntityType="BPBModel.Perfiles" />
+    <EntitySet Name="PerfilModulo" EntityType="BPBModel.PerfilModulo" />
     <EntitySet Name="Usuario" EntityType="BPBModel.Usuario" />
+    <AssociationSet Name="FK_Modulos_ModuloPrincipal" Association="BPBModel.FK_Modulos_ModuloPrincipal">
+      <End Role="ModuloPrincipal" EntitySet="ModuloPrincipal" />
+      <End Role="Modulos" EntitySet="Modulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilModulo_Modulos" Association="BPBModel.FK_PerfilModulo_Modulos">
+      <End Role="Modulos" EntitySet="Modulos" />
+      <End Role="PerfilModulo" EntitySet="PerfilModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilModulo_Perfiles" Association="BPBModel.FK_PerfilModulo_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="PerfilModulo" EntitySet="PerfilModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Perfiles" Association="BPBModel.FK_Usuario_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_Usuario" Association="BPBModel.FK_Estado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Estado" EntitySet="Estado" />
+    </AssociationSet>
+    <AssociationSet Name="PerfilesModulos" Association="BPBModel.PerfilesModulos">
+      <End Role="Modulos" EntitySet="Modulos" />
+      <End Role="Perfiles" EntitySet="Perfiles" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -175,6 +203,8 @@
     <Property Name="Estado1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Descripción_estado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Venta" Relationship="BPBModel.FK_Ventas_Ventas_Pertenece_Ventas_Estado" FromRole="Estado" ToRole="Venta" />
+    <Property Name="FKUsuario" Type="Int16" />
+    <NavigationProperty Name="Usuario" Relationship="BPBModel.FK_Estado_Usuario" FromRole="Estado" ToRole="Usuario" />
   </EntityType>
   <EntityType Name="Venta">
     <Key>
@@ -344,21 +374,129 @@
     <Property Name="Noviembre" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="Diciembre" Type="Decimal" Precision="38" Scale="2" />
   </EntityType>
+  <EntityType Name="ModuloPrincipal">
+    <Key>
+      <PropertyRef Name="IdModuloPrincipal" />
+    </Key>
+    <Property Name="IdModuloPrincipal" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionModuloPrin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoModuloPrin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Modulos" Relationship="BPBModel.FK_Modulos_ModuloPrincipal" FromRole="ModuloPrincipal" ToRole="Modulos" />
+  </EntityType>
+  <EntityType Name="Modulos">
+    <Key>
+      <PropertyRef Name="IdModulos" />
+    </Key>
+    <Property Name="IdModulos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionModulo" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoModulo" Type="Boolean" Nullable="false" />
+    <Property Name="FKModuloPrincipal" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="ModuloPrincipal" Relationship="BPBModel.FK_Modulos_ModuloPrincipal" FromRole="Modulos" ToRole="ModuloPrincipal" />
+    <NavigationProperty Name="PerfilModulo" Relationship="BPBModel.FK_PerfilModulo_Modulos" FromRole="Modulos" ToRole="PerfilModulo" />
+    <NavigationProperty Name="Perfiles" Relationship="BPBModel.PerfilesModulos" FromRole="Modulos" ToRole="Perfiles" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="IdPerfil" />
+    </Key>
+    <Property Name="IdPerfil" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionPerfil" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoPerfil" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PerfilModulo" Relationship="BPBModel.FK_PerfilModulo_Perfiles" FromRole="Perfiles" ToRole="PerfilModulo" />
+    <NavigationProperty Name="Usuario" Relationship="BPBModel.FK_Usuario_Perfiles" FromRole="Perfiles" ToRole="Usuario" />
+    <NavigationProperty Name="Modulos" Relationship="BPBModel.PerfilesModulos" FromRole="Perfiles" ToRole="Modulos" />
+  </EntityType>
+  <EntityType Name="PerfilModulo">
+    <Key>
+      <PropertyRef Name="IdPerfilModulo" />
+    </Key>
+    <Property Name="FKPerfilId" Type="Int16" Nullable="false" />
+    <Property Name="FKModuloId" Type="Int16" Nullable="false" />
+    <Property Name="IdPerfilModulo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Modulos" Relationship="BPBModel.FK_PerfilModulo_Modulos" FromRole="PerfilModulo" ToRole="Modulos" />
+    <NavigationProperty Name="Perfiles" Relationship="BPBModel.FK_PerfilModulo_Perfiles" FromRole="PerfilModulo" ToRole="Perfiles" />
+  </EntityType>
   <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="IdUsuario" />
     </Key>
-    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Usr" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="Pwd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Identidad" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-    <Property Name="PrimerNombre" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Identidad" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerNombre" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
     <Property Name="SegundoNombre" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-    <Property Name="PrimerApellido" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerApellido" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
     <Property Name="SegundoApellido" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-    <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Acceso" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Contacto" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <Property Name="FKPerfil" Type="Int16" Nullable="false" />
+    <Property Name="Contacto" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="true" />
     <Property Name="ContactoFamiliar" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Perfiles" Relationship="BPBModel.FK_Usuario_Perfiles" FromRole="Usuario" ToRole="Perfiles" />
+    <NavigationProperty Name="Estado1" Relationship="BPBModel.FK_Estado_Usuario" FromRole="Usuario" ToRole="Estado" />
   </EntityType>
+  <Association Name="FK_Modulos_ModuloPrincipal">
+    <End Type="BPBModel.ModuloPrincipal" Role="ModuloPrincipal" Multiplicity="1" />
+    <End Type="BPBModel.Modulos" Role="Modulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModuloPrincipal">
+        <PropertyRef Name="IdModuloPrincipal" />
+      </Principal>
+      <Dependent Role="Modulos">
+        <PropertyRef Name="FKModuloPrincipal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilModulo_Modulos">
+    <End Type="BPBModel.Modulos" Role="Modulos" Multiplicity="1" />
+    <End Type="BPBModel.PerfilModulo" Role="PerfilModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulos">
+        <PropertyRef Name="IdModulos" />
+      </Principal>
+      <Dependent Role="PerfilModulo">
+        <PropertyRef Name="FKModuloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilModulo_Perfiles">
+    <End Type="BPBModel.Perfiles" Role="Perfiles" Multiplicity="1" />
+    <End Type="BPBModel.PerfilModulo" Role="PerfilModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="IdPerfil" />
+      </Principal>
+      <Dependent Role="PerfilModulo">
+        <PropertyRef Name="FKPerfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Perfiles">
+    <End Type="BPBModel.Perfiles" Role="Perfiles" Multiplicity="1" />
+    <End Type="BPBModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="IdPerfil" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="FKPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_Usuario">
+    <End Type="BPBModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="BPBModel.Estado" Role="Estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Estado">
+        <PropertyRef Name="FKUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PerfilesModulos">
+    <End Type="BPBModel.Modulos" Role="Modulos" Multiplicity="*" />
+    <End Type="BPBModel.Perfiles" Role="Perfiles" Multiplicity="*" />
+  </Association>
 </Schema>

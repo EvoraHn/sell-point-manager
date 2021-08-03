@@ -32,9 +32,13 @@ public partial class Estado
 
     public string Descripción_estado { get; set; }
 
+    public Nullable<short> FKUsuario { get; set; }
+
 
 
     public virtual ICollection<Venta> Venta { get; set; }
+
+    public virtual Usuario Usuario { get; set; }
 
 }
 

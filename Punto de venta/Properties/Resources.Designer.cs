@@ -103,6 +103,16 @@ namespace Punto_de_venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CerrarSesión {
+            get {
+                object obj = ResourceManager.GetObject("CerrarSesión", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cesta_de_la_compra {
             get {
                 object obj = ResourceManager.GetObject("cesta-de-la-compra", resourceCulture);
@@ -346,6 +356,26 @@ namespace Punto_de_venta.Properties {
         internal static System.Drawing.Bitmap Producto1 {
             get {
                 object obj = ResourceManager.GetObject("Producto1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reportes1 {
+            get {
+                object obj = ResourceManager.GetObject("Reportes1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reportes11 {
+            get {
+                object obj = ResourceManager.GetObject("Reportes11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

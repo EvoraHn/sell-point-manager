@@ -64,6 +64,14 @@ public partial class BPBEntities1 : DbContext
 
     public DbSet<VistaVentasPorMes> VistaVentasPorMes { get; set; }
 
+    public DbSet<ModuloPrincipal> ModuloPrincipal { get; set; }
+
+    public DbSet<Modulos> Modulos { get; set; }
+
+    public DbSet<Perfiles> Perfiles { get; set; }
+
+    public DbSet<PerfilModulo> PerfilModulo { get; set; }
+
     public DbSet<Usuario> Usuario { get; set; }
 
 

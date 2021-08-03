@@ -18,7 +18,15 @@ using System;
 public partial class Usuario
 {
 
-    public int IdUsuario { get; set; }
+    public Usuario()
+    {
+
+        this.Estado1 = new HashSet<Estado>();
+
+    }
+
+
+    public short IdUsuario { get; set; }
 
     public string Usr { get; set; }
 
@@ -34,13 +42,19 @@ public partial class Usuario
 
     public string SegundoApellido { get; set; }
 
-    public string Estado { get; set; }
+    public bool Estado { get; set; }
 
-    public string Acceso { get; set; }
+    public short FKPerfil { get; set; }
 
     public string Contacto { get; set; }
 
     public string ContactoFamiliar { get; set; }
+
+
+
+    public virtual Perfiles Perfiles { get; set; }
+
+    public virtual ICollection<Estado> Estado1 { get; set; }
 
 }
 

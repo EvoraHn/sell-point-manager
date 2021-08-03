@@ -61,21 +61,62 @@
     <Property Name="Contacto1" Type="varchar" MaxLength="100" />
     <Property Name="Descripcion" Type="varchar" MaxLength="500" />
   </EntityType>
+  <EntityType Name="ModuloPrincipal">
+    <Key>
+      <PropertyRef Name="IdModuloPrincipal" />
+    </Key>
+    <Property Name="IdModuloPrincipal" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionModuloPrin" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstadoModuloPrin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modulos">
+    <Key>
+      <PropertyRef Name="IdModulos" />
+    </Key>
+    <Property Name="IdModulos" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionModulo" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="EstadoModulo" Type="bit" Nullable="false" />
+    <Property Name="FKModuloPrincipal" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="IdPerfil" />
+    </Key>
+    <Property Name="IdPerfil" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionPerfil" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="EstadoPerfil" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilesModulos">
+    <Key>
+      <PropertyRef Name="FKPerfilId" />
+      <PropertyRef Name="FKModuloId" />
+    </Key>
+    <Property Name="FKPerfilId" Type="smallint" Nullable="false" />
+    <Property Name="FKModuloId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilModulo">
+    <Key>
+      <PropertyRef Name="IdPerfilModulo" />
+    </Key>
+    <Property Name="FKPerfilId" Type="smallint" Nullable="false" />
+    <Property Name="FKModuloId" Type="smallint" Nullable="false" />
+    <Property Name="IdPerfilModulo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="IdUsuario" />
     </Key>
-    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUsuario" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Usr" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="Pwd" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Identidad" Type="nchar" MaxLength="15" />
-    <Property Name="PrimerNombre" Type="nchar" MaxLength="15" />
+    <Property Name="Identidad" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="PrimerNombre" Type="nchar" MaxLength="15" Nullable="false" />
     <Property Name="SegundoNombre" Type="nchar" MaxLength="15" />
-    <Property Name="PrimerApellido" Type="nchar" MaxLength="15" />
+    <Property Name="PrimerApellido" Type="nchar" MaxLength="15" Nullable="false" />
     <Property Name="SegundoApellido" Type="nchar" MaxLength="15" />
-    <Property Name="Estado" Type="nchar" MaxLength="10" />
-    <Property Name="Acceso" Type="nchar" MaxLength="10" />
-    <Property Name="Contacto" Type="nchar" MaxLength="9" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+    <Property Name="FKPerfil" Type="smallint" Nullable="false" />
+    <Property Name="Contacto" Type="nchar" MaxLength="9" Nullable="false" />
     <Property Name="ContactoFamiliar" Type="nchar" MaxLength="9" />
   </EntityType>
   <EntityType Name="DetalleVentas">
@@ -94,6 +135,7 @@
     <Property Name="IdEstado" Type="int" Nullable="false" />
     <Property Name="Estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripción estado" Type="nvarchar" MaxLength="10" />
+    <Property Name="FKUsuario" Type="smallint" />
   </EntityType>
   <EntityType Name="Venta">
     <Key>
@@ -199,6 +241,78 @@ advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Estado_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Estado">
+        <PropertyRef Name="FKUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Modulos_ModuloPrincipal">
+    <End Role="ModuloPrincipal" Type="Self.ModuloPrincipal" Multiplicity="1" />
+    <End Role="Modulos" Type="Self.Modulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModuloPrincipal">
+        <PropertyRef Name="IdModuloPrincipal" />
+      </Principal>
+      <Dependent Role="Modulos">
+        <PropertyRef Name="FKModuloPrincipal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesModulos_Modulos">
+    <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
+    <End Role="PerfilesModulos" Type="Self.PerfilesModulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulos">
+        <PropertyRef Name="IdModulos" />
+      </Principal>
+      <Dependent Role="PerfilesModulos">
+        <PropertyRef Name="FKModuloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesModulos_Perfiles">
+    <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+    <End Role="PerfilesModulos" Type="Self.PerfilesModulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="IdPerfil" />
+      </Principal>
+      <Dependent Role="PerfilesModulos">
+        <PropertyRef Name="FKPerfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilModulo_Modulos">
+    <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
+    <End Role="PerfilModulo" Type="Self.PerfilModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulos">
+        <PropertyRef Name="IdModulos" />
+      </Principal>
+      <Dependent Role="PerfilModulo">
+        <PropertyRef Name="FKModuloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilModulo_Perfiles">
+    <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+    <End Role="PerfilModulo" Type="Self.PerfilModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="IdPerfil" />
+      </Principal>
+      <Dependent Role="PerfilModulo">
+        <PropertyRef Name="FKPerfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Producto_Producto$Pertenece$Producto_Estante">
     <End Role="Estante" Type="Self.Estante" Multiplicity="0..1" />
     <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
@@ -232,6 +346,18 @@ advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida
       </Principal>
       <Dependent Role="Producto">
         <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Perfiles">
+    <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="IdPerfil" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="FKPerfil" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -309,6 +435,11 @@ advertencia 6002: La tabla o vista 'BPB.dbo.VistaVentasPorMes' no tiene definida
     <EntitySet Name="Estante" EntityType="Self.Estante" Schema="Productos" store:Type="Tables" />
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="Productos" store:Type="Tables" />
     <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="Productos" store:Type="Tables" />
+    <EntitySet Name="ModuloPrincipal" EntityType="Self.ModuloPrincipal" Schema="Usuarios" store:Type="Tables" />
+    <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="Usuarios" store:Type="Tables" />
+    <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="Usuarios" store:Type="Tables" />
+    <EntitySet Name="PerfilesModulos" EntityType="Self.PerfilesModulos" Schema="Usuarios" store:Type="Tables" />
+    <EntitySet Name="PerfilModulo" EntityType="Self.PerfilModulo" Schema="Usuarios" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="Usuarios" store:Type="Tables" />
     <EntitySet Name="DetalleVentas" EntityType="Self.DetalleVentas" Schema="Ventas" store:Type="Tables" />
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="Ventas" store:Type="Tables" />
@@ -369,6 +500,30 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
       <End Role="Producto" EntitySet="Producto" />
       <End Role="Compra" EntitySet="Compra" />
     </AssociationSet>
+    <AssociationSet Name="FK_Estado_Usuario" Association="Self.FK_Estado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Estado" EntitySet="Estado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Modulos_ModuloPrincipal" Association="Self.FK_Modulos_ModuloPrincipal">
+      <End Role="ModuloPrincipal" EntitySet="ModuloPrincipal" />
+      <End Role="Modulos" EntitySet="Modulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesModulos_Modulos" Association="Self.FK_PerfilesModulos_Modulos">
+      <End Role="Modulos" EntitySet="Modulos" />
+      <End Role="PerfilesModulos" EntitySet="PerfilesModulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesModulos_Perfiles" Association="Self.FK_PerfilesModulos_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="PerfilesModulos" EntitySet="PerfilesModulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilModulo_Modulos" Association="Self.FK_PerfilModulo_Modulos">
+      <End Role="Modulos" EntitySet="Modulos" />
+      <End Role="PerfilModulo" EntitySet="PerfilModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilModulo_Perfiles" Association="Self.FK_PerfilModulo_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="PerfilModulo" EntitySet="PerfilModulo" />
+    </AssociationSet>
     <AssociationSet Name="FK_Producto_Producto$Pertenece$Producto_Estante" Association="Self.FK_Producto_Producto$Pertenece$Producto_Estante">
       <End Role="Estante" EntitySet="Estante" />
       <End Role="Producto" EntitySet="Producto" />
@@ -380,6 +535,10 @@ FROM [dbo].[VistaVentasPorMes] AS [VistaVentasPorMes]</DefiningQuery>
     <AssociationSet Name="FK_Productos_Producto$Tiene_una$Productos_Categoria" Association="Self.FK_Productos_Producto$Tiene_una$Productos_Categoria">
       <End Role="Categoria" EntitySet="Categoria" />
       <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Perfiles" Association="Self.FK_Usuario_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
     <AssociationSet Name="FK_Ventas_DetalleVentas$Contiene$Productos_Producto" Association="Self.FK_Ventas_DetalleVentas$Contiene$Productos_Producto">
       <End Role="Producto" EntitySet="Producto" />

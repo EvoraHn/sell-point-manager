@@ -88,8 +88,28 @@ namespace Punto_de_venta.Mantenimientos
                     txtSNombre.Text = tabla.SegundoNombre;
                     txtSApellido.Text = tabla.SegundoApellido;
                     txtPApellido.Text = tabla.PrimerApellido;
-                    cmbAcceso.Text = tabla.Acceso;
-                    cmbEstado.Text = tabla.Estado;
+                    //modulo de Acceso
+                    if (tabla.FKPerfil == 1)
+                    {
+                        cmbAcceso.Text = "Admin";
+                    }
+                    else if (tabla.FKPerfil == 2)
+                    {
+                        cmbAcceso.Text = "Caja";
+                    }
+                    else if (tabla.FKPerfil == 3)
+                    {
+                        cmbAcceso.Text = "Auditoría";
+                    }
+                    //modulo de Estado
+                    if (tabla.Estado == true)
+                    {
+                        cmbEstado.Text = "Activo";
+                    }
+                    else if (tabla.Estado == false)
+                    {
+                        cmbEstado.Text = "Inactivo";
+                    }
                     editar = true;
                 }
                 catch (Exception)
@@ -108,8 +128,29 @@ namespace Punto_de_venta.Mantenimientos
                 tUsuarios.SegundoNombre = txtSNombre.Text;
                 tUsuarios.PrimerApellido = txtPApellido.Text;
                 tUsuarios.SegundoApellido = txtSApellido.Text;
-                tUsuarios.Estado = cmbEstado.Text;
-                tUsuarios.Acceso = cmbAcceso.Text;
+                //modulo estado
+                if (cmbEstado.Text == "Activo")
+                {
+                    tUsuarios.Estado = true;
+                }
+                else if (cmbEstado.Text == "Inactivo")
+                {
+                    tUsuarios.Estado = false;
+                }
+
+                //modulo acceso
+                if (cmbAcceso.Text == "Admin")
+                {
+                    tUsuarios.FKPerfil = 1;
+                }
+                else if (cmbAcceso.Text == "Caja")
+                {
+                    tUsuarios.FKPerfil = 2;
+                }
+                else if (cmbAcceso.Text == "Auditoría")
+                {
+                    tUsuarios.FKPerfil = 3;
+                }
                 tUsuarios.Contacto = txtCelular.Text;
                 tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
 
@@ -136,11 +177,31 @@ namespace Punto_de_venta.Mantenimientos
                 tUsuarios.SegundoNombre = txtSNombre.Text;
                 tUsuarios.PrimerApellido = txtPApellido.Text;
                 tUsuarios.SegundoApellido = txtSApellido.Text;
-                tUsuarios.Estado = cmbEstado.Text;
-                tUsuarios.Acceso = cmbAcceso.Text;
+                //modulo estado
+                if (cmbEstado.Text == "Activo")
+                {
+                    tUsuarios.Estado = true;
+                }
+                else if (cmbEstado.Text == "Inactivo")
+                {
+                    tUsuarios.Estado = false;
+                }
+                
+                //modulo acceso
+                if (cmbAcceso.Text == "Admin")
+                {
+                    tUsuarios.FKPerfil = 1;
+                }
+                else if (cmbAcceso.Text == "Caja")
+                {
+                    tUsuarios.FKPerfil = 2;
+                }
+                else if (cmbAcceso.Text == "Auditoría")
+                {
+                    tUsuarios.FKPerfil = 3;
+                }
                 tUsuarios.Contacto = txtCelular.Text;
                 tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
-
                 if (txtPwd.Text == txtConfirmacionPwd.Text)
                 {
                     tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);

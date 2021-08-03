@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BPBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BPBEntities1" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BPBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BPBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Compra" EntityType="BPBModel.Compra" />
+    <EntitySet Name="sysdiagrams" EntityType="BPBModel.sysdiagrams" />
+    <EntitySet Name="Categoria" EntityType="BPBModel.Categoria" />
+    <EntitySet Name="Estante" EntityType="BPBModel.Estante" />
+    <EntitySet Name="Producto" EntityType="BPBModel.Producto" />
+    <EntitySet Name="Proveedor" EntityType="BPBModel.Proveedor" />
+    <EntitySet Name="DetalleVentas" EntityType="BPBModel.DetalleVentas" />
+    <EntitySet Name="Estado" EntityType="BPBModel.Estado" />
+    <EntitySet Name="Venta" EntityType="BPBModel.Venta" />
+    <EntitySet Name="Facturas" EntityType="BPBModel.Facturas" />
+    <EntitySet Name="Imprimir_Facturas" EntityType="BPBModel.Imprimir_Facturas" />
+    <EntitySet Name="Vista1" EntityType="BPBModel.Vista1" />
+    <AssociationSet Name="FK_Compras_Compra_Es_Un_Productos_Producto" Association="BPBModel.FK_Compras_Compra_Es_Un_Productos_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Compra" EntitySet="Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Producto_Tiene_una_Productos_Categoria" Association="BPBModel.FK_Productos_Producto_Tiene_una_Productos_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Producto_Pertenece_Producto_Estante" Association="BPBModel.FK_Producto_Producto_Pertenece_Producto_Estante">
+      <End Role="Estante" EntitySet="Estante" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Producto_Tiene_un_Productos_Proveedor" Association="BPBModel.FK_Productos_Producto_Tiene_un_Productos_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_DetalleVentas_Contiene_Productos_Producto" Association="BPBModel.FK_Ventas_DetalleVentas_Contiene_Productos_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="DetalleVentas" EntitySet="DetalleVentas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_DetalleVentas_Pertenece_Ventas_Ventas" Association="BPBModel.FK_Ventas_DetalleVentas_Pertenece_Ventas_Ventas">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="DetalleVentas" EntitySet="DetalleVentas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_Ventas_Pertenece_Ventas_Estado" Association="BPBModel.FK_Ventas_Ventas_Pertenece_Ventas_Estado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <EntitySet Name="VistaProductoMasVendido" EntityType="BPBModel.VistaProductoMasVendido" />
+    <EntitySet Name="VistaVentasPorMes" EntityType="BPBModel.VistaVentasPorMes" />
+    <EntitySet Name="ModuloPrincipal" EntityType="BPBModel.ModuloPrincipal" />
+    <EntitySet Name="Modulos" EntityType="BPBModel.Modulos" />
+    <EntitySet Name="Perfiles" EntityType="BPBModel.Perfiles" />
+    <EntitySet Name="PerfilModulo" EntityType="BPBModel.PerfilModulo" />
+    <EntitySet Name="Usuario" EntityType="BPBModel.Usuario" />
+    <AssociationSet Name="FK_Modulos_ModuloPrincipal" Association="BPBModel.FK_Modulos_ModuloPrincipal">
+      <End Role="ModuloPrincipal" EntitySet="ModuloPrincipal" />
+      <End Role="Modulos" EntitySet="Modulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilModulo_Modulos" Association="BPBModel.FK_PerfilModulo_Modulos">
+      <End Role="Modulos" EntitySet="Modulos" />
+      <End Role="PerfilModulo" EntitySet="PerfilModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilModulo_Perfiles" Association="BPBModel.FK_PerfilModulo_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="PerfilModulo" EntitySet="PerfilModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Perfiles" Association="BPBModel.FK_Usuario_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_Usuario" Association="BPBModel.FK_Estado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Estado" EntitySet="Estado" />
+    </AssociationSet>
+    <AssociationSet Name="PerfilesModulos" Association="BPBModel.PerfilesModulos">
+      <End Role="Modulos" EntitySet="Modulos" />
+      <End Role="Perfiles" EntitySet="Perfiles" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Compra">
+    <Key>
+      <PropertyRef Name="IdCompra" />
+    </Key>
+    <Property Name="IdCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Producto1" Relationship="BPBModel.FK_Compras_Compra_Es_Un_Productos_Producto" FromRole="Compra" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="BPBModel.FK_Productos_Producto_Tiene_una_Productos_Categoria" FromRole="Categoria" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Estante">
+    <Key>
+      <PropertyRef Name="IdEstante" />
+    </Key>
+    <Property Name="IdEstante" Type="Int32" Nullable="false" />
+    <Property Name="NombreEstante" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DescripciónEstante" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="BPBModel.FK_Producto_Producto_Pertenece_Producto_Estante" FromRole="Estante" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="PrecioVenta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="PrecioCosto" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Categoria" Type="Int32" Nullable="false" />
+    <Property Name="Proveedor" Type="Int32" Nullable="false" />
+    <Property Name="Estante" Type="Int32" />
+    <Property Name="Tipo_Impuesto" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Compra" Relationship="BPBModel.FK_Compras_Compra_Es_Un_Productos_Producto" FromRole="Producto" ToRole="Compra" />
+    <NavigationProperty Name="Categoria1" Relationship="BPBModel.FK_Productos_Producto_Tiene_una_Productos_Categoria" FromRole="Producto" ToRole="Categoria" />
+    <NavigationProperty Name="Estante1" Relationship="BPBModel.FK_Producto_Producto_Pertenece_Producto_Estante" FromRole="Producto" ToRole="Estante" />
+    <NavigationProperty Name="Proveedor1" Relationship="BPBModel.FK_Productos_Producto_Tiene_un_Productos_Proveedor" FromRole="Producto" ToRole="Proveedor" />
+    <NavigationProperty Name="DetalleVentas" Relationship="BPBModel.FK_Ventas_DetalleVentas_Contiene_Productos_Producto" FromRole="Producto" ToRole="DetalleVentas" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Vendedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Contacto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Contacto1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="BPBModel.FK_Productos_Producto_Tiene_un_Productos_Proveedor" FromRole="Proveedor" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="DetalleVentas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Venta" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Producto1" Relationship="BPBModel.FK_Ventas_DetalleVentas_Contiene_Productos_Producto" FromRole="DetalleVentas" ToRole="Producto" />
+    <NavigationProperty Name="Venta1" Relationship="BPBModel.FK_Ventas_DetalleVentas_Pertenece_Ventas_Ventas" FromRole="DetalleVentas" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="IdEstado" />
+    </Key>
+    <Property Name="IdEstado" Type="Int32" Nullable="false" />
+    <Property Name="Estado1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripción_estado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Venta" Relationship="BPBModel.FK_Ventas_Ventas_Pertenece_Ventas_Estado" FromRole="Estado" ToRole="Venta" />
+    <Property Name="FKUsuario" Type="Int16" />
+    <NavigationProperty Name="Usuario" Relationship="BPBModel.FK_Estado_Usuario" FromRole="Estado" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="IdVenta" />
+    </Key>
+    <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Total_Venta" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Impuesto_Gravado_15_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Impuesto_Gravado_18_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ISV15_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ISV18_" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exento" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Importe_Exonerado" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="DetalleVentas" Relationship="BPBModel.FK_Ventas_DetalleVentas_Pertenece_Ventas_Ventas" FromRole="Venta" ToRole="DetalleVentas" />
+    <NavigationProperty Name="Estado1" Relationship="BPBModel.FK_Ventas_Ventas_Pertenece_Ventas_Estado" FromRole="Venta" ToRole="Estado" />
+  </EntityType>
+  <EntityType Name="Facturas">
+    <Key>
+      <PropertyRef Name="Factura" />
+      <PropertyRef Name="Producto" />
+      <PropertyRef Name="Precio" />
+    </Key>
+    <Property Name="Factura" Type="Int32" Nullable="false" />
+    <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Monto" Type="Decimal" Precision="21" Scale="2" />
+  </EntityType>
+  <EntityType Name="Imprimir_Facturas">
+    <Key>
+      <PropertyRef Name="Factura" />
+      <PropertyRef Name="Producto" />
+      <PropertyRef Name="Precio" />
+    </Key>
+    <Property Name="Factura" Type="Int32" Nullable="false" />
+    <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Monto" Type="Decimal" Precision="21" Scale="2" />
+  </EntityType>
+  <EntityType Name="Vista1">
+    <Key>
+      <PropertyRef Name="Codigo" />
+      <PropertyRef Name="Producto" />
+      <PropertyRef Name="Existencias" />
+      <PropertyRef Name="Precio" />
+      <PropertyRef Name="Costo" />
+      <PropertyRef Name="Categoria" />
+      <PropertyRef Name="Proveedor" />
+    </Key>
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Existencias" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Costo" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Categoria" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Compras_Compra_Es_Un_Productos_Producto">
+    <End Type="BPBModel.Producto" Role="Producto" Multiplicity="0..1" />
+    <End Type="BPBModel.Compra" Role="Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Producto_Tiene_una_Productos_Categoria">
+    <End Type="BPBModel.Categoria" Role="Categoria" Multiplicity="1" />
+    <End Type="BPBModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Producto_Pertenece_Producto_Estante">
+    <End Type="BPBModel.Estante" Role="Estante" Multiplicity="0..1" />
+    <End Type="BPBModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estante">
+        <PropertyRef Name="IdEstante" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Estante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Producto_Tiene_un_Productos_Proveedor">
+    <End Type="BPBModel.Proveedor" Role="Proveedor" Multiplicity="1" />
+    <End Type="BPBModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_DetalleVentas_Contiene_Productos_Producto">
+    <End Type="BPBModel.Producto" Role="Producto" Multiplicity="1" />
+    <End Type="BPBModel.DetalleVentas" Role="DetalleVentas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="DetalleVentas">
+        <PropertyRef Name="Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_DetalleVentas_Pertenece_Ventas_Ventas">
+    <End Type="BPBModel.Venta" Role="Venta" Multiplicity="1" />
+    <End Type="BPBModel.DetalleVentas" Role="DetalleVentas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="IdVenta" />
+      </Principal>
+      <Dependent Role="DetalleVentas">
+        <PropertyRef Name="Venta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_Ventas_Pertenece_Ventas_Estado">
+    <End Type="BPBModel.Estado" Role="Estado" Multiplicity="0..1" />
+    <End Type="BPBModel.Venta" Role="Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="IdEstado" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VistaProductoMasVendido">
+    <Key>
+      <PropertyRef Name="Producto" />
+    </Key>
+    <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Vendidos" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="VistaVentasPorMes">
+    <Key>
+      <PropertyRef Name="IdVenta" />
+    </Key>
+    <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enero" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Febrero" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Marzo" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Abril" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Mayo" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Junio" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Julio" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Agosto" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Septiembre" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Octubre" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Noviembre" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Diciembre" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="ModuloPrincipal">
+    <Key>
+      <PropertyRef Name="IdModuloPrincipal" />
+    </Key>
+    <Property Name="IdModuloPrincipal" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionModuloPrin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoModuloPrin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Modulos" Relationship="BPBModel.FK_Modulos_ModuloPrincipal" FromRole="ModuloPrincipal" ToRole="Modulos" />
+  </EntityType>
+  <EntityType Name="Modulos">
+    <Key>
+      <PropertyRef Name="IdModulos" />
+    </Key>
+    <Property Name="IdModulos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionModulo" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoModulo" Type="Boolean" Nullable="false" />
+    <Property Name="FKModuloPrincipal" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="ModuloPrincipal" Relationship="BPBModel.FK_Modulos_ModuloPrincipal" FromRole="Modulos" ToRole="ModuloPrincipal" />
+    <NavigationProperty Name="PerfilModulo" Relationship="BPBModel.FK_PerfilModulo_Modulos" FromRole="Modulos" ToRole="PerfilModulo" />
+    <NavigationProperty Name="Perfiles" Relationship="BPBModel.PerfilesModulos" FromRole="Modulos" ToRole="Perfiles" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="IdPerfil" />
+    </Key>
+    <Property Name="IdPerfil" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionPerfil" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoPerfil" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PerfilModulo" Relationship="BPBModel.FK_PerfilModulo_Perfiles" FromRole="Perfiles" ToRole="PerfilModulo" />
+    <NavigationProperty Name="Usuario" Relationship="BPBModel.FK_Usuario_Perfiles" FromRole="Perfiles" ToRole="Usuario" />
+    <NavigationProperty Name="Modulos" Relationship="BPBModel.PerfilesModulos" FromRole="Perfiles" ToRole="Modulos" />
+  </EntityType>
+  <EntityType Name="PerfilModulo">
+    <Key>
+      <PropertyRef Name="IdPerfilModulo" />
+    </Key>
+    <Property Name="FKPerfilId" Type="Int16" Nullable="false" />
+    <Property Name="FKModuloId" Type="Int16" Nullable="false" />
+    <Property Name="IdPerfilModulo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Modulos" Relationship="BPBModel.FK_PerfilModulo_Modulos" FromRole="PerfilModulo" ToRole="Modulos" />
+    <NavigationProperty Name="Perfiles" Relationship="BPBModel.FK_PerfilModulo_Perfiles" FromRole="PerfilModulo" ToRole="Perfiles" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usr" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Pwd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Identidad" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerNombre" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="SegundoNombre" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="PrimerApellido" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="SegundoApellido" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <Property Name="FKPerfil" Type="Int16" Nullable="false" />
+    <Property Name="Contacto" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="ContactoFamiliar" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Perfiles" Relationship="BPBModel.FK_Usuario_Perfiles" FromRole="Usuario" ToRole="Perfiles" />
+    <NavigationProperty Name="Estado1" Relationship="BPBModel.FK_Estado_Usuario" FromRole="Usuario" ToRole="Estado" />
+  </EntityType>
+  <Association Name="FK_Modulos_ModuloPrincipal">
+    <End Type="BPBModel.ModuloPrincipal" Role="ModuloPrincipal" Multiplicity="1" />
+    <End Type="BPBModel.Modulos" Role="Modulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModuloPrincipal">
+        <PropertyRef Name="IdModuloPrincipal" />
+      </Principal>
+      <Dependent Role="Modulos">
+        <PropertyRef Name="FKModuloPrincipal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilModulo_Modulos">
+    <End Type="BPBModel.Modulos" Role="Modulos" Multiplicity="1" />
+    <End Type="BPBModel.PerfilModulo" Role="PerfilModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulos">
+        <PropertyRef Name="IdModulos" />
+      </Principal>
+      <Dependent Role="PerfilModulo">
+        <PropertyRef Name="FKModuloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilModulo_Perfiles">
+    <End Type="BPBModel.Perfiles" Role="Perfiles" Multiplicity="1" />
+    <End Type="BPBModel.PerfilModulo" Role="PerfilModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="IdPerfil" />
+      </Principal>
+      <Dependent Role="PerfilModulo">
+        <PropertyRef Name="FKPerfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Perfiles">
+    <End Type="BPBModel.Perfiles" Role="Perfiles" Multiplicity="1" />
+    <End Type="BPBModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="IdPerfil" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="FKPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_Usuario">
+    <End Type="BPBModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="BPBModel.Estado" Role="Estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Estado">
+        <PropertyRef Name="FKUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PerfilesModulos">
+    <End Type="BPBModel.Modulos" Role="Modulos" Multiplicity="*" />
+    <End Type="BPBModel.Perfiles" Role="Perfiles" Multiplicity="*" />
+  </Association>
+</Schema>

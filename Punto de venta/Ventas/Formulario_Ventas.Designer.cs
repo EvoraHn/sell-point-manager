@@ -40,7 +40,6 @@ namespace Punto_de_venta.Ventas
             this.lblFactura = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnQuitarTodo = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -93,12 +92,14 @@ namespace Punto_de_venta.Ventas
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.dgProductos = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFactura)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -129,7 +130,7 @@ namespace Punto_de_venta.Ventas
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(38, 37);
-            this.btnCerrar.TabIndex = 34;
+            this.btnCerrar.TabIndex = 26;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -177,7 +178,7 @@ namespace Punto_de_venta.Ventas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnQuitarTodo);
             this.panel1.Controls.Add(this.logo);
             this.panel1.Controls.Add(this.label11);
@@ -212,10 +213,6 @@ namespace Punto_de_venta.Ventas
             this.panel1.Controls.Add(this.dgFactura);
             this.panel1.Controls.Add(this.btnQuitar);
             this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.btnSoloGuardar1);
-            this.panel1.Controls.Add(this.BtnNuevaFactura1);
-            this.panel1.Controls.Add(this.btnCotizacion);
-            this.panel1.Controls.Add(this.btnImprimir);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,24 +222,6 @@ namespace Punto_de_venta.Ventas
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1243, 845);
             this.panel1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gray;
-            this.button1.Location = new System.Drawing.Point(428, 602);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 63);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Cancelar Factura";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnQuitarTodo
             // 
@@ -257,7 +236,7 @@ namespace Punto_de_venta.Ventas
             this.btnQuitarTodo.Margin = new System.Windows.Forms.Padding(2);
             this.btnQuitarTodo.Name = "btnQuitarTodo";
             this.btnQuitarTodo.Size = new System.Drawing.Size(84, 63);
-            this.btnQuitarTodo.TabIndex = 34;
+            this.btnQuitarTodo.TabIndex = 19;
             this.btnQuitarTodo.Text = "Quitar todo";
             this.btnQuitarTodo.UseVisualStyleBackColor = false;
             this.btnQuitarTodo.Click += new System.EventHandler(this.btnQuitarTodo_Click);
@@ -463,7 +442,7 @@ namespace Punto_de_venta.Ventas
             this.txtRTN.Margin = new System.Windows.Forms.Padding(2);
             this.txtRTN.Name = "txtRTN";
             this.txtRTN.Size = new System.Drawing.Size(312, 28);
-            this.txtRTN.TabIndex = 1;
+            this.txtRTN.TabIndex = 3;
             // 
             // txtISV18
             // 
@@ -475,7 +454,7 @@ namespace Punto_de_venta.Ventas
             this.txtISV18.Name = "txtISV18";
             this.txtISV18.ReadOnly = true;
             this.txtISV18.Size = new System.Drawing.Size(84, 28);
-            this.txtISV18.TabIndex = 1;
+            this.txtISV18.TabIndex = 10;
             this.txtISV18.Text = "0";
             // 
             // txtISV15
@@ -488,7 +467,7 @@ namespace Punto_de_venta.Ventas
             this.txtISV15.Name = "txtISV15";
             this.txtISV15.ReadOnly = true;
             this.txtISV15.Size = new System.Drawing.Size(84, 28);
-            this.txtISV15.TabIndex = 1;
+            this.txtISV15.TabIndex = 7;
             this.txtISV15.Text = "0";
             // 
             // txtIG18
@@ -501,7 +480,7 @@ namespace Punto_de_venta.Ventas
             this.txtIG18.Name = "txtIG18";
             this.txtIG18.ReadOnly = true;
             this.txtIG18.Size = new System.Drawing.Size(224, 28);
-            this.txtIG18.TabIndex = 1;
+            this.txtIG18.TabIndex = 9;
             this.txtIG18.Text = "0";
             // 
             // txtIG15
@@ -514,7 +493,7 @@ namespace Punto_de_venta.Ventas
             this.txtIG15.Name = "txtIG15";
             this.txtIG15.ReadOnly = true;
             this.txtIG15.Size = new System.Drawing.Size(224, 28);
-            this.txtIG15.TabIndex = 1;
+            this.txtIG15.TabIndex = 6;
             this.txtIG15.Text = "0";
             // 
             // txtTotal
@@ -527,7 +506,7 @@ namespace Punto_de_venta.Ventas
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(224, 28);
-            this.txtTotal.TabIndex = 1;
+            this.txtTotal.TabIndex = 12;
             this.txtTotal.Text = "0";
             // 
             // txtSubtotal
@@ -540,7 +519,7 @@ namespace Punto_de_venta.Ventas
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.ReadOnly = true;
             this.txtSubtotal.Size = new System.Drawing.Size(212, 28);
-            this.txtSubtotal.TabIndex = 1;
+            this.txtSubtotal.TabIndex = 11;
             this.txtSubtotal.Text = "0";
             // 
             // txtImporteExento
@@ -553,7 +532,7 @@ namespace Punto_de_venta.Ventas
             this.txtImporteExento.Name = "txtImporteExento";
             this.txtImporteExento.ReadOnly = true;
             this.txtImporteExento.Size = new System.Drawing.Size(212, 28);
-            this.txtImporteExento.TabIndex = 1;
+            this.txtImporteExento.TabIndex = 8;
             this.txtImporteExento.Text = "0";
             // 
             // txtImporteExonerado
@@ -565,7 +544,7 @@ namespace Punto_de_venta.Ventas
             this.txtImporteExonerado.Margin = new System.Windows.Forms.Padding(2);
             this.txtImporteExonerado.Name = "txtImporteExonerado";
             this.txtImporteExonerado.Size = new System.Drawing.Size(125, 28);
-            this.txtImporteExonerado.TabIndex = 1;
+            this.txtImporteExonerado.TabIndex = 5;
             this.txtImporteExonerado.Text = "0";
             this.txtImporteExonerado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteExonerado_KeyPress);
             // 
@@ -578,7 +557,7 @@ namespace Punto_de_venta.Ventas
             this.txtDescuentos.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescuentos.Name = "txtDescuentos";
             this.txtDescuentos.Size = new System.Drawing.Size(83, 28);
-            this.txtDescuentos.TabIndex = 1;
+            this.txtDescuentos.TabIndex = 4;
             this.txtDescuentos.Text = "0";
             this.txtDescuentos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuentos_KeyPress);
             // 
@@ -591,7 +570,7 @@ namespace Punto_de_venta.Ventas
             this.txtCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(212, 28);
-            this.txtCliente.TabIndex = 1;
+            this.txtCliente.TabIndex = 2;
             // 
             // txtFechaLimite
             // 
@@ -603,7 +582,7 @@ namespace Punto_de_venta.Ventas
             this.txtFechaLimite.Margin = new System.Windows.Forms.Padding(2);
             this.txtFechaLimite.Name = "txtFechaLimite";
             this.txtFechaLimite.Size = new System.Drawing.Size(212, 28);
-            this.txtFechaLimite.TabIndex = 1;
+            this.txtFechaLimite.TabIndex = 0;
             // 
             // dgFactura
             // 
@@ -645,7 +624,7 @@ namespace Punto_de_venta.Ventas
             this.dgFactura.ReadOnly = true;
             this.dgFactura.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgFactura.RowHeadersVisible = false;
-            this.dgFactura.RowHeadersWidth = 31;
+            this.dgFactura.RowHeadersWidth = 24;
             this.dgFactura.RowTemplate.Height = 24;
             this.dgFactura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgFactura.Size = new System.Drawing.Size(466, 710);
@@ -693,7 +672,7 @@ namespace Punto_de_venta.Ventas
             this.btnQuitar.Margin = new System.Windows.Forms.Padding(2);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(84, 28);
-            this.btnQuitar.TabIndex = 24;
+            this.btnQuitar.TabIndex = 18;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
@@ -711,14 +690,14 @@ namespace Punto_de_venta.Ventas
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(84, 28);
-            this.btnAgregar.TabIndex = 24;
+            this.btnAgregar.TabIndex = 17;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnSoloGuardar1
             // 
-            this.btnSoloGuardar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSoloGuardar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSoloGuardar1.BackColor = System.Drawing.Color.White;
             this.btnSoloGuardar1.BackgroundImage = global::Punto_de_venta.Properties.Resources.disco_flexible_1;
             this.btnSoloGuardar1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -729,17 +708,17 @@ namespace Punto_de_venta.Ventas
             this.btnSoloGuardar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoloGuardar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSoloGuardar1.ForeColor = System.Drawing.Color.Gray;
-            this.btnSoloGuardar1.Location = new System.Drawing.Point(961, 799);
+            this.btnSoloGuardar1.Location = new System.Drawing.Point(49, 2);
             this.btnSoloGuardar1.Margin = new System.Windows.Forms.Padding(2);
             this.btnSoloGuardar1.Name = "btnSoloGuardar1";
             this.btnSoloGuardar1.Size = new System.Drawing.Size(44, 37);
-            this.btnSoloGuardar1.TabIndex = 24;
+            this.btnSoloGuardar1.TabIndex = 20;
             this.btnSoloGuardar1.UseVisualStyleBackColor = false;
             this.btnSoloGuardar1.Click += new System.EventHandler(this.btnSoloGuardar_Click);
             // 
             // BtnNuevaFactura1
             // 
-            this.BtnNuevaFactura1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnNuevaFactura1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnNuevaFactura1.BackColor = System.Drawing.Color.White;
             this.BtnNuevaFactura1.BackgroundImage = global::Punto_de_venta.Properties.Resources.nuevo;
             this.BtnNuevaFactura1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -750,17 +729,17 @@ namespace Punto_de_venta.Ventas
             this.BtnNuevaFactura1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNuevaFactura1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnNuevaFactura1.ForeColor = System.Drawing.Color.Gray;
-            this.BtnNuevaFactura1.Location = new System.Drawing.Point(1010, 799);
+            this.BtnNuevaFactura1.Location = new System.Drawing.Point(3, 2);
             this.BtnNuevaFactura1.Margin = new System.Windows.Forms.Padding(2);
             this.BtnNuevaFactura1.Name = "BtnNuevaFactura1";
             this.BtnNuevaFactura1.Size = new System.Drawing.Size(44, 37);
-            this.BtnNuevaFactura1.TabIndex = 24;
+            this.BtnNuevaFactura1.TabIndex = 21;
             this.BtnNuevaFactura1.UseVisualStyleBackColor = false;
             this.BtnNuevaFactura1.Click += new System.EventHandler(this.BtnNuevaFactura_Click);
             // 
             // btnCotizacion
             // 
-            this.btnCotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCotizacion.BackColor = System.Drawing.Color.White;
             this.btnCotizacion.BackgroundImage = global::Punto_de_venta.Properties.Resources.escritura;
             this.btnCotizacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -771,11 +750,11 @@ namespace Punto_de_venta.Ventas
             this.btnCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCotizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCotizacion.ForeColor = System.Drawing.Color.Gray;
-            this.btnCotizacion.Location = new System.Drawing.Point(1058, 799);
+            this.btnCotizacion.Location = new System.Drawing.Point(98, 2);
             this.btnCotizacion.Margin = new System.Windows.Forms.Padding(2);
             this.btnCotizacion.Name = "btnCotizacion";
             this.btnCotizacion.Size = new System.Drawing.Size(44, 37);
-            this.btnCotizacion.TabIndex = 24;
+            this.btnCotizacion.TabIndex = 22;
             this.btnCotizacion.UseVisualStyleBackColor = false;
             this.btnCotizacion.Click += new System.EventHandler(this.btnCotizacion_Click);
             // 
@@ -792,11 +771,11 @@ namespace Punto_de_venta.Ventas
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.Gray;
-            this.btnImprimir.Location = new System.Drawing.Point(1187, 798);
+            this.btnImprimir.Location = new System.Drawing.Point(427, 2);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(44, 37);
-            this.btnImprimir.TabIndex = 24;
+            this.btnImprimir.TabIndex = 23;
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -853,7 +832,7 @@ namespace Punto_de_venta.Ventas
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(325, 28);
-            this.txtBuscar.TabIndex = 9;
+            this.txtBuscar.TabIndex = 13;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
@@ -906,7 +885,7 @@ namespace Punto_de_venta.Ventas
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(150, 28);
-            this.txtId.TabIndex = 1;
+            this.txtId.TabIndex = 14;
             // 
             // txtProducto
             // 
@@ -918,7 +897,7 @@ namespace Punto_de_venta.Ventas
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.ReadOnly = true;
             this.txtProducto.Size = new System.Drawing.Size(437, 28);
-            this.txtProducto.TabIndex = 1;
+            this.txtProducto.TabIndex = 15;
             // 
             // txtCantidad
             // 
@@ -929,7 +908,7 @@ namespace Punto_de_venta.Ventas
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(64, 28);
-            this.txtCantidad.TabIndex = 1;
+            this.txtCantidad.TabIndex = 16;
             this.txtCantidad.Text = "1";
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
@@ -965,7 +944,7 @@ namespace Punto_de_venta.Ventas
             this.dgProductos.ReadOnly = true;
             this.dgProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgProductos.RowHeadersVisible = false;
-            this.dgProductos.RowHeadersWidth = 31;
+            this.dgProductos.RowHeadersWidth = 25;
             this.dgProductos.RowTemplate.Height = 24;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProductos.Size = new System.Drawing.Size(658, 137);
@@ -975,6 +954,19 @@ namespace Punto_de_venta.Ventas
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.btnSoloGuardar1);
+            this.panel4.Controls.Add(this.BtnNuevaFactura1);
+            this.panel4.Controls.Add(this.btnCotizacion);
+            this.panel4.Controls.Add(this.btnImprimir);
+            this.panel4.Location = new System.Drawing.Point(763, 798);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(473, 43);
+            this.panel4.TabIndex = 34;
             // 
             // Formulario_Ventas
             // 
@@ -1000,6 +992,7 @@ namespace Punto_de_venta.Ventas
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1064,6 +1057,6 @@ namespace Punto_de_venta.Ventas
         private System.Windows.Forms.Button btnSoloGuardar1;
         private System.Windows.Forms.Button BtnNuevaFactura1;
         private System.Windows.Forms.Button btnCotizacion;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel4;
     }
 }

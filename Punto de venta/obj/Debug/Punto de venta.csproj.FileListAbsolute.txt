@@ -107,3 +107,5 @@ G:\Punto de Venta\Punto de venta\obj\Debug\Punto de venta.csproj.AssemblyReferen
 G:\Punto de Venta\Punto de venta\bin\Debug\Reporteria.exe
 G:\Punto de Venta\Punto de venta\bin\Debug\Reporteria.pdb
 G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Usuarios_2_0.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Mantenimientos.Mantenimiento_Perfiles.resources
+G:\Punto de Venta\Punto de venta\obj\Debug\Punto_de_venta.Menú.Menu_estilo_2.resources
