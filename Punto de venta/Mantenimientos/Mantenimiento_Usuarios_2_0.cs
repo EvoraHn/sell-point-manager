@@ -117,104 +117,124 @@ namespace Punto_de_venta.Mantenimientos
             }
         }
 
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (editar)
             {
-                var tUsuarios = entity.Usuario.FirstOrDefault(x => x.IdUsuario == id);
-                tUsuarios.Usr = txtUsr.Text;
-                tUsuarios.Identidad = txtIdentidad.Text;
-                tUsuarios.PrimerNombre = txtPNombre.Text;
-                tUsuarios.SegundoNombre = txtSNombre.Text;
-                tUsuarios.PrimerApellido = txtPApellido.Text;
-                tUsuarios.SegundoApellido = txtSApellido.Text;
-                //modulo estado
-                if (cmbEstado.Text == "Activo")
+                if (txtIdentidad.Text.Equals("") | txtPApellido.Text.Equals("") | txtPNombre.Text.Equals("") | txtPwd.Text.Equals("")
+                        | txtConfirmacionPwd.Text.Equals("") | txtSApellido.Text.Equals("") | txtSNombre.Text.Equals("") | txtUsr.Text.Equals("")
+                        | txtCelular.Text.Equals("") | TxtFamiliar.Text.Equals("") | cmbAcceso.Text.Equals("") | cmbEstado.Text.Equals(""))
                 {
-                    tUsuarios.Estado = true;
-                }
-                else if (cmbEstado.Text == "Inactivo")
-                {
-                    tUsuarios.Estado = false;
-                }
-
-                //modulo acceso
-                if (cmbAcceso.Text == "Admin")
-                {
-                    tUsuarios.FKPerfil = 1;
-                }
-                else if (cmbAcceso.Text == "Caja")
-                {
-                    tUsuarios.FKPerfil = 2;
-                }
-                else if (cmbAcceso.Text == "Auditoría")
-                {
-                    tUsuarios.FKPerfil = 3;
-                }
-                tUsuarios.Contacto = txtCelular.Text;
-                tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
-
-                if (txtPwd.Text == txtConfirmacionPwd.Text)
-                {
-                    tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
-                    entity.SaveChanges();
-                    MessageBox.Show("Datos Modificados Correctamente");
-                    Mostrar_datos();
-                    Limpiar();
+                    MessageBox.Show("Por favor ingresar todos los datos en el formulario");
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Las Contraseñas no Coinciden, intenta de nuevo"); return;
+                    var tUsuarios = entity.Usuario.FirstOrDefault(x => x.IdUsuario == id);
+                    tUsuarios.Usr = txtUsr.Text;
+                    tUsuarios.Identidad = txtIdentidad.Text;
+                    tUsuarios.PrimerNombre = txtPNombre.Text;
+                    tUsuarios.SegundoNombre = txtSNombre.Text;
+                    tUsuarios.PrimerApellido = txtPApellido.Text;
+                    tUsuarios.SegundoApellido = txtSApellido.Text;
+                    //modulo estado
+                    if (cmbEstado.Text == "Activo")
+                    {
+                        tUsuarios.Estado = true;
+                    }
+                    else if (cmbEstado.Text == "Inactivo")
+                    {
+                        tUsuarios.Estado = false;
+                    }
+
+                    //modulo acceso
+                    if (cmbAcceso.Text == "Admin")
+                    {
+                        tUsuarios.FKPerfil = 1;
+                    }
+                    else if (cmbAcceso.Text == "Caja")
+                    {
+                        tUsuarios.FKPerfil = 2;
+                    }
+                    else if (cmbAcceso.Text == "Auditoría")
+                    {
+                        tUsuarios.FKPerfil = 3;
+                    }
+                    tUsuarios.Contacto = txtCelular.Text;
+                    tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
+
+                    if (txtPwd.Text == txtConfirmacionPwd.Text)
+                    {
+                        tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
+                        entity.SaveChanges();
+                        MessageBox.Show("Datos Modificados Correctamente");
+                        Mostrar_datos();
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Las Contraseñas no Coinciden, intenta de nuevo"); return;
+                    }
                 }
-                
             }
             else
             {
-                Punto_de_venta.Bases_de_datos.Usuario tUsuarios = new Punto_de_venta.Bases_de_datos.Usuario();
-                tUsuarios.Usr = txtUsr.Text;
-                tUsuarios.Identidad = txtIdentidad.Text;
-                tUsuarios.PrimerNombre = txtPNombre.Text;
-                tUsuarios.SegundoNombre = txtSNombre.Text;
-                tUsuarios.PrimerApellido = txtPApellido.Text;
-                tUsuarios.SegundoApellido = txtSApellido.Text;
-                //modulo estado
-                if (cmbEstado.Text == "Activo")
+                if (txtIdentidad.Text.Equals("") | txtPApellido.Text.Equals("") | txtPNombre.Text.Equals("") | txtPwd.Text.Equals("")
+                        | txtConfirmacionPwd.Text.Equals("") | txtSApellido.Text.Equals("") | txtSNombre.Text.Equals("") | txtUsr.Text.Equals("")
+                        | txtCelular.Text.Equals("") | TxtFamiliar.Text.Equals("") | cmbAcceso.Text.Equals("") | cmbEstado.Text.Equals(""))
                 {
-                    tUsuarios.Estado = true;
-                }
-                else if (cmbEstado.Text == "Inactivo")
-                {
-                    tUsuarios.Estado = false;
-                }
-                
-                //modulo acceso
-                if (cmbAcceso.Text == "Admin")
-                {
-                    tUsuarios.FKPerfil = 1;
-                }
-                else if (cmbAcceso.Text == "Caja")
-                {
-                    tUsuarios.FKPerfil = 2;
-                }
-                else if (cmbAcceso.Text == "Auditoría")
-                {
-                    tUsuarios.FKPerfil = 3;
-                }
-                tUsuarios.Contacto = txtCelular.Text;
-                tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
-                if (txtPwd.Text == txtConfirmacionPwd.Text)
-                {
-                    tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
-                    entity.Usuario.Add(tUsuarios);
-
-                    entity.SaveChanges();
-                    MessageBox.Show("Datos Guardados Correctamente");
-                    Mostrar_datos();
-                    Limpiar();
+                    MessageBox.Show("Por favor ingresar todos los datos en el formulario");
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Las Contraseñas no Coinciden, intenta de nuevo"); return;
+                    Punto_de_venta.Bases_de_datos.Usuario tUsuarios = new Punto_de_venta.Bases_de_datos.Usuario();
+                    tUsuarios.Usr = txtUsr.Text;
+                    tUsuarios.Identidad = txtIdentidad.Text;
+                    tUsuarios.PrimerNombre = txtPNombre.Text;
+                    tUsuarios.SegundoNombre = txtSNombre.Text;
+                    tUsuarios.PrimerApellido = txtPApellido.Text;
+                    tUsuarios.SegundoApellido = txtSApellido.Text;
+                    //modulo estado
+                    if (cmbEstado.Text == "Activo")
+                    {
+                        tUsuarios.Estado = true;
+                    }
+                    else if (cmbEstado.Text == "Inactivo")
+                    {
+                        tUsuarios.Estado = false;
+                    }
+
+                    //modulo acceso
+                    if (cmbAcceso.Text == "Admin")
+                    {
+                        tUsuarios.FKPerfil = 1;
+                    }
+                    else if (cmbAcceso.Text == "Caja")
+                    {
+                        tUsuarios.FKPerfil = 2;
+                    }
+                    else if (cmbAcceso.Text == "Auditoría")
+                    {
+                        tUsuarios.FKPerfil = 3;
+                    }
+                    tUsuarios.Contacto = txtCelular.Text;
+                    tUsuarios.ContactoFamiliar = TxtFamiliar.Text;
+                    if (txtPwd.Text == txtConfirmacionPwd.Text)
+                    {
+                        tUsuarios.Pwd = Hash.obtenerHash256(txtPwd.Text);
+                        entity.Usuario.Add(tUsuarios);
+
+                        entity.SaveChanges();
+                        MessageBox.Show("Datos Guardados Correctamente");
+                        Mostrar_datos();
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Las Contraseñas no Coinciden, intenta de nuevo"); return;
+                    }
                 }
             }
         }
