@@ -27,3 +27,4 @@ G:\Punto de Venta\Reporteria\obj\Release\Reporteria.csproj.CoreCompileInputs.cac
 G:\Punto de Venta\Reporteria\obj\Release\Reporteria.csproj.CopyComplete
 G:\Punto de Venta\Reporteria\obj\Release\Reporteria.exe
 G:\Punto de Venta\Reporteria\obj\Release\Reporteria.pdb
+G:\Punto de Venta\Reporteria\obj\Release\Reporteria.csproj.AssemblyReference.cache

@@ -183,6 +183,12 @@
     <Compile Include="Compras\Formulario_Compras.Designer.cs">
       <DependentUpon>Formulario_Compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control de tiempo\Frm_Control_Tiempo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control de tiempo\Frm_Control_Tiempo.Designer.cs">
+      <DependentUpon>Frm_Control_Tiempo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,12 @@
     </Compile>
     <Compile Include="Mantenimientos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\FormCondicional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FormCondicional.Designer.cs">
+      <DependentUpon>FormCondicional.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\Mantenimiento_Categoria.cs">
       <SubType>Form</SubType>
@@ -305,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\InventarioCompleto.resx">
       <DependentUpon>InventarioCompleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FormCondicional.resx">
+      <DependentUpon>FormCondicional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\Mantenimiento_Categoria.resx">
       <DependentUpon>Mantenimiento_Categoria.cs</DependentUpon>

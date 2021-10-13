@@ -29,18 +29,19 @@ namespace Punto_de_venta.Menú
         private void InitializeComponent()
         {
             this.panelBotones = new System.Windows.Forms.Panel();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnComprar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panelBotones.SuspendLayout();
-            this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBotones
@@ -48,6 +49,7 @@ namespace Punto_de_venta.Menú
             this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(180)))));
+            this.panelBotones.Controls.Add(this.button3);
             this.panelBotones.Controls.Add(this.button1);
             this.panelBotones.Controls.Add(this.btnComprar);
             this.panelBotones.Controls.Add(this.button2);
@@ -59,48 +61,6 @@ namespace Punto_de_venta.Menú
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(210, 888);
             this.panelBotones.TabIndex = 7;
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelPrincipal.AutoSize = true;
-            this.panelPrincipal.BackColor = System.Drawing.Color.White;
-            this.panelPrincipal.Location = new System.Drawing.Point(203, 27);
-            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(2);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1237, 854);
-            this.panelPrincipal.TabIndex = 6;
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMenu.BackColor = System.Drawing.Color.White;
-            this.panelMenu.Controls.Add(this.btnCerrar);
-            this.panelMenu.Location = new System.Drawing.Point(203, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1240, 28);
-            this.panelMenu.TabIndex = 9;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnCerrar.Location = new System.Drawing.Point(1207, 2);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(28, 27);
-            this.btnCerrar.TabIndex = 7;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
             // button1
             // 
@@ -206,6 +166,58 @@ namespace Punto_de_venta.Menú
             this.logo.TabStop = false;
             this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelPrincipal.AutoSize = true;
+            this.panelPrincipal.BackColor = System.Drawing.Color.White;
+            this.panelPrincipal.Location = new System.Drawing.Point(203, 27);
+            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1237, 854);
+            this.panelPrincipal.TabIndex = 6;
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.Controls.Add(this.btnCerrar);
+            this.panelMenu.Location = new System.Drawing.Point(203, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(1240, 28);
+            this.panelMenu.TabIndex = 9;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnCerrar.Location = new System.Drawing.Point(1207, 2);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(28, 27);
+            this.btnCerrar.TabIndex = 7;
+            this.btnCerrar.Text = "X";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(13, 565);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(159, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Mostrar String";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Menu_estilo_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,8 +235,8 @@ namespace Punto_de_venta.Menú
             this.Load += new System.EventHandler(this.Menu_estilo_1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Menu_estilo_1_KeyDown);
             this.panelBotones.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +253,6 @@ namespace Punto_de_venta.Menú
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

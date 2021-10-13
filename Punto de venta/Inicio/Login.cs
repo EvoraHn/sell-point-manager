@@ -38,36 +38,45 @@ namespace Punto_de_venta.Inicio
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if((txtUsuario.Text==string.Empty)| (txtContraseña.Text == string.Empty))
-            {
-            MessageBox.Show("Favor llenar los campos de usuario y contraseña antes de iniciar sesión");
+            DateTime fechaLimite = new DateTime(2021, 10, 14, 1, 1, 1);
+            DateTime fechaActual = DateTime.Now;
+            if ((DateTime.Compare(fechaActual, fechaLimite)) < 0)
+            { 
+                if ((txtUsuario.Text == string.Empty) | (txtContraseña.Text == string.Empty))
+                {
+                    MessageBox.Show("Favor llenar los campos de usuario y contraseña antes de iniciar sesión");
+                }
+                else
+                {
+                    string pass = Hash.obtenerHash256(txtContraseña.Text);
+
+                    var tUsuarios = entity.Usuario.FirstOrDefault(x => x.Usr == txtUsuario.Text && x.Pwd == pass);
+
+                    if (tUsuarios == null)
+                    {
+                        MessageBox.Show("Usuario o Contraseña incorrecto");
+                        return;
+                    }
+                    else {
+
+                        //frmMenu fMenu = new frmMenu(tUsuarios.IdUsuario);
+                        //this.Hide();
+                        //fMenu.Show();
+
+                        Punto_de_venta.Menú.Menu_estilo_2 Formulario = new Punto_de_venta.Menú.Menu_estilo_2(tUsuarios.IdUsuario);
+                        this.Hide();
+                        Formulario.ShowDialog();
+                        limpiar();
+                        this.Show();
+                        //this.Close();
+                        //this.Dispose();
+                    }
+
+                } 
             }
             else
             {
-                string pass = Hash.obtenerHash256(txtContraseña.Text);
-
-                var tUsuarios = entity.Usuario.FirstOrDefault(x => x.Usr == txtUsuario.Text && x.Pwd == pass);
-
-                if (tUsuarios == null)
-                {
-                    MessageBox.Show("Usuario o Contraseña incorrecto");
-                    return;
-                }
-                else {
-
-                    //frmMenu fMenu = new frmMenu(tUsuarios.IdUsuario);
-                    //this.Hide();
-                    //fMenu.Show();
-                    
-                    Punto_de_venta.Menú.Menu_estilo_2 Formulario = new Punto_de_venta.Menú.Menu_estilo_2(tUsuarios.IdUsuario);
-                    this.Hide();
-                    Formulario.ShowDialog();
-                    limpiar();
-                    this.Show();
-                    //this.Close();
-                    //this.Dispose();
-                }
-                
+                MessageBox.Show("Su licencia Expiró (para cambiar revise el login)");
             }
         }
 

@@ -109,3 +109,4 @@ G:\Punto de Venta\Punto de venta\obj\Release\Punto de venta.csproj.CoreCompileIn
 G:\Punto de Venta\Punto de venta\obj\Release\Punto de venta.csproj.CopyComplete
 G:\Punto de Venta\Punto de venta\obj\Release\Punto de venta.exe
 G:\Punto de Venta\Punto de venta\obj\Release\Punto de venta.pdb
+G:\Punto de Venta\Punto de venta\obj\Release\Punto_de_venta.Mantenimientos.FormCondicional.resources

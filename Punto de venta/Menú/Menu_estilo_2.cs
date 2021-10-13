@@ -14,6 +14,8 @@ namespace Punto_de_venta.Menú
     {
         Punto_de_venta.Bases_de_datos.BPBEntities1 entity = new Punto_de_venta.Bases_de_datos.BPBEntities1();
         long idUsuario = 0;
+        string modulo = "mamasita1";
+        //string modulo =  "" ;
         public Menu_estilo_2(long _idUsuario)
         {
             InitializeComponent();
@@ -147,32 +149,27 @@ namespace Punto_de_venta.Menú
                     mnPrin = new ToolStripMenuItem(dr[1].ToString());
 
                     mnPrin.Name = dr[1].ToString();
+                    //MessageBox.Show(mnPrin.Name);
+                    //variable que retiene el nombre
+                    if (mnPrin.Name != "")
+                    {
+                        modulo = dr[1].ToString();
+                    }
                     ToolStripMenuItem subMenu = new ToolStripMenuItem(dr[0].ToString(), null, ChildClick);
                     subMenu.Name = dr[0].ToString();
                     mnPrin.DropDownItems.Add(subMenu);
 
+                    // de aqui se toma si es parte de las auditorías y s ebloquean los botones $linea 157
                 }
                 modPrinAnterior = Convert.ToInt16(dr[2]);
 
             }
+            
             mnStrip.Location = new Point(203, 0);
             mnStrip.Size = new Size(1000, 28);
             panelMenu.Controls.Add(mnStrip);
-            
-            //mnStrip.BringToFront();
             btnCerrar.BringToFront();
             mnStrip.BackColor = Color.White;
-            
-            
-            
-
-            //var tbusqueda = entity.TiposPeliculas.Where(x => x.DescripcionTipoPelicula.Contains("dr"));
-            //LIKE dr%
-            //LIKE %dr
-
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -221,6 +218,12 @@ namespace Punto_de_venta.Menú
             this.Close();
             //Punto_de_venta.Inicio.Login login = new Punto_de_venta.Inicio.Login();
             //login.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new Mantenimientos.FormCondicional(modulo));
+
         }
     }
 }
