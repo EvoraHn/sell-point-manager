@@ -14,7 +14,7 @@ namespace Punto_de_venta.Menú
     {
         Punto_de_venta.Bases_de_datos.BPBEntities1 entity = new Punto_de_venta.Bases_de_datos.BPBEntities1();
         long idUsuario = 0;
-        string modulo = "mamasita1";
+        string modulo = "Tienes Acceso";
         //string modulo =  "" ;
         public Menu_estilo_2(long _idUsuario)
         {
@@ -23,11 +23,12 @@ namespace Punto_de_venta.Menú
             
 
         }
-
+        //llamado a abrir un nuevo formulario
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos());
+            abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos(modulo));
         }
+        //proceso para abrir un formulario dentro de un contenedor
         public void abrirFormularioHijo(object formHijo)
         {
             if (this.panelPrincipal.Controls.Count > 0)
@@ -42,24 +43,11 @@ namespace Punto_de_venta.Menú
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            //Punto_de_venta.Inicio.Login login = new Punto_de_venta.Inicio.Login();
-            //login.Show();
         }
 
         private void logo_Click(object sender, EventArgs e)
         {
             abrirFormularioHijo(new Punto_de_venta.Inicio.Inicio());
-            //if (panelBotones.Width == 273)
-            //{
-            //    panelBotones.Width = 100;
-            //    panelPrincipal.Width = 1173;
-            //    panelMenu.Width = 1173;
-
-            //}
-            //else
-            //    panelBotones.Width = 273;
-            //    panelPrincipal.Width = 1000;
-            //    panelMenu.Width = 1000;
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
@@ -159,12 +147,12 @@ namespace Punto_de_venta.Menú
                     subMenu.Name = dr[0].ToString();
                     mnPrin.DropDownItems.Add(subMenu);
 
-                    // de aqui se toma si es parte de las auditorías y s ebloquean los botones $linea 157
+                    // de aqui se toma si es parte de las auditorías y se bloquean los botones $linea 157
                 }
                 modPrinAnterior = Convert.ToInt16(dr[2]);
 
             }
-            
+            //estilo para el submenú de opciones
             mnStrip.Location = new Point(203, 0);
             mnStrip.Size = new Size(1000, 28);
             panelMenu.Controls.Add(mnStrip);
@@ -177,7 +165,7 @@ namespace Punto_de_venta.Menú
             abrirFormularioHijo(new Reporteria.PresentadordeReportes());
 
         }
-
+        //teclas rapidas ( Atajos del teclado para abrir pestañas ).
         private void Menu_estilo_1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control == true && e.KeyCode == Keys.NumPad1)
@@ -216,14 +204,11 @@ namespace Punto_de_venta.Menú
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            //Punto_de_venta.Inicio.Login login = new Punto_de_venta.Inicio.Login();
-            //login.Show();
         }
-
+        //formulario para pruebas
         private void button3_Click(object sender, EventArgs e)
         {
             abrirFormularioHijo(new Mantenimientos.FormCondicional(modulo));
-
         }
     }
 }

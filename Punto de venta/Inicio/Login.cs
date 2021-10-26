@@ -38,7 +38,7 @@ namespace Punto_de_venta.Inicio
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            DateTime fechaLimite = new DateTime(2021, 10, 14, 1, 1, 1);
+            DateTime fechaLimite = new DateTime(2021, 10, 18, 1, 1, 1);
             DateTime fechaActual = DateTime.Now;
             if ((DateTime.Compare(fechaActual, fechaLimite)) < 0)
             { 

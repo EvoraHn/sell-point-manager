@@ -12,6 +12,7 @@ namespace Punto_de_venta.Menú
 {
     public partial class Menu_estilo_1 : Form
     {
+        string modulo = "";
         public Menu_estilo_1()
         {
             InitializeComponent();  
@@ -19,7 +20,7 @@ namespace Punto_de_venta.Menú
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos());
+            abrirFormularioHijo(new Punto_de_venta.Mantenimientos.Mantenimiento_Productos(modulo));
         }
         public void abrirFormularioHijo(object formHijo)
         {

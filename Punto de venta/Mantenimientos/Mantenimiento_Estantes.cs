@@ -13,7 +13,7 @@ namespace Punto_de_venta.Mantenimientos
 
     public partial class Mantenimiento_Estantes : Form
     {
-
+        string modulo = "";
         //private IForm _form;
 
         //public Mantenimiento_Estantes (IForm form)
@@ -54,7 +54,7 @@ namespace Punto_de_venta.Mantenimientos
         private void btnEstante_Click(object sender, EventArgs e)
         {
 
-            Punto_de_venta.Mantenimientos.Mantenimiento_Productos Productos = new Punto_de_venta.Mantenimientos.Mantenimiento_Productos();
+            Punto_de_venta.Mantenimientos.Mantenimiento_Productos Productos = new Punto_de_venta.Mantenimientos.Mantenimiento_Productos(modulo);
             Punto_de_venta.Clases.almacen_de_datos.Estante = txtId.Text;
             //Productos.Traer_Datos();
             Productos.btnTraerEstante.PerformClick();
@@ -71,7 +71,7 @@ namespace Punto_de_venta.Mantenimientos
         private void dgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            Punto_de_venta.Mantenimientos.Mantenimiento_Productos Productos = new Punto_de_venta.Mantenimientos.Mantenimiento_Productos();
+            Punto_de_venta.Mantenimientos.Mantenimiento_Productos Productos = new Punto_de_venta.Mantenimientos.Mantenimiento_Productos(modulo);
             Punto_de_venta.Clases.almacen_de_datos.Estante = txtId.Text;
             Productos.Traer_Datos();
             this.Close();

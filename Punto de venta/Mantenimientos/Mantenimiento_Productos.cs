@@ -20,9 +20,12 @@ namespace Punto_de_venta.Mantenimientos
         //inicializar las variables
         string id = "000000";
         bool editar = false;
+        //variable para determinar si el individuo tiene o no acceso a modificar
+        string Acceso = "";
 
-        public Mantenimiento_Productos()
+        public Mantenimiento_Productos(string modulo)
         {
+            Acceso = modulo;
             InitializeComponent();
         }
 
@@ -61,10 +64,21 @@ namespace Punto_de_venta.Mantenimientos
                         "18%", "E  "};
 
             cmbImpuesto.DataSource = Tipo_Impuesto;
+            Restricción();
         }
-
-
-
+        private void Restricción()
+        {
+            if (Acceso == "Administración")
+            {
+                btnEliminar.Enabled = true;
+                btnGuardar.Enabled = true;
+            }
+            else
+            {
+                btnEliminar.Enabled = false;
+                btnGuardar.Enabled = false;
+            }
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -315,6 +329,11 @@ namespace Punto_de_venta.Mantenimientos
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void dgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
